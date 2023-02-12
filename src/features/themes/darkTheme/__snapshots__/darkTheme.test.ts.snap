@@ -1,0 +1,9 @@
+// Vitest Snapshot v1
+
+exports[`checks darkTheme's snapshot 1`] = `
+{
+  "palette": {
+    "mode": "dark",
+  },
+}
+`;
