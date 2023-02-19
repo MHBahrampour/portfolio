@@ -12,11 +12,21 @@ import NavDrawer from "./NavDrawer";
 const navItems = ["About", "Jobs", "Contact"];
 
 export default function DrawerAppBar() {
-  const scrollTrigger = useScrollTrigger();
+  const hideTrigger = useScrollTrigger();
+  const elevateTrigger = useScrollTrigger({
+    disableHysteresis: true,
+    threshold: 0,
+  });
 
   return (
-    <Slide appear={false} direction="down" in={!scrollTrigger}>
-      <AppBar component="nav">
+    <Slide appear={false} direction="down" in={!hideTrigger}>
+      <AppBar
+        component="nav"
+        className={`sticky ${
+          !elevateTrigger &&
+          "mix-blend-difference [&.MuiPaper-root]:bg-transparent [&.MuiPaper-root]:shadow-none [&.MuiPaper-root]:bg-none"
+        }`}
+      >
         <Toolbar sx={{ justifyContent: "space-between" }}>
           {/* Navigation button and drawer */}
           <NavDrawer navItems={navItems} />

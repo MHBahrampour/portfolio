@@ -29,11 +29,10 @@ export default function NavDrawer({ navItems }: NavDrawerProps) {
     <>
       {/* Drawer open button */}
       <IconButton
-        color="inherit"
         aria-label="open drawer"
         edge="start"
         onClick={handleDrawerToggle}
-        className="sm:hidden mr-4"
+        className="sm:hidden mr-4 text-inherit"
       >
         <MenuIcon />
       </IconButton>
