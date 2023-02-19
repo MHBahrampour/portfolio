@@ -1,5 +1,6 @@
 import { useState } from "react";
 
+import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
 import MenuIcon from "@mui/icons-material/Menu";
 import {
   Box,
@@ -46,10 +47,22 @@ export default function NavDrawer({ navItems }: NavDrawerProps) {
         className="sm:hidden [&_.MuiDrawer-paper]:w-60"
       >
         <div onClick={handleDrawerToggle}>
-          {/* Logo */}
-          <Typography variant="h6" className="my-4 text-center">
-            MUI
-          </Typography>
+          {/* Header */}
+          <div className="flex items-center justify-between px-4 sm:px-12">
+            {/* Logo */}
+            <Typography variant="h6" className="my-4 text-center">
+              [ MHB ]
+            </Typography>
+
+            {/* Drawer close button */}
+            <IconButton
+              aria-label="close drawer"
+              edge="end"
+              className="ml-4 text-inherit"
+            >
+              <CloseRoundedIcon />
+            </IconButton>
+          </div>
 
           <Divider />
 
@@ -57,7 +70,7 @@ export default function NavDrawer({ navItems }: NavDrawerProps) {
           <List>
             {navItems.map((item) => (
               <ListItem key={item} disablePadding>
-                <ListItemButton className="text-center">
+                <ListItemButton>
                   <ListItemText primary={item} />
                 </ListItemButton>
               </ListItem>
