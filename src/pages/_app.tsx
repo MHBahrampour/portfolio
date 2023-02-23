@@ -1,6 +1,10 @@
 import { type AppType } from "next/app";
+
+import Header from "@/layouts/Header/Header";
 import { type Session } from "next-auth";
 import { SessionProvider } from "next-auth/react";
+
+import ThemeWrapper from "@/features/themes/ThemeWrapper/ThemeWrapper";
 
 import "../styles/globals.css";
 
@@ -10,7 +14,10 @@ const MyApp: AppType<{ session: Session | null }> = ({
 }) => {
   return (
     <SessionProvider session={session}>
-      <Component {...pageProps} />
+      <ThemeWrapper>
+        <Header />
+        <Component {...pageProps} />
+      </ThemeWrapper>
     </SessionProvider>
   );
 };
