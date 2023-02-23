@@ -1,3 +1,5 @@
+import { SwitchThemeButton } from "@/themes/SwitchThemeButton/SwitchThemeButton";
+
 import {
   AppBar,
   Button,
@@ -6,8 +8,6 @@ import {
   Typography,
   useScrollTrigger,
 } from "@mui/material";
-
-import { SwitchThemeButton } from "@/features/themes/SwitchThemeButton/SwitchThemeButton";
 
 import NavDrawer from "./NavDrawer";
 
@@ -27,8 +27,9 @@ export default function DrawerAppBar() {
       <AppBar
         component="nav"
         className={`sticky ${
-          !elevateTrigger &&
-          "mix-blend-difference [&.MuiPaper-root]:bg-transparent [&.MuiPaper-root]:shadow-none [&.MuiPaper-root]:bg-none"
+          !elevateTrigger
+            ? "mix-blend-difference [&.MuiPaper-root]:bg-transparent [&.MuiPaper-root]:shadow-none [&.MuiPaper-root]:bg-none"
+            : ""
         }`}
       >
         <Toolbar className="justify-between">

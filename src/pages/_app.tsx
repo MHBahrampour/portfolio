@@ -1,25 +1,29 @@
-import { type AppType } from "next/app";
+import { type AppProps } from "next/app";
 
 import Header from "@/layouts/Header/Header";
-import { type Session } from "next-auth";
-import { SessionProvider } from "next-auth/react";
-
-import ThemeWrapper from "@/features/themes/ThemeWrapper/ThemeWrapper";
+import ThemeWrapper from "@/themes/ThemeWrapper/ThemeWrapper";
+import createEmotionCache from "@/utils/createEmotionCache";
+import { CacheProvider, type EmotionCache } from "@emotion/react";
 
 import "../styles/globals.css";
 
-const MyApp: AppType<{ session: Session | null }> = ({
+// Client-side cache, shared for the whole session of the user in the browser.
+const clientSideEmotionCache = createEmotionCache();
+interface MyAppProps extends AppProps {
+  emotionCache?: EmotionCache;
+}
+
+export default function App({
   Component,
-  pageProps: { session, ...pageProps },
-}) => {
+  pageProps,
+  emotionCache = clientSideEmotionCache,
+}: MyAppProps) {
   return (
-    <SessionProvider session={session}>
+    <CacheProvider value={emotionCache}>
       <ThemeWrapper>
         <Header />
         <Component {...pageProps} />
       </ThemeWrapper>
-    </SessionProvider>
+    </CacheProvider>
   );
-};
-
-export default MyApp;
+}

@@ -1,8 +1,8 @@
-import { ReactNode, useMemo, useState } from "react";
+import { type ReactNode, useMemo, useState } from "react";
 
 import {
   CssBaseline,
-  PaletteMode,
+  type PaletteMode,
   ThemeProvider,
   createTheme,
 } from "@mui/material";

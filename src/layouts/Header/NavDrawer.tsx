@@ -3,7 +3,6 @@ import { useState } from "react";
 import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
 import MenuIcon from "@mui/icons-material/Menu";
 import {
-  Box,
   Divider,
   Drawer,
   IconButton,
