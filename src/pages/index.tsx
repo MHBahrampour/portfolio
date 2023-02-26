@@ -1,17 +1,17 @@
 import Head from "next/head";
 
-import { type NextPage } from "next";
+import Hero from "@/features/HomePage/Hero";
 
-const Home: NextPage = () => {
+export default function index() {
   return (
     <>
       <Head>
         <title>MHB Portfolio</title>
       </Head>
 
-      <main></main>
+      <main>
+        <Hero />
+      </main>
     </>
   );
-};
-
-export default Home;
+}

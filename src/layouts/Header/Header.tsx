@@ -27,9 +27,8 @@ export default function DrawerAppBar() {
       <AppBar
         component="nav"
         className={`sticky ${
-          !elevateTrigger
-            ? "mix-blend-difference [&.MuiPaper-root]:bg-transparent [&.MuiPaper-root]:shadow-none [&.MuiPaper-root]:bg-none"
-            : ""
+          !elevateTrigger &&
+          "mix-blend-difference [&.MuiPaper-root]:bg-transparent [&.MuiPaper-root]:shadow-none [&.MuiPaper-root]:bg-none !fixed"
         }`}
       >
         <Toolbar className="justify-between">
