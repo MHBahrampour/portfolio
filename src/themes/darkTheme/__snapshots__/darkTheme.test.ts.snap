@@ -5,5 +5,11 @@ exports[`checks darkTheme's snapshot 1`] = `
   "palette": {
     "mode": "dark",
   },
+  "shape": {
+    "borderRadius": 8,
+  },
+  "typography": {
+    "fontFamily": "Poppins, sans-serif",
+  },
 }
 `;
