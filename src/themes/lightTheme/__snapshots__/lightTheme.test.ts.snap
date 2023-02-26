@@ -5,5 +5,11 @@ exports[`checks lightTheme's snapshot 1`] = `
   "palette": {
     "mode": "light",
   },
+  "shape": {
+    "borderRadius": 8,
+  },
+  "typography": {
+    "fontFamily": "Poppins, sans-serif",
+  },
 }
 `;

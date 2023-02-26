@@ -1,3 +1,37 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@import "./animations.css";
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0px;
+  font-family: "Poppins", sans-serif !important;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+@layer components {
+  .dpx {
+    @apply px-4 sm:px-12 md:px-24 lg:px-40;
+  }
+  .dpy {
+    @apply py-4 sm:py-12 md:py-24 lg:py-40;
+  }
+  .btn {
+    @apply sm:!px-5 sm:!py-2 sm:text-base lg:!px-6 lg:!py-3 lg:text-lg;
+  }
+}
