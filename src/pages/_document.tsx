@@ -1,12 +1,13 @@
 import Document, { Head, Html, Main, NextScript } from "next/document";
 
-import createEmotionCache from "@/utils/createEmotionCache";
 import createEmotionServer from "@emotion/server/create-instance";
+
+import createEmotionCache from "@/utils/createEmotionCache";
 
 export default class MyDocument extends Document {
   render() {
     return (
-      <Html lang="en">
+      <Html lang="en" className="">
         <Head>
           <meta name="description" content="Mohammad H. Bahrampour Portfolio" />
           <link rel="icon" href="favicon.svg" type="image/svg+xml" />
