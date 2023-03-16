@@ -1,7 +1,7 @@
 import ReactGA from "react-ga";
 
 export const initGA = (trackingID: string) => {
-  ReactGA.initialize(trackingID);
+  ReactGA.initialize(trackingID, { debug: true });
 };
 
 export const logPageView = () => {
