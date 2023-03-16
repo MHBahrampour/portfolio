@@ -5,7 +5,7 @@ export const initGA = (trackingID: string) => {
 };
 
 export const logPageView = () => {
-  ReactGA.set({
+  ReactGA.send({
     hitType: "pageview",
     page: window.location.pathname,
     title: window.location.pathname,
