@@ -26,7 +26,7 @@ export default function App({
   const router = useRouter();
 
   useEffect(() => {
-    initGA("G-LY31S8FL6E");
+    initGA("G-NXVWJKW2N4");
   }, []);
 
   useEffect(() => {
