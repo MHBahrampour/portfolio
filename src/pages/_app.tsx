@@ -2,8 +2,9 @@ import { type AppProps } from "next/app";
 
 import Header from "@/layouts/Header/Header";
 import ThemeWrapper from "@/themes/ThemeWrapper/ThemeWrapper";
-import createEmotionCache from "@/utils/createEmotionCache";
 import { CacheProvider, type EmotionCache } from "@emotion/react";
+
+import createEmotionCache from "@/utils/createEmotionCache";
 
 import "../styles/globals.css";
 
