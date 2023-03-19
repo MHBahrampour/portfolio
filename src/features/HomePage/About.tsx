@@ -3,6 +3,7 @@ import { useState } from "react";
 import Image from "next/image";
 
 import moment, { type Moment } from "moment";
+import { HiCursorClick } from "react-icons/hi";
 
 import { Typography } from "@mui/material";
 
@@ -81,6 +82,7 @@ export default function About() {
 
   return (
     <section className="dpx grid gap-4">
+      {/* Textual content */}
       <Typography component="h2" className="heading">
         About
       </Typography>
@@ -102,6 +104,7 @@ export default function About() {
         loved it.
       </Typography>
 
+      {/* Favorite technologies */}
       <div className="grid gap-3">
         <Typography variant="body1">
           Here are some technologies that I use often:
@@ -110,45 +113,53 @@ export default function About() {
         <div className="grid gap-3 md:gap-4 grid-cols-2 sm:grid-cols-3 max-w-4xl">
           {frequentTechsData.map((techItem) => {
             const monthsNumber = getMonthsFromNow(techItem.startDate);
+            const projectsNumber = techItem.projectsUsed;
+
             return (
               <div
                 key={techItem.id}
                 onClick={() => handleFavTechsClick(techItem.id)}
-                className={`p-3 sm:p-4 md:p-5 place-items-center dark:bg-opacity-50 rounded-lg  hover:scale-105 transition-all cursor-pointer ${techItem.bgColor}`}
+                className={`group grid gap-1 p-3 sm:p-4 md:p-5 dark:bg-opacity-50 rounded-lg hover:scale-105 transition-all cursor-pointer ${techItem.bgColor}`}
               >
+                {/* show each fav techs or its details */}
                 {favTechDetail !== techItem.id ? (
                   <>
-                    <Image
-                      src={techItem.logo}
-                      width={36}
-                      height={36}
-                      alt={techItem.name}
-                    />
+                    <div className="flex justify-between">
+                      <Image
+                        src={techItem.logo}
+                        width={36}
+                        height={36}
+                        alt={techItem.name}
+                        className="t-to-b-animation animation-delay-100"
+                      />
 
-                    <Typography className="text-lg md:text-xl font-semibold">
+                      <HiCursorClick className="dark:text-white/40 text-black/40 dark:group-hover:text-white group-hover:text-black text-lg md:text-xl t-to-b-animation animation-delay-500" />
+                    </div>
+
+                    <Typography className="text-lg md:text-xl font-semibold t-to-b-animation animation-delay-300">
                       {techItem.name}
                     </Typography>
                   </>
                 ) : (
                   <div className="grid md:grid-cols-2 md:place-items-center h-full gap-3">
-                    {[monthsNumber, techItem.projectsUsed].map(
-                      (mpItem, index) => (
-                        <Typography
-                          key={index}
-                          component="p"
-                          className="font-semibold text-lg md:text-2xl"
-                        >
-                          +{mpItem} <br className="hidden md:block" />
-                          <span className="font-light text-base md:font-normal md:text-lg">
-                            {index === 0
-                              ? `month${monthsNumber > 1 ? "s" : ""}`
-                              : `project${
-                                  techItem.projectsUsed > 1 ? "s" : ""
-                                }`}
-                          </span>
-                        </Typography>
-                      ),
-                    )}
+                    {[monthsNumber, projectsNumber].map((mpItem, index) => (
+                      <Typography
+                        key={index}
+                        component="p"
+                        className={`font-semibold text-lg md:text-2xl t-to-b-animation ${
+                          index === 0
+                            ? "animation-delay-100"
+                            : "animation-delay-300"
+                        }`}
+                      >
+                        +{mpItem} <br className="hidden md:block" />
+                        <span className="font-light text-base md:font-normal md:text-lg">
+                          {index === 0
+                            ? `month${monthsNumber > 1 ? "s" : ""}`
+                            : `project${techItem.projectsUsed > 1 ? "s" : ""}`}
+                        </span>
+                      </Typography>
+                    ))}
                   </div>
                 )}
               </div>
