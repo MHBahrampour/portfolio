@@ -16,8 +16,8 @@ html {
 }
 
 body {
-  margin: 0px;
   font-family: "Poppins", sans-serif !important;
+  @apply bg-cCommon-white dark:bg-cCommon-black;
 }
 
 a {

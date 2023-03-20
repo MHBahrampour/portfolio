@@ -3,7 +3,17 @@
 exports[`checks lightTheme's snapshot 1`] = `
 {
   "palette": {
+    "common": {
+      "black": "#0f1b2c",
+      "white": "#f2f2f2",
+    },
     "mode": "light",
+    "primary": {
+      "contrastText": "#f2f2f2",
+      "dark": "#0a121e",
+      "light": "#3f4856",
+      "main": "#0f1b2c",
+    },
   },
   "shape": {
     "borderRadius": 8,

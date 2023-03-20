@@ -11,10 +11,11 @@ module.exports = {
     },
     extend: {
       colors: {
-        cCommon: { black: "#121212", white: "#f2f2f2" },
+        cCommon: { black: "#0f1b2c", white: "#f2f2f2" },
       },
       boxShadow: {
-        c1: "0px 4px 14px rgba(0, 0, 0, 0.05)",
+        cLight: "1px 4px 12px 1px rgba(18, 18, 18, 0.1)",
+        cDark: "1px 4px 12px 1px rgba(0, 0, 0, 1)",
       },
     },
   },

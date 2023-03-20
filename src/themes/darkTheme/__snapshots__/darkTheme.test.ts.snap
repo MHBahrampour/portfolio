@@ -3,7 +3,17 @@
 exports[`checks darkTheme's snapshot 1`] = `
 {
   "palette": {
+    "common": {
+      "black": "#0f1b2c",
+      "white": "#f2f2f2",
+    },
     "mode": "dark",
+    "primary": {
+      "contrastText": "#0f1b2c",
+      "dark": "#a9a9a9",
+      "light": "#f4f4f4",
+      "main": "#f2f2f2",
+    },
   },
   "shape": {
     "borderRadius": 8,

@@ -5,6 +5,7 @@ exports[`SwitchThemeButton > checks SwitchThemeButton's snapshot 1`] = `
   className="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium text-inherit css-78trlr-MuiButtonBase-root-MuiIconButton-root"
   disabled={false}
   onBlur={[Function]}
+  onClick={[Function]}
   onContextMenu={[Function]}
   onDragLeave={[Function]}
   onFocus={[Function]}

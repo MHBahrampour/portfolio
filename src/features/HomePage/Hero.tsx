@@ -53,7 +53,7 @@ export default function Hero() {
 
       <Button
         variant="contained"
-        className="capitalize btn w-max t-to-b-animation animation-delay-1000"
+        className="capitalize btn w-max t-to-b-animation animation-delay-1000 shadow-cLight dark:shadow-cDark"
       >
         Get My Resume
       </Button>

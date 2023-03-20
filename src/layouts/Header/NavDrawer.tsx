@@ -1,5 +1,7 @@
 import { useState } from "react";
 
+import Link from "next/link";
+
 import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
 import MenuIcon from "@mui/icons-material/Menu";
 import {
@@ -67,11 +69,13 @@ export default function NavDrawer({ navItems }: NavDrawerProps) {
           {/* Navigation items */}
           <List>
             {navItems.map((item) => (
-              <ListItem key={item} disablePadding>
-                <ListItemButton>
-                  <ListItemText primary={item} />
-                </ListItemButton>
-              </ListItem>
+              <Link key={item} href={`#${item}`} scroll={false}>
+                <ListItem key={item} disablePadding>
+                  <ListItemButton>
+                    <ListItemText primary={item} className="uppercase" />
+                  </ListItemButton>
+                </ListItem>
+              </Link>
             ))}
           </List>
         </div>
