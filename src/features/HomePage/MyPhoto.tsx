@@ -6,32 +6,23 @@ interface MyPhotoProps {
 
 export default function MyPhoto({ className }: MyPhotoProps) {
   return (
-    <div className={`bg-[url("/images/bbburst.svg")] ${className}`}>
+    <div className={`bg-[url("/images/bbburst.png")] bg-cover ${className}`}>
       <svg
         version="1.1"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 500 500"
         width="100%"
         id="blobSvg"
-        filter="blur(0px)"
-        style={{ opacity: 1 }}
       >
         <image
           x="0"
           y="0"
           width="100%"
           height="100%"
-          clip-path="url(#shape)"
-          xlinkHref="/images/me.jpg"
+          clipPath="url(#shape)"
+          href="/images/me.jpg"
           preserveAspectRatio="none"
         />
-        <defs>
-          {/* <linearGradient id="gradient" x1="0%" y1="0%" x2="0%" y2="100%">
-          <stop offset="0%" style={{stopColor: "rgb(238, 205, 163)"}}="stop-color: rgb(238, 205, 163);"></stop>
-          <stop offset="100%" style="stop-color: rgb(239, 98, 159);"></stop>
-        </linearGradient> */}
-        </defs>
-
         <clipPath id="shape">
           <path id="blob" fill="url(#gradient)">
             <animate
@@ -44,27 +35,5 @@ export default function MyPhoto({ className }: MyPhotoProps) {
         </clipPath>
       </svg>
     </div>
-    // <div className={className}>
-    //   <svg
-    //     xmlns="http://www.w3.org/2000/svg"
-    //     xmlnsXlink="http://www.w3.org/1999/xlink"
-    //     viewBox="0 0 100 100"
-    //   >
-    //     <defs>
-    //       <clipPath id="theClippingPath">
-    //         <path
-    //           d="M23.7,-28.7C31.2,-21.9,38.2,-14.9,40,-6.7C41.9,1.5,38.7,11,33.3,18.3C28,25.6,20.5,30.7,12.1,34.2C3.7,37.7,-5.7,39.5,-13.2,36.7C-20.7,33.8,-26.4,26.2,-31.4,17.9C-36.4,9.7,-40.7,0.9,-40.6,-8.5C-40.6,-17.9,-36.2,-27.9,-28.7,-34.7C-21.2,-41.5,-10.6,-45.1,-1.3,-43.6C8.1,-42,16.2,-35.5,23.7,-28.7Z"
-    //           transform="translate(50 50)"
-    //         />
-    //       </clipPath>
-    //     </defs>
-    //     <image
-    //       xlinkHref="/images/me.jpg"
-    //       width="100%"
-    //       height="100%"
-    //       clip-path="url(#theClippingPath)"
-    //     />
-    //   </svg>
-    // </div>
   );
 }
