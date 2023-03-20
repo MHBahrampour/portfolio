@@ -10,6 +10,14 @@
     animation-fill-mode: forwards;
     animation-name: t-to-b-keyframe;
   }
+  .b-to-t-animation {
+    opacity: 0%;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-name: b-to-t-keyframe;
+  }
 }
 
 @layer utilities {
@@ -42,6 +50,16 @@
 @keyframes t-to-b-keyframe {
   0% {
     transform: translateY(-10%);
+  }
+  100% {
+    opacity: 100%;
+    transform: translateY(0);
+  }
+}
+
+@keyframes b-to-t-keyframe {
+  0% {
+    transform: translateY(10%);
   }
   100% {
     opacity: 100%;

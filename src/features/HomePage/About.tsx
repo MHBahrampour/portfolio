@@ -7,6 +7,8 @@ import { HiCursorClick } from "react-icons/hi";
 
 import { Typography } from "@mui/material";
 
+import MyPhoto from "./MyPhoto";
+
 interface FrequentTechsData {
   id: string;
   name: string;
@@ -82,89 +84,99 @@ export default function About() {
 
   return (
     <section className="dpx grid gap-4">
-      {/* Textual content */}
       <Typography component="h2" className="heading">
         About
       </Typography>
 
-      <Typography variant="body1">
-        Hello! My name is Mohammad H. Bahrampour. Don’t worry you can call me
-        Mamad!
-      </Typography>
+      <div className="grid gap-4">
+        <div className="max-w-4xl">
+          {/* Photo */}
+          <MyPhoto className="md:max-w-[300px] sm:max-w-[250px] max-w-[400px] mx-auto sm:float-right" />
 
-      <Typography variant="body1">
-        I started my journey in 2020 as a back-end developer and my weapon of
-        choice was Django .Although it was very attractive to me, I was looking
-        for something that would challenge my artistic creativity more and this
-        is where I was drawn to the front end.
-      </Typography>
+          <Typography variant="body1" className="mb-4">
+            Hello! My name is Mohammad H. Bahrampour. Don’t worry you can call
+            me Mamad!
+          </Typography>
 
-      <Typography variant="body1">
-        Fast-forward to early 2022 I decided to switch to front-end, and boy I
-        loved it.
-      </Typography>
+          <Typography variant="body1" className="mb-4">
+            I started my journey in 2020 as a back-end developer and my weapon
+            of choice was Django .Although it was very attractive to me, I was
+            looking for something that would challenge my artistic creativity
+            more and this is where I was drawn to the front end.
+          </Typography>
 
-      {/* Favorite technologies */}
-      <div className="grid gap-3">
-        <Typography variant="body1">
-          Here are some technologies that I use often:
-        </Typography>
+          <Typography variant="body1">
+            Fast-forward to early 2022 I decided to switch to front-end, and boy
+            I loved it. Since then, I started learning with more enthusiasm. I
+            tried well-known technologies and studied best practices so that I
+            could not only build something, but build something of quality.
+          </Typography>
+        </div>
 
-        <div className="grid gap-3 md:gap-4 grid-cols-2 sm:grid-cols-3 max-w-4xl">
-          {frequentTechsData.map((techItem) => {
-            const monthsNumber = getMonthsFromNow(techItem.startDate);
-            const projectsNumber = techItem.projectsUsed;
+        {/* Favorite technologies */}
+        <div className="grid gap-3">
+          <Typography variant="body1">
+            Here are some technologies that I use often:
+          </Typography>
 
-            return (
-              <div
-                key={techItem.id}
-                onClick={() => handleFavTechsClick(techItem.id)}
-                className={`group grid gap-1 p-3 sm:p-4 md:p-5 dark:bg-opacity-50 rounded-lg hover:scale-105 transition-all cursor-pointer ${techItem.bgColor}`}
-              >
-                {/* show each fav techs or its details */}
-                {favTechDetail !== techItem.id ? (
-                  <>
-                    <div className="flex justify-between">
-                      <Image
-                        src={techItem.logo}
-                        width={36}
-                        height={36}
-                        alt={techItem.name}
-                        className="t-to-b-animation animation-delay-100"
-                      />
+          <div className="grid gap-3 md:gap-4 grid-cols-2 md:grid-cols-3 max-w-4xl">
+            {frequentTechsData.map((techItem) => {
+              const monthsNumber = getMonthsFromNow(techItem.startDate);
+              const projectsNumber = techItem.projectsUsed;
 
-                      <HiCursorClick className="dark:text-white/40 text-black/40 dark:group-hover:text-white group-hover:text-black text-lg md:text-xl t-to-b-animation animation-delay-500" />
-                    </div>
+              return (
+                <div
+                  key={techItem.id}
+                  onClick={() => handleFavTechsClick(techItem.id)}
+                  className={`group grid gap-1 p-3 sm:p-4 md:p-5 dark:bg-opacity-50 rounded-lg hover:scale-105 transition-all cursor-pointer ${techItem.bgColor}`}
+                >
+                  {/* show each fav techs or its details */}
+                  {favTechDetail !== techItem.id ? (
+                    <>
+                      <div className="flex justify-between">
+                        <Image
+                          src={techItem.logo}
+                          width={36}
+                          height={36}
+                          alt={techItem.name}
+                          className="b-to-t-animation animation-delay-100"
+                        />
 
-                    <Typography className="text-lg md:text-xl font-semibold t-to-b-animation animation-delay-300">
-                      {techItem.name}
-                    </Typography>
-                  </>
-                ) : (
-                  <div className="grid md:grid-cols-2 md:place-items-center h-full gap-3">
-                    {[monthsNumber, projectsNumber].map((mpItem, index) => (
-                      <Typography
-                        key={index}
-                        component="p"
-                        className={`font-semibold text-lg md:text-2xl t-to-b-animation ${
-                          index === 0
-                            ? "animation-delay-100"
-                            : "animation-delay-300"
-                        }`}
-                      >
-                        +{mpItem} <br className="hidden md:block" />
-                        <span className="font-light text-base md:font-normal md:text-lg">
-                          {index === 0
-                            ? `month${monthsNumber > 1 ? "s" : ""}`
-                            : `project${techItem.projectsUsed > 1 ? "s" : ""}`}
-                        </span>
+                        <HiCursorClick className="dark:text-white/40 text-black/40 dark:group-hover:text-white group-hover:text-black text-lg md:text-xl b-to-t-animation animation-delay-500" />
+                      </div>
+
+                      <Typography className="text-lg md:text-xl font-semibold b-to-t-animation animation-delay-300">
+                        {techItem.name}
                       </Typography>
-                    ))}
-                  </div>
-                )}
-              </div>
-            );
-          })}
+                    </>
+                  ) : (
+                    <div className="grid md:grid-cols-2 md:place-items-center h-full gap-3">
+                      {[monthsNumber, projectsNumber].map((mpItem, index) => (
+                        <Typography
+                          key={index}
+                          component="p"
+                          className={`font-semibold text-lg md:text-2xl t-to-b-animation ${
+                            index === 0
+                              ? "animation-delay-100"
+                              : "animation-delay-300"
+                          }`}
+                        >
+                          +{mpItem} <br className="hidden md:block" />
+                          <span className="font-light text-base md:font-normal md:text-lg">
+                            {index === 0
+                              ? `month${monthsNumber > 1 ? "s" : ""}`
+                              : `project${
+                                  techItem.projectsUsed > 1 ? "s" : ""
+                                }`}
+                          </span>
+                        </Typography>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+          </div>
         </div>
       </div>
     </section>
