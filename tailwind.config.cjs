@@ -9,7 +9,14 @@ module.exports = {
       lg: "1200px",
       xl: "1536px",
     },
-    extend: {},
+    extend: {
+      colors: {
+        cCommon: { black: "#121212", white: "#f2f2f2" },
+      },
+      boxShadow: {
+        c1: "0px 4px 14px rgba(0, 0, 0, 0.05)",
+      },
+    },
   },
   corePlugins: {
     preflight: false,
