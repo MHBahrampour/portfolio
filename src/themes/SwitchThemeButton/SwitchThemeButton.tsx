@@ -6,13 +6,18 @@ import { IconButton, useTheme } from "@mui/material";
 
 import { ColorContext } from "../ColorContext";
 
-export const SwitchThemeButton = () => {
+export function SwitchThemeButton() {
   const theme = useTheme();
   const colorMode = useContext(ColorContext);
 
+  const handleClick = () => {
+    colorMode.toggleColorMode();
+    document.querySelector("html")?.classList.toggle("dark");
+  };
+
   return (
-    <IconButton onClick={colorMode.toggleColorMode} className="text-inherit">
+    <IconButton onClick={handleClick} className="text-inherit">
       {theme.palette.mode === "dark" ? <LightIcon /> : <DarkIcon />}
     </IconButton>
   );
-};
+}
