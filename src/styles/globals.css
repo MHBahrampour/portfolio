@@ -42,4 +42,7 @@ p {
   .heading {
     @apply text-2xl font-semibold before:font-light before:text-slate-400 before:content-["#_"] sm:text-3xl lg:text-4xl;
   }
+  .w-dpx {
+    @apply w-[calc(100vw-2*16px)] sm:w-[calc(100vw-2*48px)] md:w-[calc(100vw-2*96px)] lg:w-[calc(100vw-2*160px)];
+  }
 }
