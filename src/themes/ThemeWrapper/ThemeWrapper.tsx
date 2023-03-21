@@ -16,7 +16,7 @@ export type ThemeWrapperProps = {
 };
 
 export default function ThemeWrapper({ children }: ThemeWrapperProps) {
-  const [mode, setMode] = useState<PaletteMode>("light");
+  const [mode, setMode] = useState<PaletteMode>("dark");
 
   const colorMode = useMemo(
     () => ({

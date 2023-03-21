@@ -7,7 +7,7 @@ import createEmotionCache from "@/utils/createEmotionCache";
 export default class MyDocument extends Document {
   render() {
     return (
-      <Html lang="en" className="">
+      <Html lang="en" className="dark">
         <Head>
           <meta name="description" content="Mohammad H. Bahrampour Portfolio" />
           <link rel="icon" href="favicon.svg" type="image/svg+xml" />
