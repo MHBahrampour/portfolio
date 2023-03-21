@@ -60,7 +60,7 @@ export default function Jobs() {
         <TabPanel value={value} index={1}>
           <Typography variant="body1">
             If you're interested in hiring me then{" "}
-            <Link href={`#get-in-touch`} scroll={false}>
+            <Link href={`#get-in-touch`} scroll={false} className="link">
               contact me
             </Link>
             .

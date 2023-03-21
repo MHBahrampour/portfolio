@@ -18,7 +18,10 @@ export const darkTheme: ThemeOptions = {
     borderRadius: 8,
   },
   typography: {
-    fontFamily: "Poppins, sans-serif",
+    allVariants: {
+      fontFamily: "Poppins, sans-serif",
+      color: "#f2f2f2",
+    },
   },
 };
 

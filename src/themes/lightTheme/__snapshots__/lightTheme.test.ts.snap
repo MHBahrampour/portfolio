@@ -19,7 +19,10 @@ exports[`checks lightTheme's snapshot 1`] = `
     "borderRadius": 8,
   },
   "typography": {
-    "fontFamily": "Poppins, sans-serif",
+    "allVariants": {
+      "color": "#0f1b2c",
+      "fontFamily": "Poppins, sans-serif",
+    },
   },
 }
 `;

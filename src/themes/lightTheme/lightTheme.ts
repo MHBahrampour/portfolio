@@ -18,7 +18,10 @@ export const lightTheme: ThemeOptions = {
     borderRadius: 8,
   },
   typography: {
-    fontFamily: "Poppins, sans-serif",
+    allVariants: {
+      fontFamily: "Poppins, sans-serif",
+      color: "#0f1b2c",
+    },
   },
 };
 
