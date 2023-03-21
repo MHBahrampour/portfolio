@@ -7,6 +7,8 @@ import { HiCursorClick } from "react-icons/hi";
 
 import { Typography } from "@mui/material";
 
+import getMonthsFromNow from "@/utils/getMonthfromNow";
+
 import MyPhoto from "./MyPhoto";
 
 interface FrequentTechsData {
@@ -74,12 +76,6 @@ export default function About() {
 
   const handleFavTechsClick = (id: string) => {
     setFavTechDetail((prevState) => (id === prevState ? null : id));
-  };
-
-  const getMonthsFromNow = (date: Moment) => {
-    const now = moment();
-    const months = now.diff(moment(date), "months");
-    return months;
   };
 
   return (
