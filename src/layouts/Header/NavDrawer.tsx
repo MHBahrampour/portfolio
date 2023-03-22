@@ -2,8 +2,9 @@ import { useState } from "react";
 
 import Link from "next/link";
 
+import { CgClose, CgMenuLeft } from "react-icons/cg";
+
 import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
-import MenuIcon from "@mui/icons-material/Menu";
 import {
   Divider,
   Drawer,
@@ -33,9 +34,9 @@ export default function NavDrawer({ navItems }: NavDrawerProps) {
         aria-label="open drawer"
         edge="start"
         onClick={handleDrawerToggle}
-        className="sm:hidden mr-4 text-inherit"
+        className="sm:hidden text-inherit"
       >
-        <MenuIcon />
+        <CgMenuLeft />
       </IconButton>
 
       <Drawer
@@ -58,9 +59,9 @@ export default function NavDrawer({ navItems }: NavDrawerProps) {
             <IconButton
               aria-label="close drawer"
               edge="end"
-              className="ml-4 text-inherit"
+              className="text-inherit"
             >
-              <CloseRoundedIcon />
+              <CgClose />
             </IconButton>
           </div>
 

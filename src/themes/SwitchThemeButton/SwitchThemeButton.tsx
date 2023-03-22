@@ -1,7 +1,7 @@
 import { useContext } from "react";
 
-import DarkIcon from "@mui/icons-material/Brightness4";
-import LightIcon from "@mui/icons-material/Brightness7";
+import { RiMoonFoggyFill, RiSunFoggyFill } from "react-icons/ri";
+
 import { IconButton, useTheme } from "@mui/material";
 
 import { ColorContext } from "../ColorContext";
@@ -16,8 +16,8 @@ export function SwitchThemeButton() {
   };
 
   return (
-    <IconButton onClick={handleClick} className="text-inherit">
-      {theme.palette.mode === "dark" ? <LightIcon /> : <DarkIcon />}
+    <IconButton onClick={handleClick} className="text-inherit left-2">
+      {theme.palette.mode === "dark" ? <RiSunFoggyFill /> : <RiMoonFoggyFill />}
     </IconButton>
   );
 }
