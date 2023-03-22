@@ -42,7 +42,7 @@ export default function DrawerAppBar() {
             <Typography
               variant="h6"
               component="div"
-              className="bg-cCommon-black text-cCommon-white dark:bg-cCommon-white dark:text-cCommon-black px-2 rounded-lg leading-snug"
+              className="text-cCommon-white px-2 rounded-lg leading-snug gradient-bg-animation"
             >
               MHB
             </Typography>

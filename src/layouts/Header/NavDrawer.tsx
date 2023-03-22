@@ -45,15 +45,21 @@ export default function NavDrawer({ navItems }: NavDrawerProps) {
         ModalProps={{
           keepMounted: true, // Better open performance on mobile.
         }}
-        className="sm:hidden [&_.MuiDrawer-paper]:min-w-[240px] [&_.MuiDrawer-paper]:w-4/6 [&_.MuiDrawer-paper]:bg-none [&_.MuiDrawer-paper]:backdrop-blur-xl [&_.MuiDrawer-paper]:bg-cCommon-white/70 dark:[&_.MuiDrawer-paper]:bg-cCommon-black/70 [&_.MuiModal-backdrop]:bg-transparent [&_.MuiModal-backdrop]:backdrop-blur-sm"
+        className="sm:hidden [&_.MuiDrawer-paper]:min-w-[240px] [&_.MuiDrawer-paper]:w-4/6 [&_.MuiDrawer-paper]:bg-none [&_.MuiDrawer-paper]:backdrop-blur-xl [&_.MuiDrawer-paper]:bg-cCommon-white/70 dark:[&_.MuiDrawer-paper]:bg-cCommon-black/70 [&_.MuiModal-backdrop]:bg-transparent [&_.MuiModal-backdrop]:backdrop-blur-sm [&_.MuiDrawer-paper]:py-4"
       >
         <div onClick={handleDrawerToggle}>
           {/* Header */}
           <div className="flex items-center justify-between px-4 sm:px-12">
             {/* Logo */}
-            <Typography variant="h6" className="my-4 text-center">
-              [ MHB ]
-            </Typography>
+            <Link href="/">
+              <Typography
+                variant="h6"
+                component="div"
+                className="text-cCommon-white px-2 rounded-lg leading-snug gradient-bg-animation "
+              >
+                MHB
+              </Typography>
+            </Link>
 
             {/* Drawer close button */}
             <IconButton
@@ -65,7 +71,7 @@ export default function NavDrawer({ navItems }: NavDrawerProps) {
             </IconButton>
           </div>
 
-          <Divider />
+          {/* <Divider /> */}
 
           {/* Navigation items */}
           <List>

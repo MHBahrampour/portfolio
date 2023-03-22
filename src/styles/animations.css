@@ -18,6 +18,18 @@
     animation-fill-mode: forwards;
     animation-name: b-to-t-keyframe;
   }
+  .gradient-bg-animation {
+    background: linear-gradient(
+      320deg,
+      #284b63,
+      #00afb9,
+      #c7b272,
+      #bb263a,
+      #782de4
+    );
+    background-size: 1000% 1000%;
+    animation: gradient-bg-keyframe 10s ease infinite;
+  }
 }
 
 @layer utilities {
@@ -64,5 +76,17 @@
   100% {
     opacity: 100%;
     transform: translateY(0);
+  }
+}
+
+@keyframes gradient-bg-keyframe {
+  0% {
+    background-position: 26% 0%;
+  }
+  50% {
+    background-position: 75% 100%;
+  }
+  100% {
+    background-position: 26% 0%;
   }
 }
