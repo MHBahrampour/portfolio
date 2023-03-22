@@ -5,7 +5,7 @@ import Image from "next/image";
 import moment, { type Moment } from "moment";
 import { HiCursorClick } from "react-icons/hi";
 
-import { Typography } from "@mui/material";
+import { ButtonBase, Typography } from "@mui/material";
 
 import getMonthsFromNow from "@/utils/getMonthfromNow";
 
@@ -121,10 +121,11 @@ export default function About() {
               const projectsNumber = techItem.projectsUsed;
 
               return (
-                <div
+                <ButtonBase
+                  component="div"
                   key={techItem.id}
                   onClick={() => handleFavTechsClick(techItem.id)}
-                  className={`group grid gap-1 p-3 sm:p-4 md:p-5 dark:bg-opacity-50 rounded-lg hover:scale-105 transition-all cursor-pointer shadow-cLight dark:shadow-cDark ${techItem.bgColor}`}
+                  className={`group grid gap-1 p-3 sm:p-4 md:p-5 dark:bg-opacity-50 rounded-lg hover:scale-105 transition-all cursor-pointer shadow-cLight dark:shadow-cDark justify-start grid-cols-1 ${techItem.bgColor}`}
                 >
                   {/* show each fav techs or its details */}
                   {favTechDetail !== techItem.id ? (
@@ -169,7 +170,7 @@ export default function About() {
                       ))}
                     </div>
                   )}
-                </div>
+                </ButtonBase>
               );
             })}
           </div>
