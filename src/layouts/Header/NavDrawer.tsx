@@ -17,7 +17,10 @@ import {
 } from "@mui/material";
 
 interface NavDrawerProps {
-  navItems: string[];
+  navItems: {
+    name: string;
+    link: string;
+  }[];
 }
 
 export default function NavDrawer({ navItems }: NavDrawerProps) {
@@ -76,10 +79,10 @@ export default function NavDrawer({ navItems }: NavDrawerProps) {
           {/* Navigation items */}
           <List>
             {navItems.map((item) => (
-              <Link key={item} href={`#${item}`} scroll={false}>
-                <ListItem key={item} disablePadding>
+              <Link key={item.name} href={item.link} scroll={false}>
+                <ListItem disablePadding>
                   <ListItemButton>
-                    <ListItemText primary={item} className="uppercase" />
+                    <ListItemText primary={item.name} className="uppercase" />
                   </ListItemButton>
                 </ListItem>
               </Link>

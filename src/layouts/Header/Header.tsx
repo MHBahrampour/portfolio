@@ -13,7 +13,12 @@ import {
 
 import NavDrawer from "./NavDrawer";
 
-const navItems = ["about", "jobs", "contact"];
+// const navItems = ["about", "jobs", "get in touch"];
+const navItems = [
+  { name: "about", link: "#about" },
+  { name: "jobs", link: "#jobs" },
+  { name: "get in touch", link: "#get-in-touch" },
+];
 
 export default function DrawerAppBar() {
   const hideTrigger = useScrollTrigger({
@@ -51,9 +56,9 @@ export default function DrawerAppBar() {
           {/* Navigation items */}
           <div className="hidden sm:flex gap-4">
             {navItems.map((item) => (
-              <Link key={item} href={`#${item}`} scroll={false}>
+              <Link key={item.name} href={item.link} scroll={false}>
                 <Button className="[&.MuiButtonBase-root]:text-inherit">
-                  {item}
+                  {item.name}
                 </Button>
               </Link>
             ))}
