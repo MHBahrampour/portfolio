@@ -39,8 +39,12 @@ export default function DrawerAppBar() {
 
           {/* Logo */}
           <Link href="/">
-            <Typography variant="h6" component="div" className="mr-4">
-              [ MHB ]
+            <Typography
+              variant="h6"
+              component="div"
+              className="bg-cCommon-black text-cCommon-white dark:bg-cCommon-white dark:text-cCommon-black px-2 rounded-lg leading-snug"
+            >
+              MHB
             </Typography>
           </Link>
 
