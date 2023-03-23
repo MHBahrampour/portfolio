@@ -22,6 +22,7 @@ export default function GetInTouch() {
         wanna say hi?
       </Typography>
 
+      {/* Formal ways */}
       <div className="flex items-center gap-4">
         <Link href="mailto:bahrampour@protonmail.com" target="_blank">
           <Button
@@ -42,11 +43,12 @@ export default function GetInTouch() {
             startIcon={<FaLinkedin />}
             className="normal-case "
           >
-            DM On LinkedIn
+            Send DM
           </Button>
         </Link>
       </div>
 
+      {/* Informal ways */}
       <div className="mt-4 grid gap-1">
         <Typography variant="body1">
           And if you want to see me in a less formal way:
@@ -72,6 +74,19 @@ export default function GetInTouch() {
           </Link>
         </div>
       </div>
+
+      {/* Github */}
+      <Typography variant="body1">
+        Or just follow me on{" "}
+        <Link
+          href="https://github.com/MHBahrampour"
+          target="_blank"
+          className="link"
+        >
+          Github
+        </Link>
+        .
+      </Typography>
     </section>
   );
 }
