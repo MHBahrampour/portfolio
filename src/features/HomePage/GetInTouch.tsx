@@ -56,20 +56,20 @@ export default function GetInTouch() {
 
         <div className="flex gap-4 items-center text-cCommon-black dark:text-cCommon-white">
           <Link href="https://t.me/mhbahrampour" target="_blank">
-            <IconButton edge="start" size="large" className="text-blue-500">
+            <IconButton edge="start" size="large" className="text-[#28a8e9]">
               <FaTelegram />
             </IconButton>
           </Link>
 
-          <Link href="https://twitter.com/MHBahrampour" target="_blank">
-            <IconButton size="large" className="text-blue-400">
-              <FaTwitter />
+          <Link href="https://discordapp.com/users/Mamad#7034" target="_blank">
+            <IconButton size="large" className="text-[#5865f2]">
+              <BsDiscord />
             </IconButton>
           </Link>
 
-          <Link href="https://discordapp.com/users/Mamad#7034" target="_blank">
-            <IconButton size="large" className="text-indigo-500">
-              <BsDiscord />
+          <Link href="https://twitter.com/MHBahrampour" target="_blank">
+            <IconButton size="large" className="text-[#1d9bf0]">
+              <FaTwitter />
             </IconButton>
           </Link>
         </div>
