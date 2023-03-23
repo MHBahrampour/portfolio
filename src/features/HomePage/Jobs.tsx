@@ -4,7 +4,7 @@ import Link from "next/link";
 
 import moment from "moment";
 
-import { Box, Tab, Tabs, Typography } from "@mui/material";
+import { Tab, Tabs, Typography } from "@mui/material";
 
 import getMonthsFromNow from "@/utils/getMonthfromNow";
 
@@ -16,7 +16,7 @@ export default function Jobs() {
   };
 
   return (
-    <section id="jobs" className="dpx grid gap-4 mb-20">
+    <section id="jobs" className="dpx grid gap-4">
       <Typography component="h2" className="heading">
         Jobs
       </Typography>
@@ -86,7 +86,7 @@ const TabPanel = ({ children, value, index, ...other }: TabPanelProps) => (
     aria-labelledby={`jobsPanel-${index}`}
     {...other}
   >
-    {value === index && <div className="py-4">{children}</div>}
+    {value === index && <div className="pt-4">{children}</div>}
   </div>
 );
 

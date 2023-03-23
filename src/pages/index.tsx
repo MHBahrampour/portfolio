@@ -1,6 +1,7 @@
 import Head from "next/head";
 
 import About from "@/features/HomePage/About";
+import GetInTouch from "@/features/HomePage/GetInTouch";
 import Hero from "@/features/HomePage/Hero";
 import Jobs from "@/features/HomePage/Jobs";
 
@@ -15,6 +16,7 @@ export default function index() {
         <Hero />
         <About />
         <Jobs />
+        <GetInTouch />
       </main>
     </>
   );
