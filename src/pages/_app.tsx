@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { type AppProps } from "next/app";
 import { useRouter } from "next/router";
 
+import Footer from "@/layouts/Footer/Footer";
 import Header from "@/layouts/Header/Header";
 import ThemeWrapper from "@/themes/ThemeWrapper/ThemeWrapper";
 import { CacheProvider, type EmotionCache } from "@emotion/react";
@@ -43,6 +44,7 @@ export default function App({
       <ThemeWrapper>
         <Header />
         <Component {...pageProps} />
+        <Footer />
       </ThemeWrapper>
     </CacheProvider>
   );
