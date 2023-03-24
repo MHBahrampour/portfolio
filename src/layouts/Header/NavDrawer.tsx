@@ -1,10 +1,8 @@
-import { useState } from "react";
+import React, { useState } from "react";
 
-import Link from "next/link";
-
+import SmoothLink from "@/components/SmoothLink";
 import { CgClose, CgMenuLeft } from "react-icons/cg";
 
-import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
 import {
   Divider,
   Drawer,
@@ -48,13 +46,13 @@ export default function NavDrawer({ navItems }: NavDrawerProps) {
         ModalProps={{
           keepMounted: true, // Better open performance on mobile.
         }}
-        className="sm:hidden [&_.MuiDrawer-paper]:min-w-[240px] [&_.MuiDrawer-paper]:w-4/6 [&_.MuiDrawer-paper]:bg-none [&_.MuiDrawer-paper]:backdrop-blur-xl [&_.MuiDrawer-paper]:bg-cCommon-white/70 dark:[&_.MuiDrawer-paper]:bg-cCommon-black/70 [&_.MuiModal-backdrop]:bg-transparent [&_.MuiModal-backdrop]:backdrop-blur-sm [&_.MuiDrawer-paper]:py-4"
+        className="sm:hidden [&_.MuiDrawer-paper]:min-w-[240px] [&_.MuiDrawer-paper]:w-4/6 [&_.MuiDrawer-paper]:bg-none [&_.MuiDrawer-paper]:backdrop-blur-xl [&_.MuiDrawer-paper]:bg-cCommon-white/70 dark:[&_.MuiDrawer-paper]:bg-cCommon-black/70  [&_.MuiDrawer-paper]:py-4"
       >
         <div onClick={handleDrawerToggle}>
           {/* Header */}
           <div className="flex items-center justify-between px-4 sm:px-12">
             {/* Logo */}
-            <Link href="/">
+            <SmoothLink scrollToTop action={handleDrawerToggle}>
               <Typography
                 variant="h6"
                 component="div"
@@ -62,7 +60,7 @@ export default function NavDrawer({ navItems }: NavDrawerProps) {
               >
                 MHB
               </Typography>
-            </Link>
+            </SmoothLink>
 
             {/* Drawer close button */}
             <IconButton
@@ -74,18 +72,22 @@ export default function NavDrawer({ navItems }: NavDrawerProps) {
             </IconButton>
           </div>
 
-          {/* <Divider /> */}
+          <Divider className="mt-4" />
 
           {/* Navigation items */}
           <List>
             {navItems.map((item) => (
-              <Link key={item.name} href={item.link} scroll={false}>
+              <SmoothLink
+                key={item.name}
+                link={item.link}
+                action={handleDrawerToggle}
+              >
                 <ListItem disablePadding>
                   <ListItemButton>
                     <ListItemText primary={item.name} className="uppercase" />
                   </ListItemButton>
                 </ListItem>
-              </Link>
+              </SmoothLink>
             ))}
           </List>
         </div>

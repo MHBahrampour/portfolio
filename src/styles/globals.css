@@ -10,11 +10,6 @@
   box-sizing: border-box;
 }
 
-html {
-  scroll-behavior: smooth;
-  scroll-padding-top: 72px;
-}
-
 body {
   font-family: "Poppins", sans-serif !important;
   @apply bg-cCommon-white dark:bg-cCommon-black;

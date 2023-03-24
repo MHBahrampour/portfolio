@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+import SmoothLink from "@/components/SmoothLink";
 import { SwitchThemeButton } from "@/themes/SwitchThemeButton/SwitchThemeButton";
 
 import {
@@ -15,9 +16,9 @@ import NavDrawer from "./NavDrawer";
 
 // const navItems = ["about", "jobs", "get in touch"];
 const navItems = [
-  { name: "about", link: "#about" },
-  { name: "jobs", link: "#jobs" },
-  { name: "get in touch", link: "#get-in-touch" },
+  { name: "about", link: "about" },
+  { name: "jobs", link: "jobs" },
+  { name: "get in touch", link: "get-in-touch" },
 ];
 
 export default function DrawerAppBar() {
@@ -43,7 +44,7 @@ export default function DrawerAppBar() {
           <NavDrawer navItems={navItems} />
 
           {/* Logo */}
-          <Link href="/">
+          <SmoothLink scrollToTop>
             <Typography
               variant="h6"
               component="div"
@@ -51,16 +52,16 @@ export default function DrawerAppBar() {
             >
               MHB
             </Typography>
-          </Link>
+          </SmoothLink>
 
           {/* Navigation items */}
           <div className="hidden sm:flex gap-4">
             {navItems.map((item) => (
-              <Link key={item.name} href={item.link} scroll={false}>
+              <SmoothLink key={item.name} link={item.link}>
                 <Button className="[&.MuiButtonBase-root]:text-inherit">
                   {item.name}
                 </Button>
-              </Link>
+              </SmoothLink>
             ))}
           </div>
 
