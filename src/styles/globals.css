@@ -41,7 +41,7 @@ p {
     @apply text-blue-500 hover:font-medium hover:underline hover:underline-offset-4 dark:text-cyan-400;
   }
   .w-dpx {
-    @apply w-[calc(100vw-2*16px)] sm:w-[calc(100vw-2*48px)] md:w-[calc(100vw-2*96px)] lg:w-[calc(100vw-2*160px)];
+    @apply w-[calc(100vw-2*16px-20px)] sm:w-[calc(100vw-2*48px-20px)] md:w-[calc(100vw-2*96px-20px)] lg:w-[calc(100vw-2*160px-20px)];
   }
 }
 
