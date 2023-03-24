@@ -34,7 +34,7 @@ export default function DrawerAppBar() {
         component="nav"
         className={`sticky dark:bg-cCommon-black/80 bg-cCommon-white/70 text-cCommon-black dark:text-cCommon-white backdrop-blur-lg shadow-cLight [&.MuiPaper-root]:bg-none ${
           !elevateTrigger &&
-          "[&.MuiPaper-root]:bg-transparent [&.MuiPaper-root]:shadow-none !fixed"
+          "[&.MuiPaper-root]:bg-transparent [&.MuiPaper-root]:shadow-none !fixed backdrop-blur-none"
         }`}
       >
         <Toolbar className="justify-between h-16">

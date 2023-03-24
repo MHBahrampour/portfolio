@@ -1,7 +1,5 @@
 import { Button, Typography, useScrollTrigger } from "@mui/material";
 
-import styles from "./Hero.module.css";
-
 export default function Hero() {
   const elevateTrigger = useScrollTrigger({
     disableHysteresis: true,
@@ -10,7 +8,7 @@ export default function Hero() {
 
   return (
     <section
-      className={`min-h-[calc(100vh-64px)] flex flex-col justify-center mx-auto gap-16 relative dpx ${
+      className={`dpx min-h-[calc(100vh-64px)] flex flex-col justify-center gap-16 relative bg-[url('/images/heroBg.svg')] bg-cover bg-center ${
         !elevateTrigger && "!min-h-[calc(100vh)] pt-16"
       }`}
     >
