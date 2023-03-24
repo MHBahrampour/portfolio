@@ -36,7 +36,10 @@ export default function Footer() {
             <span className="block">Mohammad H. Bahrmapour</span>
           </Typography>
 
-          <Typography variant="body2" className="text-center flex gap-3">
+          <Typography
+            variant="body2"
+            className="text-center flex gap-3 font-jbm"
+          >
             <span className="flex items-center gap-1 dark:text-amber-400 text-amber-600">
               <BiStar /> {githubInfo.stars}
             </span>

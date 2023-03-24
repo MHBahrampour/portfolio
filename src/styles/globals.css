@@ -49,3 +49,12 @@ p {
     @apply w-[calc(100vw-2*16px)] sm:w-[calc(100vw-2*48px)] md:w-[calc(100vw-2*96px)] lg:w-[calc(100vw-2*160px)];
   }
 }
+
+@layer utilities {
+  .font-jbm {
+    font-family: "JetBrains Mono", monospace;
+  }
+  .font-handlee {
+    font-family: "Handlee", cursive;
+  }
+}
