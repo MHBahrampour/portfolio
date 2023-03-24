@@ -1,5 +1,4 @@
-import Link from "next/link";
-
+import Logo from "@/components/Logo";
 import SmoothLink from "@/components/SmoothLink";
 import { SwitchThemeButton } from "@/themes/SwitchThemeButton/SwitchThemeButton";
 
@@ -8,7 +7,6 @@ import {
   Button,
   Slide,
   Toolbar,
-  Typography,
   useScrollTrigger,
 } from "@mui/material";
 
@@ -44,15 +42,7 @@ export default function DrawerAppBar() {
           <NavDrawer navItems={navItems} />
 
           {/* Logo */}
-          <SmoothLink scrollToTop>
-            <Typography
-              variant="h6"
-              component="div"
-              className="text-cCommon-white px-2 rounded-lg leading-snug gradient-bg-animation"
-            >
-              MHB
-            </Typography>
-          </SmoothLink>
+          <Logo />
 
           {/* Navigation items */}
           <div className="hidden sm:flex gap-4">

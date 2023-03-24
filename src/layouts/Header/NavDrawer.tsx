@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 
+import Logo from "@/components/Logo";
 import SmoothLink from "@/components/SmoothLink";
 import { CgClose, CgMenuLeft } from "react-icons/cg";
 
@@ -11,7 +12,6 @@ import {
   ListItem,
   ListItemButton,
   ListItemText,
-  Typography,
 } from "@mui/material";
 
 interface NavDrawerProps {
@@ -52,15 +52,7 @@ export default function NavDrawer({ navItems }: NavDrawerProps) {
           {/* Header */}
           <div className="flex items-center justify-between px-4 sm:px-12">
             {/* Logo */}
-            <SmoothLink scrollToTop action={handleDrawerToggle}>
-              <Typography
-                variant="h6"
-                component="div"
-                className="text-cCommon-white px-2 rounded-lg leading-snug gradient-bg-animation "
-              >
-                MHB
-              </Typography>
-            </SmoothLink>
+            <Logo />
 
             {/* Drawer close button */}
             <IconButton
