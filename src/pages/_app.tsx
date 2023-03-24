@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { type AppProps } from "next/app";
 import { useRouter } from "next/router";
 
+import BackToTop from "@/components/BackToTop";
 import Footer from "@/layouts/Footer/Footer";
 import Header from "@/layouts/Header/Header";
 import ThemeWrapper from "@/themes/ThemeWrapper/ThemeWrapper";
@@ -45,6 +46,7 @@ export default function App({
         <Header />
         <Component {...pageProps} />
         <Footer />
+        <BackToTop />
       </ThemeWrapper>
     </CacheProvider>
   );
