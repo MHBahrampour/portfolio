@@ -23,19 +23,12 @@ export default function DrawerAppBar() {
   const hideTrigger = useScrollTrigger({
     threshold: 500,
   });
-  const elevateTrigger = useScrollTrigger({
-    disableHysteresis: true,
-    threshold: 0,
-  });
 
   return (
     <Slide appear={false} direction="down" in={!hideTrigger}>
       <AppBar
         component="nav"
-        className={`sticky dark:bg-cCommon-black/80 bg-cCommon-white/70 text-cCommon-black dark:text-cCommon-white backdrop-blur-lg shadow-none [&.MuiPaper-root]:bg-none ${
-          !elevateTrigger &&
-          "[&.MuiPaper-root]:bg-transparent !fixed backdrop-blur-none"
-        }`}
+        className={`sticky dark:bg-cCommon-black/80 bg-cCommon-white/70 text-cCommon-black dark:text-cCommon-white backdrop-blur-lg shadow-none [&.MuiPaper-root]:bg-none`}
       >
         <Toolbar className="justify-between h-16">
           {/* Navigation button and drawer */}

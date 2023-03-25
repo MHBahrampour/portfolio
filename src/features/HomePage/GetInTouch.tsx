@@ -30,7 +30,7 @@ export default function GetInTouch() {
             variant="contained"
             size="large"
             startIcon={<HiMailOpen />}
-            className="normal-case "
+            className="normal-case"
           >
             Send Email
           </Button>
