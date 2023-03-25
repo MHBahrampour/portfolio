@@ -9,7 +9,6 @@ export default function BackToTop() {
     disableHysteresis: true,
     threshold: 500,
   });
-  console.log(showTrigger);
 
   return (
     <SmoothLink scrollToTop>
