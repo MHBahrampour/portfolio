@@ -32,7 +32,7 @@ p {
     @apply py-4 sm:py-12 md:py-24 lg:py-40;
   }
   .btn {
-    @apply normal-case shadow-cLight dark:shadow-cDark sm:!px-5 sm:!py-2 sm:text-base lg:!px-6 lg:!py-3 lg:text-lg;
+    @apply normal-case shadow-none sm:!px-5 sm:!py-2 sm:text-base lg:!px-6 lg:!py-3 lg:text-lg;
   }
   .heading {
     @apply text-2xl font-semibold before:font-light before:text-slate-400 before:content-["#_"] sm:text-3xl lg:text-4xl;
@@ -48,8 +48,5 @@ p {
 @layer utilities {
   .font-jbm {
     font-family: "JetBrains Mono", monospace;
-  }
-  .font-handlee {
-    font-family: "Handlee", cursive;
   }
 }

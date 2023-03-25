@@ -32,9 +32,9 @@ export default function DrawerAppBar() {
     <Slide appear={false} direction="down" in={!hideTrigger}>
       <AppBar
         component="nav"
-        className={`sticky dark:bg-cCommon-black/80 bg-cCommon-white/70 text-cCommon-black dark:text-cCommon-white backdrop-blur-lg shadow-cLight [&.MuiPaper-root]:bg-none ${
+        className={`sticky dark:bg-cCommon-black/80 bg-cCommon-white/70 text-cCommon-black dark:text-cCommon-white backdrop-blur-lg shadow-none [&.MuiPaper-root]:bg-none ${
           !elevateTrigger &&
-          "[&.MuiPaper-root]:bg-transparent [&.MuiPaper-root]:shadow-none !fixed backdrop-blur-none"
+          "[&.MuiPaper-root]:bg-transparent !fixed backdrop-blur-none"
         }`}
       >
         <Toolbar className="justify-between h-16">

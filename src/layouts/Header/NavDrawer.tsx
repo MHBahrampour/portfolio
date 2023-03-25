@@ -46,7 +46,7 @@ export default function NavDrawer({ navItems }: NavDrawerProps) {
         ModalProps={{
           keepMounted: true, // Better open performance on mobile.
         }}
-        className="sm:hidden [&_.MuiDrawer-paper]:min-w-[240px] [&_.MuiDrawer-paper]:w-4/6 [&_.MuiDrawer-paper]:bg-none [&_.MuiDrawer-paper]:backdrop-blur-xl [&_.MuiDrawer-paper]:bg-cCommon-white/70 dark:[&_.MuiDrawer-paper]:bg-cCommon-black/70  [&_.MuiDrawer-paper]:py-4"
+        className="sm:hidden [&_.MuiDrawer-paper]:min-w-[240px] [&_.MuiDrawer-paper]:w-4/6 [&_.MuiDrawer-paper]:bg-none [&_.MuiDrawer-paper]:backdrop-blur-xl [&_.MuiDrawer-paper]:bg-cCommon-white/80 dark:[&_.MuiDrawer-paper]:bg-cCommon-black/70  [&_.MuiDrawer-paper]:py-4"
       >
         <div onClick={handleDrawerToggle}>
           {/* Header */}
