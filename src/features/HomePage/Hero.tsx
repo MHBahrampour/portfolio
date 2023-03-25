@@ -8,7 +8,7 @@ export default function Hero() {
 
   return (
     <section
-      className={`dpx min-h-[calc(100vh-64px)] flex flex-col justify-center gap-16 relative bg-[url('/images/heroBg.svg')] bg-cover bg-center ${
+      className={`dpx min-h-[calc(100vh-64px)] flex flex-col justify-center gap-16 relative bg-[url('/images/heroBg.png')] bg-cover bg-center ${
         !elevateTrigger && "!min-h-[calc(100vh)] pt-16"
       }`}
     >
