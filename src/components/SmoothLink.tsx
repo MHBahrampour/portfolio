@@ -6,16 +6,16 @@ interface SmoothLinkProps {
   link?: string;
   action?: () => void;
   scrollToTop?: boolean;
+  className?: string;
   children: ReactNode;
-  className: string;
 }
 
 export default function SmoothLink({
   link,
   action,
   scrollToTop,
-  children,
   className,
+  children,
 }: SmoothLinkProps) {
   const handleClick = () => {
     action && action();
