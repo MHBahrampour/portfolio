@@ -61,9 +61,9 @@ export default function Side() {
             </IconButton>
           </Link>
         ))}
-
-        <BackToTop />
       </div>
+
+      <BackToTop />
     </>
   );
 }
