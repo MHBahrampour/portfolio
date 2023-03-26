@@ -28,9 +28,9 @@ export default function Footer() {
   }, []);
 
   return (
-    <footer className="dpx h-48 mt-20 bg-[url('/images/footerBgLight.svg')] dark:bg-[url('/images/footerBgDark.svg')] bg-cover grid place-items-center">
+    <footer className="mt-20 grid h-48 place-items-center bg-[url('/images/footerBgLight.svg')] bg-cover dark:bg-[url('/images/footerBgDark.svg')]">
       <Link href="https://github.com/MHBahrampour/portfolio" target="_blank">
-        <div className="group grid gap-4 place-items-center p-4 mt-4 hover:scale-110 transition-all backdrop-blur-[2px] dark:backdrop-blur-[1px]">
+        <div className="group mt-4 grid place-items-center gap-4 p-4 backdrop-blur-[2px] transition-all hover:scale-110 dark:backdrop-blur-[1px]">
           <Typography variant="body2" className="text-center">
             Built and Designed by
             <span className="block">Mohammad H. Bahrmapour</span>
@@ -38,12 +38,12 @@ export default function Footer() {
 
           <Typography
             variant="body2"
-            className="text-center flex gap-3 font-jbm"
+            className="font-jbm flex gap-3 text-center"
           >
-            <span className="flex items-center gap-1 dark:text-amber-400 text-amber-600">
+            <span className="flex items-center gap-1 text-amber-600 dark:text-amber-400">
               <BiStar /> {githubInfo.stars}
             </span>
-            <span className="flex items-center gap-1 dark:text-teal-400 text-teal-600">
+            <span className="flex items-center gap-1 text-teal-600 dark:text-teal-400">
               <BiGitRepoForked /> {githubInfo.forks}
             </span>
             <span className="flex items-center gap-1 text-rose-600 dark:text-rose-400">

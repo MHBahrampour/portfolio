@@ -28,9 +28,9 @@ export default function DrawerAppBar() {
     <Slide appear={false} direction="down" in={!hideTrigger}>
       <AppBar
         component="nav"
-        className={`sticky dark:bg-cCommon-black/80 bg-cCommon-white/70 text-cCommon-black dark:text-cCommon-white backdrop-blur-lg shadow-none [&.MuiPaper-root]:bg-none`}
+        className={`sticky bg-cCommon-white/70 bg-none text-cCommon-black shadow-none backdrop-blur-lg dark:bg-cCommon-black/80 dark:text-cCommon-white`}
       >
-        <Toolbar className="justify-between h-16">
+        <Toolbar className="h-16 justify-between sm:px-12">
           {/* Navigation button and drawer */}
           <NavDrawer navItems={navItems} />
 
@@ -38,7 +38,7 @@ export default function DrawerAppBar() {
           <Logo />
 
           {/* Navigation items */}
-          <div className="hidden sm:flex gap-4">
+          <div className="hidden gap-4 sm:flex">
             {navItems.map((item) => (
               <SmoothLink key={item.name} link={item.link}>
                 <Button className="[&.MuiButtonBase-root]:text-inherit">

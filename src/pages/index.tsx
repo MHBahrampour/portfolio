@@ -12,7 +12,7 @@ export default function index() {
         <title>MHB Portfolio</title>
       </Head>
 
-      <main className="grid gap-20">
+      <main className="grid w-full gap-20">
         <Hero />
         <About />
         <Jobs />

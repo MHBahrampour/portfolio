@@ -22,7 +22,7 @@ export default function Jobs() {
         Jobs
       </Typography>
 
-      <div className="w-dpx max-w-4xl">
+      <div className="w-full max-w-4xl">
         <Tabs
           value={value}
           onChange={handleChange}
@@ -31,7 +31,7 @@ export default function Jobs() {
           variant="scrollable"
           scrollButtons="auto"
           aria-label="jobs tabs"
-          className="[&_.MuiTab-root]:normal-case [&_.MuiTab-root]:font-semibold [&_.MuiTab-root]:text-base"
+          className="[&_.MuiTab-root]:text-base [&_.MuiTab-root]:font-semibold [&_.MuiTab-root]:normal-case"
         >
           <Tab label="Innovation Berlin" {...tabProps(0)} />
           <Tab label="Your Company ?!" {...tabProps(1)} />
@@ -46,7 +46,7 @@ export default function Jobs() {
             </Typography>
           </div>
 
-          <ul className="p-0 list-inside grid gap-2">
+          <ul className="grid list-inside gap-2 p-0">
             <li>Write modern and maintainable code for company projects.</li>
             <li>
               Worked with technologies such as React, TypeScript, Next.js and

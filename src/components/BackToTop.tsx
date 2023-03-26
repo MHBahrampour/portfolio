@@ -13,9 +13,8 @@ export default function BackToTop() {
   return (
     <SmoothLink scrollToTop>
       <IconButton
-        edge="end"
-        className={`grid place-items-center fixed right-4 md:right-6 rounded-full backdrop-blur-[2px] transition-all text-current ${
-          showTrigger ? "bottom-2 md:bottom-4" : "-bottom-10"
+        className={`text-color-animation fixed right-2 z-10 grid place-items-center rounded-full backdrop-blur-md transition-all hover:scale-110 sm:right-[60px] sm:translate-x-1/2 sm:!bg-cCommon-white dark:sm:!bg-cCommon-black ${
+          showTrigger ? "bottom-2 sm:bottom-8" : "-bottom-10"
         }`}
       >
         <TbSquareRoundedChevronLeftFilled className="rotate-90 text-2xl" />
