@@ -21,14 +21,21 @@
   .gradient-bg-animation {
     background: linear-gradient(
       320deg,
-      #284b63,
-      #00afb9,
-      #c7b272,
-      #bb263a,
+      #ff5c58,
+      #00a19d,
+      #ffbd9b,
+      #da66a4,
       #782de4
     );
     background-size: 1000% 1000%;
     animation: gradient-bg-keyframe 10s ease infinite;
+  }
+  .text-color-animation {
+    animation-duration: 10s;
+    animation-timing-function: ease;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-name: text-color-keyframe;
   }
 }
 
@@ -88,5 +95,23 @@
   }
   100% {
     background-position: 26% 0%;
+  }
+}
+
+@keyframes text-color-keyframe {
+  0% {
+    color: #ff5c58;
+  }
+  25% {
+    color: #00a19d;
+  }
+  50% {
+    color: #ffbd9b;
+  }
+  75% {
+    color: #da66a4;
+  }
+  100% {
+    color: #782de4;
   }
 }

@@ -8,7 +8,7 @@ export default function Logo() {
       <Typography
         variant="h6"
         component="div"
-        className="text-cCommon-white px-2 rounded-lg leading-snug gradient-bg-animation "
+        className="gradient-bg-animation rounded-lg px-2 leading-snug text-cCommon-white"
       >
         MHB
       </Typography>

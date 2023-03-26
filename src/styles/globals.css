@@ -26,7 +26,7 @@ p {
 
 @layer components {
   .dpx {
-    @apply px-4 sm:px-12 md:px-24 lg:px-40;
+    @apply px-4 sm:px-12 sm:pr-24 md:px-24 lg:px-40;
   }
   .dpy {
     @apply py-4 sm:py-12 md:py-24 lg:py-40;
@@ -40,13 +40,13 @@ p {
   .link {
     @apply text-blue-500 hover:font-medium hover:underline hover:underline-offset-4 dark:text-cyan-400;
   }
-  .w-dpx {
-    @apply w-[calc(100vw-2*16px-20px)] sm:w-[calc(100vw-2*48px-20px)] md:w-[calc(100vw-2*96px-20px)] lg:w-[calc(100vw-2*160px-20px)];
-  }
 }
 
 @layer utilities {
   .font-jbm {
     font-family: "JetBrains Mono", monospace;
+  }
+  .writing-vertical-rl {
+    writing-mode: vertical-rl;
   }
 }
