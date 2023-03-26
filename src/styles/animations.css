@@ -37,6 +37,9 @@
     animation-direction: alternate;
     animation-name: text-color-keyframe;
   }
+  .link {
+    @apply hover:text-color-animation hover:animation-duration-2;
+  }
 }
 
 @layer utilities {
@@ -63,6 +66,9 @@
   }
   .animation-delay-1000 {
     animation-delay: 1000ms;
+  }
+  .animation-duration-2 {
+    animation-duration: 2s;
   }
 }
 
