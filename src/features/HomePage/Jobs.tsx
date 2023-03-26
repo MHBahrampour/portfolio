@@ -2,6 +2,7 @@ import { useState } from "react";
 
 import Link from "next/link";
 
+import SmoothLink from "@/components/SmoothLink";
 import moment from "moment";
 
 import { Tab, Tabs, Typography } from "@mui/material";
@@ -61,9 +62,9 @@ export default function Jobs() {
           <Typography variant="body1">
             I’m currently looking for better positions, if you are interested in
             hiring me, please{" "}
-            <Link href={`#get-in-touch`} scroll={false} className="link">
+            <SmoothLink link="get-in-touch" className="link">
               contact me
-            </Link>
+            </SmoothLink>
             .
           </Typography>
         </TabPanel>

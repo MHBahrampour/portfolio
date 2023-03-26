@@ -7,12 +7,15 @@ interface SmoothLinkProps {
   action?: () => void;
   scrollToTop?: boolean;
   children: ReactNode;
+  className: string;
 }
+
 export default function SmoothLink({
   link,
   action,
   scrollToTop,
   children,
+  className,
 }: SmoothLinkProps) {
   const handleClick = () => {
     action && action();
@@ -28,7 +31,7 @@ export default function SmoothLink({
       offset={-72}
       duration={500}
       onClick={handleClick}
-      className="cursor-pointer"
+      className={`cursor-pointer ${className}`}
     >
       {children}
     </Link>
