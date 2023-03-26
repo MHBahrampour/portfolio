@@ -3,9 +3,9 @@ import { useEffect } from "react";
 import { type AppProps } from "next/app";
 import { useRouter } from "next/router";
 
-import BackToTop from "@/components/BackToTop";
 import Footer from "@/layouts/Footer/Footer";
 import Header from "@/layouts/Header/Header";
+import Side from "@/layouts/Side/Side";
 import ThemeWrapper from "@/themes/ThemeWrapper/ThemeWrapper";
 import { CacheProvider, type EmotionCache } from "@emotion/react";
 
@@ -46,7 +46,7 @@ export default function App({
         <Header />
         <Component {...pageProps} />
         <Footer />
-        <BackToTop />
+        <Side />
       </ThemeWrapper>
     </CacheProvider>
   );
