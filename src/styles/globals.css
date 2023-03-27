@@ -24,6 +24,11 @@ p {
   max-width: 66ch;
 }
 
+li {
+  list-style-type: "✅ ";
+  padding-inline-start: 1ch;
+}
+
 @layer components {
   .dpx {
     @apply px-4 sm:px-12 sm:pr-[120px] md:px-24 lg:px-40;
