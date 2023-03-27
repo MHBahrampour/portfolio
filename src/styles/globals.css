@@ -12,7 +12,7 @@
 
 body {
   font-family: "Poppins", sans-serif !important;
-  @apply bg-cCommon-white dark:bg-cCommon-black;
+  @apply bg-common-white dark:bg-common-black;
 }
 
 a {

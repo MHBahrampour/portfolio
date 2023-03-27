@@ -49,7 +49,7 @@ export default function NavDrawer({ navItems }: NavDrawerProps) {
         ModalProps={{
           keepMounted: true, // Better open performance on mobile.
         }}
-        className="sm:hidden [&_.MuiDrawer-paper]:grid [&_.MuiDrawer-paper]:h-full [&_.MuiDrawer-paper]:w-4/6 [&_.MuiDrawer-paper]:min-w-[240px] [&_.MuiDrawer-paper]:grid-cols-1 [&_.MuiDrawer-paper]:grid-rows-[auto_1fr_auto] [&_.MuiDrawer-paper]:bg-white/70 [&_.MuiDrawer-paper]:bg-none [&_.MuiDrawer-paper]:py-6 [&_.MuiDrawer-paper]:backdrop-blur-lg dark:[&_.MuiDrawer-paper]:bg-cCommon-black/80"
+        className="sm:hidden [&_.MuiDrawer-paper]:grid [&_.MuiDrawer-paper]:h-full [&_.MuiDrawer-paper]:w-4/6 [&_.MuiDrawer-paper]:min-w-[240px] [&_.MuiDrawer-paper]:grid-cols-1 [&_.MuiDrawer-paper]:grid-rows-[auto_1fr_auto] [&_.MuiDrawer-paper]:bg-white/70 [&_.MuiDrawer-paper]:bg-none [&_.MuiDrawer-paper]:py-6 [&_.MuiDrawer-paper]:backdrop-blur-lg dark:[&_.MuiDrawer-paper]:bg-common-black/80"
       >
         {/* Header */}
         <div className="flex items-center justify-between px-6">

@@ -54,7 +54,7 @@ export default function GetInTouch() {
           And if you want to see me in a less formal way:
         </Typography>
 
-        <div className="flex items-center gap-4 text-cCommon-black dark:text-cCommon-white [&_button]:text-current">
+        <div className="flex items-center gap-4 text-common-black dark:text-common-white [&_button]:text-current">
           <Link href="https://t.me/mhbahrampour" target="_blank">
             <IconButton edge="start" size="large">
               <FaTelegram />
