@@ -1,4 +1,5 @@
 import { type ThemeOptions } from "@mui/material";
+import { light } from "@mui/material/styles/createPalette";
 
 export const lightTheme: ThemeOptions = {
   palette: {
@@ -12,6 +13,12 @@ export const lightTheme: ThemeOptions = {
       light: "#3f4856",
       dark: "#0a121e",
       contrastText: "#f2f2f2",
+    },
+    secondary: {
+      main: "#008B88",
+      light: "#33a29f",
+      dark: "#00615f",
+      contrastText: "f2f2f2",
     },
   },
   shape: {

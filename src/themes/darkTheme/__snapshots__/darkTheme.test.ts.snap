@@ -14,6 +14,12 @@ exports[`checks darkTheme's snapshot 1`] = `
       "light": "#f4f4f4",
       "main": "#f2f2f2",
     },
+    "secondary": {
+      "contrastText": "f2f2f2",
+      "dark": "#00706d",
+      "light": "#33b3b0",
+      "main": "#00a19d",
+    },
   },
   "shape": {
     "borderRadius": 8,
