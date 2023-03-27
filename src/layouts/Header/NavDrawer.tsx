@@ -90,14 +90,14 @@ export default function NavDrawer({ navItems }: NavDrawerProps) {
 
         {/* Footer */}
         <div className="mx-6">
-          <Link href="/resume">
+          <Link href="/bahrampour-resume.pdf">
             <Button
               disableElevation
               variant="outlined"
               size="large"
               className="w-full normal-case"
             >
-              See My Resume
+              Get My Resume
             </Button>
           </Link>
         </div>

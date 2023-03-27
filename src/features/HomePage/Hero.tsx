@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+// import Resume from "@/documents/MHBahrampour.pdf";
 import { Button, Typography } from "@mui/material";
 
 export default function Hero() {
@@ -44,14 +45,14 @@ export default function Hero() {
         accessible, human-centered products at Innovation Berlin.
       </Typography>
 
-      <Link href="/resume">
+      <Link href="/bahrampour-resume.pdf">
         <Button
           disableElevation
           variant="contained"
           size="large"
           className="t-to-b-animation animation-delay-1000 w-max normal-case"
         >
-          See My Resume
+          Get My Resume
         </Button>
       </Link>
     </section>
