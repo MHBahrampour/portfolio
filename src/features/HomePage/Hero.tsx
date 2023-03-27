@@ -45,12 +45,15 @@ export default function Hero() {
         accessible, human-centered products at Innovation Berlin.
       </Typography>
 
-      <Link href="/bahrampour-resume.pdf">
+      <Link
+        href="/bahrampour-resume.pdf"
+        className="t-to-b-animation animation-delay-1000 w-max"
+      >
         <Button
           disableElevation
           variant="contained"
           size="large"
-          className="t-to-b-animation animation-delay-1000 w-max normal-case"
+          className="normal-case"
         >
           Get My Resume
         </Button>
