@@ -24,9 +24,13 @@ p {
   max-width: 66ch;
 }
 
+ul {
+  display: grid;
+  gap: 8px;
+  padding-left: 24px;
+}
 li {
-  list-style-type: "✅ ";
-  padding-inline-start: 1ch;
+  list-style-image: url("/images/rightArrow.svg");
 }
 
 @layer components {

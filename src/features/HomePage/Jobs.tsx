@@ -46,7 +46,7 @@ export default function Jobs() {
             </Typography>
           </div>
 
-          <ul className="grid list-inside gap-2 p-0">
+          <ul>
             <li>Write modern and maintainable code for company projects.</li>
             <li>
               Worked with technologies such as React, TypeScript, Next.js and
