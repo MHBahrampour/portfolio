@@ -54,21 +54,21 @@ export default function GetInTouch() {
           And if you want to see me in a less formal way:
         </Typography>
 
-        <div className="flex gap-4 items-center text-cCommon-black dark:text-cCommon-white">
+        <div className="flex items-center gap-4 text-cCommon-black dark:text-cCommon-white [&_button]:text-current">
           <Link href="https://t.me/mhbahrampour" target="_blank">
-            <IconButton edge="start" size="large" className="text-[#28a8e9]">
+            <IconButton edge="start" size="large">
               <FaTelegram />
             </IconButton>
           </Link>
 
           <Link href="https://discordapp.com/users/Mamad#7034" target="_blank">
-            <IconButton size="large" className="text-[#5865f2]">
+            <IconButton size="large">
               <BsDiscord />
             </IconButton>
           </Link>
 
           <Link href="https://twitter.com/MHBahrampour" target="_blank">
-            <IconButton size="large" className="text-[#1d9bf0]">
+            <IconButton size="large">
               <FaTwitter />
             </IconButton>
           </Link>
