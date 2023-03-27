@@ -6,12 +6,14 @@ import { BiCodeCurly, BiGitRepoForked, BiStar } from "react-icons/bi";
 
 import { Typography } from "@mui/material";
 
+interface GithubInfo {
+  stars: string;
+  forks: number;
+  language: string;
+}
+
 export default function Footer() {
-  const [githubInfo, setGithubInfo] = useState({
-    stars: null,
-    forks: null,
-    language: null,
-  });
+  const [githubInfo, setGithubInfo] = useState<GithubInfo>();
 
   useEffect(() => {
     fetch("https://api.github.com/repos/MHBahrampour/portfolio")
@@ -36,20 +38,22 @@ export default function Footer() {
             <span className="block">Mohammad H. Bahrmapour</span>
           </Typography>
 
-          <Typography
-            variant="body2"
-            className="font-jbm flex gap-3 text-center"
-          >
-            <span className="flex items-center gap-1 text-amber-600 dark:text-amber-400">
-              <BiStar /> {githubInfo.stars}
-            </span>
-            <span className="flex items-center gap-1 text-teal-600 dark:text-teal-400">
-              <BiGitRepoForked /> {githubInfo.forks}
-            </span>
-            <span className="flex items-center gap-1 text-rose-600 dark:text-rose-400">
-              <BiCodeCurly /> {githubInfo.language}
-            </span>
-          </Typography>
+          {githubInfo && (
+            <Typography
+              variant="body2"
+              className="font-jbm flex gap-3 text-center"
+            >
+              <span className="flex items-center gap-1 text-amber-600 dark:text-amber-400">
+                <BiStar /> {githubInfo.stars}
+              </span>
+              <span className="flex items-center gap-1 text-teal-600 dark:text-teal-400">
+                <BiGitRepoForked /> {githubInfo.forks}
+              </span>
+              <span className="flex items-center gap-1 text-rose-600 dark:text-rose-400">
+                <BiCodeCurly /> {githubInfo.language}
+              </span>
+            </Typography>
+          )}
         </div>
       </Link>
     </footer>
