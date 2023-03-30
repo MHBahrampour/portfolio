@@ -37,6 +37,70 @@
     animation-direction: alternate;
     animation-name: text-color-keyframe;
   }
+  .gradient-border-lite {
+    background: linear-gradient(#f2f2f2, #f2f2f2) padding-box,
+      linear-gradient(
+          320deg,
+          rgba(255, 92, 88, 0.7),
+          transparent,
+          rgba(0, 161, 157, 0.7),
+          transparent,
+          rgba(120, 45, 228, 0.7)
+        )
+        border-box;
+    background-size: 800% 800%;
+    animation: gradient-bg-keyframe 20s ease infinite;
+  }
+  .gradient-border-lite:hover {
+    background: linear-gradient(
+          rgba(242, 242, 242, 0.9),
+          rgba(242, 242, 242, 0.9)
+        )
+        padding-box,
+      linear-gradient(
+          320deg,
+          rgba(255, 92, 88, 1),
+          transparent,
+          rgba(0, 161, 157, 1),
+          transparent,
+          rgba(120, 45, 228, 1)
+        )
+        border-box;
+    background-size: 800% 800%;
+    animation: gradient-bg-keyframe 20s ease infinite;
+  }
+  .gradient-border-dark {
+    background: linear-gradient(#0f1b2c, #0f1b2c) padding-box,
+      linear-gradient(
+          320deg,
+          rgba(255, 92, 88, 0.6),
+          transparent,
+          rgba(0, 161, 157, 0.6),
+          transparent,
+          rgba(120, 45, 228, 0.6)
+        )
+        border-box;
+    background-size: 800% 800%;
+    animation: gradient-bg-keyframe 20s ease infinite;
+  }
+  .gradient-border-dark:hover {
+    background: linear-gradient(rgba(15, 27, 44, 0.8), rgba(15, 27, 44, 0.8))
+        padding-box,
+      linear-gradient(
+          320deg,
+          rgba(255, 92, 88, 0.6),
+          transparent,
+          rgba(0, 161, 157, 0.6),
+          transparent,
+          rgba(120, 45, 228, 0.6)
+        )
+        border-box;
+    background-size: 800% 800%;
+    animation: gradient-bg-keyframe 20s ease infinite;
+  }
+  .gradient-border {
+    @apply gradient-border-lite dark:gradient-border-dark border-[4px] border-solid border-transparent;
+  }
   .link {
     @apply hover:text-color-animation hover:animation-duration-2;
   }
