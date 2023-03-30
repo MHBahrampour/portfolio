@@ -9,6 +9,7 @@ import NavDrawer from "./NavDrawer";
 const navItems = [
   { name: "about", link: "about" },
   { name: "jobs", link: "jobs" },
+  { name: "works", link: "works" },
   { name: "get in touch", link: "get-in-touch" },
 ];
 
