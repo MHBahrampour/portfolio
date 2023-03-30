@@ -15,7 +15,7 @@ exports[`checks lightTheme's snapshot 1`] = `
       "main": "#0f1b2c",
     },
     "secondary": {
-      "contrastText": "f2f2f2",
+      "contrastText": "#f2f2f2",
       "dark": "#00615f",
       "light": "#33a29f",
       "main": "#008B88",
