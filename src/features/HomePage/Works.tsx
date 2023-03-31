@@ -85,7 +85,7 @@ export default function Works() {
             return (
               <div
                 key={work.title}
-                className="gradient-border group relative grid cursor-default grid-rows-[min-content_1fr_min-content] gap-8 rounded-xl p-4 transition-all duration-300 sm:p-6 hover:sm:scale-105"
+                className="gradient-border group relative grid cursor-default grid-rows-[min-content_1fr_min-content] gap-8 rounded-xl p-6 transition-all duration-300 hover:sm:scale-105"
               >
                 {/* Header: Company logo and Links */}
                 <div className="flex items-center justify-between gap-2 text-2xl text-common-black dark:text-common-white [&_button]:text-inherit">
