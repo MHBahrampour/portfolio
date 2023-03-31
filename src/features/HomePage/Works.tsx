@@ -126,15 +126,17 @@ export default function Works() {
                 {/* We can't use one div with absolute positioning since the card height possibly shrinks. Hence we use 2 implementation */}
 
                 {/* Only show 3 items */}
-                <div className={`flex flex-wrap gap-2`}>
-                  {work.technologies.slice(0, 3).map((tech) => (
-                    <Chip
-                      key={tech}
-                      label={tech}
-                      size="small"
-                      className="font-jbm text-xs"
-                    />
-                  ))}
+                <div className={`grid grid-cols-[1fr_min-content] gap-2`}>
+                  <div className="flex flex-wrap gap-2">
+                    {work.technologies.slice(0, 3).map((tech) => (
+                      <Chip
+                        key={tech}
+                        label={tech}
+                        size="small"
+                        className="font-jbm text-xs"
+                      />
+                    ))}
+                  </div>
 
                   {work.technologies.length > 3 && (
                     <AiFillPlusCircle
@@ -146,22 +148,24 @@ export default function Works() {
 
                 {/* Show all items */}
                 <div
-                  className={`absolute bottom-4 left-4 right-4 -z-10 flex flex-wrap gap-2 opacity-0 transition-all duration-300 ${
+                  className={`absolute bottom-4 left-4 right-4 -z-10 grid grid-cols-[1fr_min-content] gap-2 p-2 opacity-0 transition-all duration-500 ${
                     moreTechs === work.title &&
-                    "!z-10 rounded-2xl p-2 !opacity-100 backdrop-blur-3xl"
+                    "!z-10 rounded-2xl !opacity-100 backdrop-blur-3xl"
                   }`}
                 >
-                  {work.technologies.map((tech) => (
-                    <Chip
-                      key={tech}
-                      label={tech}
-                      size="small"
-                      className="font-jbm text-xs"
-                    />
-                  ))}
+                  <div className="flex flex-wrap gap-2">
+                    {work.technologies.map((tech) => (
+                      <Chip
+                        key={tech}
+                        label={tech}
+                        size="small"
+                        className="font-jbm text-xs"
+                      />
+                    ))}
+                  </div>
 
                   <AiFillMinusCircle
-                    className="hover:text-color-animation cursor-pointer text-2xl"
+                    className="hover:text-color-animation cursor-pointer self-end text-2xl"
                     onClick={() => setMoreTechs(null)}
                   />
                 </div>
