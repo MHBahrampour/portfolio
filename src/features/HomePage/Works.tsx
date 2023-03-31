@@ -148,9 +148,9 @@ export default function Works() {
 
                 {/* Show all items */}
                 <div
-                  className={`absolute bottom-4 left-4 right-4 -z-10 grid grid-cols-[1fr_min-content] gap-2 p-2 opacity-0 transition-all duration-500 ${
+                  className={`absolute bottom-3 left-3 right-3 -z-10 grid grid-cols-[1fr_min-content] gap-2 p-3 opacity-0 transition-all duration-500 ${
                     moreTechs === work.title &&
-                    "!z-10 rounded-2xl !opacity-100 backdrop-blur-3xl"
+                    "!z-10 rounded-2xl bg-common-white/50 !opacity-100 backdrop-blur-3xl dark:bg-common-black/30"
                   }`}
                 >
                   <div className="flex flex-wrap gap-2">
