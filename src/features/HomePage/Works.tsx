@@ -46,7 +46,7 @@ const works: Works[] = [
   {
     title: "Mu Website",
     description:
-      "Mu Protocol is a distributed, decentralized cloud provider marketplace. mu allows infrastructure providers to offer their servers for sale in a standardized and secure way. Apps designed for mu can work with any mu-enabled provider, which removes the vendor lock from most of today's cloud providers.",
+      "Mu Protocol is a distributed, decentralized cloud provider marketplace. mu allows infrastructure providers to offer their servers for sale in a standardized and secure way.",
     company: "030labs",
     companyLogo: "/images/works/030labs.png",
     siteLink: "https://mu-demopage.netlify.app/",
@@ -83,19 +83,10 @@ export default function Works() {
             };
 
             return (
-              <ButtonBase
+              <div
                 key={work.title}
-                component="div"
-                className="gradient-border group relative grid grid-rows-[min-content_1fr_min-content] gap-8 rounded-xl p-4 transition-all hover:cursor-pointer sm:p-6 hover:sm:scale-105"
+                className="gradient-border group relative grid cursor-default grid-rows-[min-content_1fr_min-content] gap-8 rounded-xl p-4 transition-all duration-300 sm:p-6 hover:sm:scale-105"
               >
-                {/* Card link */}
-                {/* Since "<a> cannot appear as a descendant of <a>", we can't wrap the card with a link */}
-                <Link
-                  href={work.siteLink}
-                  target="_blank"
-                  className="absolute top-0 left-0 right-0 bottom-0"
-                />
-
                 {/* Header: Company logo and Links */}
                 <div className="flex items-center justify-between gap-2 text-2xl text-common-black dark:text-common-white [&_button]:text-inherit">
                   <div className="flex flex-1 items-center gap-2">
@@ -132,7 +123,7 @@ export default function Works() {
                 </div>
 
                 {/* Footer: Used technologies */}
-                {/* We can't use one div with absolute positioning since the card height possibly shrinks. Hence we use 2 implementation like below. */}
+                {/* We can't use one div with absolute positioning since the card height possibly shrinks. Hence we use 2 implementation */}
 
                 {/* Only show 3 items */}
                 <div className={`flex flex-wrap gap-2`}>
@@ -147,19 +138,17 @@ export default function Works() {
 
                   {work.technologies.length > 3 && (
                     <AiFillPlusCircle
-                      className={`z-10 text-2xl ${
-                        moreTechs === work.title && "!z-0"
-                      }`}
-                      onClick={() => handleMoreTechsClick(work.title)}
+                      className={`hover:text-color-animation cursor-pointer text-2xl`}
+                      onClick={() => setMoreTechs(work.title)}
                     />
                   )}
                 </div>
 
                 {/* Show all items */}
                 <div
-                  className={`absolute bottom-4 left-4 right-4 flex flex-wrap gap-2 opacity-0 transition-all duration-300 ${
+                  className={`absolute bottom-4 left-4 right-4 -z-10 flex flex-wrap gap-2 opacity-0 transition-all duration-300 ${
                     moreTechs === work.title &&
-                    "rounded-2xl p-2 !opacity-100 backdrop-blur-3xl"
+                    "!z-10 rounded-2xl p-2 !opacity-100 backdrop-blur-3xl"
                   }`}
                 >
                   {work.technologies.map((tech) => (
@@ -172,11 +161,11 @@ export default function Works() {
                   ))}
 
                   <AiFillMinusCircle
-                    className="z-10 text-2xl"
-                    onClick={() => handleMoreTechsClick(work.title)}
+                    className="hover:text-color-animation cursor-pointer text-2xl"
+                    onClick={() => setMoreTechs(null)}
                   />
                 </div>
-              </ButtonBase>
+              </div>
             );
           })}
         </div>

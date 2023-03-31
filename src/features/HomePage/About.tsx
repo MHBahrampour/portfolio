@@ -87,7 +87,7 @@ export default function About() {
       <div className="grid gap-4">
         <div className="max-w-4xl">
           {/* Photo */}
-          <MyPhoto className="md:max-w-[300px] sm:max-w-[250px] max-w-[400px] mx-auto sm:float-right" />
+          <MyPhoto className="mx-auto max-w-[400px] sm:float-right sm:max-w-[250px] md:max-w-[300px]" />
 
           <Typography variant="body1" className="mb-4">
             Hello! My name is Mohammad H. Bahrampour. Don’t worry you can call
@@ -115,7 +115,7 @@ export default function About() {
             Here are some technologies that I use often:
           </Typography>
 
-          <div className="grid gap-3 md:gap-4 grid-cols-2 md:grid-cols-3 max-w-4xl">
+          <div className="grid max-w-4xl grid-cols-2 gap-4 md:grid-cols-3 md:gap-6">
             {frequentTechsData.map((techItem) => {
               const monthsNumber = getMonthsFromNow(techItem.startDate);
               const projectsNumber = techItem.projectsUsed;
@@ -125,7 +125,7 @@ export default function About() {
                   component="div"
                   key={techItem.id}
                   onClick={() => handleFavTechsClick(techItem.id)}
-                  className={`group grid gap-1 p-3 sm:p-4 md:p-5 dark:bg-opacity-50 rounded-lg hover:scale-105 transition-all cursor-pointer justify-start grid-cols-1 ${techItem.bgColor}`}
+                  className={`group grid cursor-pointer grid-cols-1 justify-start gap-1 rounded-lg p-3 transition-all duration-300 hover:scale-105 dark:bg-opacity-50 sm:p-4 md:p-5 ${techItem.bgColor}`}
                 >
                   {/* show each fav techs or its details */}
                   {favTechDetail !== techItem.id ? (
@@ -139,27 +139,27 @@ export default function About() {
                           className="b-to-t-animation animation-delay-100"
                         />
 
-                        <HiCursorClick className="dark:text-white/40 text-black/40 dark:group-hover:text-white group-hover:text-black text-lg md:text-xl b-to-t-animation animation-delay-500" />
+                        <HiCursorClick className="b-to-t-animation animation-delay-500 text-lg text-black/40 group-hover:text-black dark:text-white/40 dark:group-hover:text-white md:text-xl" />
                       </div>
 
-                      <Typography className="text-lg md:text-xl font-semibold b-to-t-animation animation-delay-300">
+                      <Typography className="b-to-t-animation animation-delay-300 text-lg font-semibold md:text-xl">
                         {techItem.name}
                       </Typography>
                     </>
                   ) : (
-                    <div className="grid md:grid-cols-2 md:place-items-center h-full gap-3">
+                    <div className="grid h-full gap-3 md:grid-cols-2 md:place-items-center">
                       {[monthsNumber, projectsNumber].map((mpItem, index) => (
                         <Typography
                           key={index}
                           component="p"
-                          className={`font-semibold text-lg md:text-2xl t-to-b-animation ${
+                          className={`t-to-b-animation text-lg font-semibold md:text-2xl ${
                             index === 0
                               ? "animation-delay-100"
                               : "animation-delay-300"
                           }`}
                         >
                           +{mpItem} <br className="hidden md:block" />
-                          <span className="font-light text-base md:font-normal md:text-lg">
+                          <span className="text-base font-light md:text-lg md:font-normal">
                             {index === 0
                               ? `month${monthsNumber > 1 ? "s" : ""}`
                               : `project${
