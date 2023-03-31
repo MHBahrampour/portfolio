@@ -148,12 +148,14 @@ export default function Works() {
                     />
                   ))}
 
-                  <AiFillPlusCircle
-                    className={`z-10 text-2xl ${
-                      moreTechs === work.title && "z-0"
-                    }`}
-                    onClick={() => handleMoreTechsClick(work.title)}
-                  />
+                  {work.technologies.length > 3 && (
+                    <AiFillPlusCircle
+                      className={`z-10 text-2xl ${
+                        moreTechs === work.title && "!z-0"
+                      }`}
+                      onClick={() => handleMoreTechsClick(work.title)}
+                    />
+                  )}
                 </div>
 
                 {/* Show all items */}
