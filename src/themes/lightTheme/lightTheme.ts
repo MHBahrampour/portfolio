@@ -18,7 +18,7 @@ export const lightTheme: ThemeOptions = {
       main: "#008B88",
       light: "#33a29f",
       dark: "#00615f",
-      contrastText: "f2f2f2",
+      contrastText: "#f2f2f2",
     },
   },
   shape: {
