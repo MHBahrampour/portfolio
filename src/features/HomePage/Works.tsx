@@ -140,7 +140,7 @@ export default function Works() {
 
                   {work.technologies.length > 3 && (
                     <AiFillPlusCircle
-                      className={`hover:text-color-animation cursor-pointer text-2xl`}
+                      className={`hover:text-color-animation cursor-pointer self-end text-2xl`}
                       onClick={() => setMoreTechs(work.title)}
                     />
                   )}
