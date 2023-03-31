@@ -17,7 +17,7 @@ export default function BackToTop() {
           showTrigger ? "bottom-4 sm:bottom-8" : "-bottom-10"
         }`}
       >
-        <TbSquareRoundedChevronLeftFilled className="rotate-90 text-2xl" />
+        <TbSquareRoundedChevronLeftFilled className="rotate-90 text-3xl" />
       </IconButton>
     </SmoothLink>
   );
