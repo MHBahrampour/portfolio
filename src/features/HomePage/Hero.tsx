@@ -45,8 +45,10 @@ export default function Hero() {
         accessible, human-centered products at Innovation Berlin.
       </Typography>
 
+      {/* Resume */}
       <Link
         href="/bahrampour-resume.pdf"
+        target="_blank"
         className="t-to-b-animation animation-delay-1000 w-max"
       >
         <Button
