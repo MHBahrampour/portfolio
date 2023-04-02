@@ -125,7 +125,7 @@ export default function About() {
                   component="div"
                   key={techItem.id}
                   onClick={() => handleFavTechsClick(techItem.id)}
-                  className={`group grid cursor-pointer grid-cols-1 justify-start gap-1 rounded-lg p-3 transition-all duration-300 hover:scale-105 dark:bg-opacity-50 sm:p-4 md:p-5 ${techItem.bgColor}`}
+                  className={`group grid cursor-pointer grid-cols-1 justify-start gap-1 rounded-lg p-3 transition-all duration-300 hover:scale-105 dark:bg-opacity-50 dark:text-common-white sm:p-4 md:p-5 ${techItem.bgColor}`}
                 >
                   {/* show each fav techs or its details */}
                   {favTechDetail !== techItem.id ? (
@@ -142,7 +142,7 @@ export default function About() {
                         <HiCursorClick className="b-to-t-animation animation-delay-500 text-lg text-black/40 group-hover:text-black dark:text-white/40 dark:group-hover:text-white md:text-xl" />
                       </div>
 
-                      <Typography className="b-to-t-animation animation-delay-300 text-lg font-semibold md:text-xl">
+                      <Typography className="b-to-t-animation animation-delay-300 text-lg font-semibold text-inherit md:text-xl">
                         {techItem.name}
                       </Typography>
                     </>
@@ -152,7 +152,7 @@ export default function About() {
                         <Typography
                           key={index}
                           component="p"
-                          className={`t-to-b-animation text-lg font-semibold md:text-2xl ${
+                          className={`t-to-b-animation text-lg font-semibold text-inherit md:text-2xl ${
                             index === 0
                               ? "animation-delay-100"
                               : "animation-delay-300"

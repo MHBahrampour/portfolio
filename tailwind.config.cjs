@@ -17,7 +17,7 @@ module.exports = {
           secondary: { main: "#008B88", light: "#33a29f", dark: "#00615f" },
         },
         dt: {
-          primary: { main: "f2f2f2", light: "#f4f4f4", dark: "#a9a9a9" },
+          primary: { main: "#e9eeff", light: "#edf1ff", dark: "#a3a6b2" },
           secondary: { main: "#00a19d", light: "#33b3b0", dark: "#00706d" },
         },
       },

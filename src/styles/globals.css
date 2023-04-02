@@ -20,6 +20,15 @@ a {
   text-decoration: none;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply dark:text-common-white;
+}
+
 p {
   max-width: 66ch;
 }
@@ -44,7 +53,7 @@ li {
     @apply normal-case shadow-none sm:!px-5 sm:!py-2 sm:text-base lg:!px-6 lg:!py-3 lg:text-lg;
   }
   .heading {
-    @apply text-2xl font-semibold before:font-light before:text-slate-400 before:content-["#_"] sm:text-3xl lg:text-4xl;
+    @apply text-2xl font-semibold before:font-light before:text-lt-secondary-main before:content-["#_"] dark:before:text-dt-secondary-main sm:text-3xl lg:text-4xl;
   }
   .link {
     @apply text-blue-500 hover:underline hover:underline-offset-4 dark:text-cyan-400;

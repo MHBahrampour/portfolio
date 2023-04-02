@@ -29,7 +29,7 @@ export default function Hero() {
         <Typography
           variant="h5"
           component="h2"
-          className="font-bold sm:text-4xl lg:text-5xl"
+          className="font-bold dark:text-dt-primary-dark sm:text-4xl lg:text-5xl"
         >
           I love building things for web.
         </Typography>

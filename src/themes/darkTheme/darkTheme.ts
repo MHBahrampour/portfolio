@@ -8,9 +8,9 @@ export const darkTheme: ThemeOptions = {
       white: "#f2f2f2",
     },
     primary: {
-      main: "#f2f2f2",
-      light: "#f4f4f4",
-      dark: "#a9a9a9",
+      main: "#e9eeff",
+      light: "#edf1ff",
+      dark: "#a3a6b2",
       contrastText: "#0f1b2c",
     },
     secondary: {
@@ -26,9 +26,11 @@ export const darkTheme: ThemeOptions = {
   typography: {
     allVariants: {
       fontFamily: "Poppins, sans-serif",
-      color: "#f2f2f2",
+      color: "#e9eeff",
     },
   },
 };
+
+// ccd6f6 a8b2d1
 
 // MUI Default Theme: https://mui.com/material-ui/customization/default-theme/
