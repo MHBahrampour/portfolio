@@ -1,8 +1,7 @@
 import { useState } from "react";
 
-import Link from "next/link";
-
 import SmoothLink from "@/components/SmoothLink";
+import { motion } from "framer-motion";
 import moment from "moment";
 
 import { Tab, Tabs, Typography } from "@mui/material";
@@ -17,7 +16,15 @@ export default function Jobs() {
   };
 
   return (
-    <section id="jobs" className="dpx grid gap-4">
+    <motion.section
+      id="jobs"
+      className="dpx grid gap-4"
+      initial={{ opacity: 0 }}
+      whileInView={{
+        opacity: 1,
+      }}
+      viewport={{ once: true, amount: 0.8 }}
+    >
       <Typography component="h2" className="heading">
         Jobs
       </Typography>
@@ -69,7 +76,7 @@ export default function Jobs() {
           </Typography>
         </TabPanel>
       </div>
-    </section>
+    </motion.section>
   );
 }
 

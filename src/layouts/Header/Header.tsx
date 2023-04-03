@@ -51,6 +51,7 @@ export default function Header() {
         </Toolbar>
       </AppBar>
 
+      {/* Page scroll progress */}
       <motion.div
         className="gradient-bg-animation fixed top-16 left-0 right-0 z-10 h-[2px] origin-top-left"
         style={{ scaleX }}
