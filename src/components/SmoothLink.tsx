@@ -28,7 +28,7 @@ export default function SmoothLink({
       to={link || ""}
       spy={true}
       smooth={true}
-      offset={-72}
+      offset={-80}
       duration={500}
       onClick={handleClick}
       className={`cursor-pointer ${className}`}
