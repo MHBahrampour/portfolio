@@ -10,9 +10,9 @@ exports[`checks lightTheme's snapshot 1`] = `
     "mode": "light",
     "primary": {
       "contrastText": "#f2f2f2",
-      "dark": "#0a121e",
-      "light": "#3f4856",
-      "main": "#0f1b2c",
+      "dark": "#171f2a",
+      "light": "#4e5763",
+      "main": "#222D3C",
     },
     "secondary": {
       "contrastText": "#f2f2f2",
@@ -26,7 +26,7 @@ exports[`checks lightTheme's snapshot 1`] = `
   },
   "typography": {
     "allVariants": {
-      "color": "#0f1b2c",
+      "color": "#222D3C",
       "fontFamily": "Poppins, sans-serif",
     },
   },

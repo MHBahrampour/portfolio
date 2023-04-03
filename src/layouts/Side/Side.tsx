@@ -47,7 +47,7 @@ export default function Side() {
         {contactWaysData.map((item) => (
           <Link key={item.name} href={item.link} target="_blank">
             <IconButton
-              className={`hover:animation-duration-2 hover:text-color-animation text-2xl text-common-black transition-all hover:scale-110 dark:text-dt-primary-main`}
+              className={`hover:animation-duration-2 hover:text-color-animation text-2xl text-lt-primary-main transition-all hover:scale-110 dark:text-dt-primary-main`}
             >
               {item.icon}
             </IconButton>

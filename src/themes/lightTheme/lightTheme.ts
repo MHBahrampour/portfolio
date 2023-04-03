@@ -9,9 +9,9 @@ export const lightTheme: ThemeOptions = {
       white: "#f2f2f2",
     },
     primary: {
-      main: "#0f1b2c",
-      light: "#3f4856",
-      dark: "#0a121e",
+      main: "#222D3C",
+      light: "#4e5763",
+      dark: "#171f2a",
       contrastText: "#f2f2f2",
     },
     secondary: {
@@ -27,7 +27,7 @@ export const lightTheme: ThemeOptions = {
   typography: {
     allVariants: {
       fontFamily: "Poppins, sans-serif",
-      color: "#0f1b2c",
+      color: "#222D3C",
     },
   },
 };

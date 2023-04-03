@@ -125,7 +125,7 @@ export default function About() {
                   component="div"
                   key={techItem.id}
                   onClick={() => handleFavTechsClick(techItem.id)}
-                  className={`group grid cursor-pointer grid-cols-1 justify-start gap-1 rounded-lg p-3 transition-all duration-300 hover:scale-105 dark:bg-opacity-50 dark:text-common-white sm:p-4 md:p-5 ${techItem.bgColor}`}
+                  className={`group grid cursor-pointer grid-cols-1 justify-start gap-1 rounded-lg p-3 text-common-black transition-all duration-300 hover:scale-105 dark:bg-opacity-50 dark:text-common-white sm:p-4 md:p-5 ${techItem.bgColor}`}
                 >
                   {/* show each fav techs or its details */}
                   {favTechDetail !== techItem.id ? (

@@ -17,7 +17,7 @@ export default function DrawerAppBar() {
   return (
     <AppBar
       component="nav"
-      className={`sticky bg-common-white/70 bg-none text-common-black shadow-none backdrop-blur-lg dark:bg-common-black/80 dark:text-dt-primary-main`}
+      className={`sticky bg-common-white/70 bg-none text-lt-primary-main shadow-none backdrop-blur-lg dark:bg-common-black/80 dark:text-dt-primary-main`}
     >
       <Toolbar className="h-16 justify-between sm:px-12">
         {/* Navigation button and drawer */}
