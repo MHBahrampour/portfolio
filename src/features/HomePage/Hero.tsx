@@ -55,6 +55,7 @@ export default function Hero() {
           disableElevation
           variant="contained"
           size="large"
+          color="secondary"
           className="normal-case"
         >
           Get My Resume

@@ -95,6 +95,7 @@ export default function NavDrawer({ navItems }: NavDrawerProps) {
               disableElevation
               variant="outlined"
               size="large"
+              color="secondary"
               className="w-full normal-case"
             >
               Get My Resume
