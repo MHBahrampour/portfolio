@@ -90,8 +90,8 @@ export default function About() {
           <MyPhoto className="mx-auto max-w-[400px] sm:float-right sm:max-w-[250px] md:max-w-[300px]" />
 
           <Typography variant="body1" className="mb-4">
-            Hello! My name is Mohammad H. Bahrampour. Don’t worry you can call
-            me Mamad!
+            Hello! My name is Mohammad Hossein Bahrampour. Don’t worry you can
+            call me Mamad!
           </Typography>
 
           <Typography variant="body1" className="mb-4">
