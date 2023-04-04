@@ -5,6 +5,8 @@ import { motion, useScroll, useSpring } from "framer-motion";
 
 import { AppBar, Button, Toolbar } from "@mui/material";
 
+import { itemsDirectionMotion } from "@/utils/motions";
+
 import NavDrawer from "./NavDrawer";
 
 const navItems = [
@@ -37,9 +39,13 @@ export default function Header() {
 
           {/* Navigation items */}
           <div className="hidden gap-4 sm:flex">
-            {navItems.map((item) => (
+            {navItems.map((item, index) => (
               <SmoothLink key={item.name} link={item.link}>
-                <Button className="[&.MuiButtonBase-root]:text-inherit">
+                <Button
+                  className="[&.MuiButtonBase-root]:text-inherit"
+                  component={motion.button}
+                  {...itemsDirectionMotion(index + 2, "TB")}
+                >
                   {item.name}
                 </Button>
               </SmoothLink>

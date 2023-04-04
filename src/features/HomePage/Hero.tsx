@@ -2,10 +2,9 @@ import Link from "next/link";
 
 import { motion } from "framer-motion";
 
-// import Resume from "@/documents/MHBahrampour.pdf";
 import { Button, Typography } from "@mui/material";
 
-import { mainSectionsMotion } from "@/utils/motions";
+import { itemsDirectionMotion, mainSectionsMotion } from "@/utils/motions";
 
 export default function Hero() {
   return (
@@ -14,7 +13,7 @@ export default function Hero() {
       {...mainSectionsMotion}
     >
       {/* Heading */}
-      <div className="t-to-b-animation animation-delay-100 grid gap-4">
+      <motion.div className="grid gap-4" {...itemsDirectionMotion(3, "BT")}>
         <Typography
           variant="h6"
           component="h3"
@@ -38,12 +37,14 @@ export default function Hero() {
         >
           I love building things for web.
         </Typography>
-      </div>
+      </motion.div>
 
       {/* Content */}
       <Typography
         variant="body1"
-        className="t-to-b-animation animation-delay-500 max-w-xl sm:text-lg lg:text-xl"
+        component={motion.p}
+        className="max-w-xl sm:text-lg lg:text-xl"
+        {...itemsDirectionMotion(4, "BT")}
       >
         I’m a front-end developer who enjoys working with good technologies and
         finds designing entertaining. Currently, I’m focused on building
@@ -51,17 +52,15 @@ export default function Hero() {
       </Typography>
 
       {/* Resume */}
-      <Link
-        href="/bahrampour-resume.pdf"
-        target="_blank"
-        className="t-to-b-animation animation-delay-1000 w-max"
-      >
+      <Link href="/bahrampour-resume.pdf" target="_blank" className="w-max">
         <Button
           disableElevation
           variant="contained"
           size="large"
           color="secondary"
           className="normal-case"
+          component={motion.button}
+          {...itemsDirectionMotion(5, "BT")}
         >
           Get My Resume
         </Button>
