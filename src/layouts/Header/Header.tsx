@@ -30,7 +30,7 @@ export default function Header() {
         component="nav"
         className={`sticky bg-common-white/70 bg-none text-lt-primary-main shadow-none backdrop-blur-lg dark:bg-common-black/80 dark:text-dt-primary-main`}
       >
-        <Toolbar className="h-16 justify-between sm:px-12">
+        <Toolbar className="h-16 justify-between px-6 sm:px-12">
           {/* Navigation button and drawer */}
           <NavDrawer navItems={navItems} />
 

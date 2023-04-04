@@ -2,7 +2,7 @@ import Link from "next/link";
 
 import { motion } from "framer-motion";
 
-import { Typography } from "@mui/material";
+import { Typography, useMediaQuery, useTheme } from "@mui/material";
 
 import { itemsDirectionMotion } from "@/utils/motions";
 

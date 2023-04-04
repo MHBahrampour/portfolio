@@ -14,12 +14,12 @@ export const itemsDirectionMotion = (
   const position = {
     start:
       direction === "TB"
-        ? { y: -20 }
+        ? { y: -16 }
         : direction === "BT"
-        ? { y: 20 }
+        ? { y: 16 }
         : direction === "LR"
-        ? { x: -20 }
-        : { x: 20 },
+        ? { x: -16 }
+        : { x: 16 },
     end: direction === "TB" || direction === "BT" ? { y: 0 } : { x: 0 },
   };
 
@@ -30,7 +30,9 @@ export const itemsDirectionMotion = (
       opacity: 1,
       ...position.end,
       transition: {
+        ease: "easeInOut",
         delay: index * 0.3,
+        duration: 0.5,
       },
     },
   };

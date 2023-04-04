@@ -9,7 +9,7 @@ import { itemsDirectionMotion, mainSectionsMotion } from "@/utils/motions";
 export default function Hero() {
   return (
     <motion.section
-      className={`dpx relative flex min-h-[calc(100dvh-64px)] flex-col justify-center gap-16 bg-[url('/images/heroBg.svg')] bg-cover bg-left`}
+      className={`dpx relative flex min-h-[calc(100dvh-66px)] flex-col justify-center gap-16 bg-[url('/images/heroBg.svg')] bg-cover bg-left`}
       {...mainSectionsMotion}
     >
       {/* Heading */}

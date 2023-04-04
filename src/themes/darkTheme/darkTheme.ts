@@ -31,6 +31,4 @@ export const darkTheme: ThemeOptions = {
   },
 };
 
-// ccd6f6 a8b2d1
-
 // MUI Default Theme: https://mui.com/material-ui/customization/default-theme/
