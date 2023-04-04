@@ -1,14 +1,21 @@
 import Link from "next/link";
 
+import { motion } from "framer-motion";
 import { BsDiscord } from "react-icons/bs";
 import { FaLinkedin, FaTelegram, FaTwitter } from "react-icons/fa";
 import { HiMailOpen } from "react-icons/hi";
 
 import { Button, IconButton, Typography } from "@mui/material";
 
+import { mainSectionsMotion } from "@/utils/motions";
+
 export default function GetInTouch() {
   return (
-    <section id="get-in-touch" className="dpx grid gap-4">
+    <motion.section
+      id="get-in-touch"
+      className="dpx grid gap-4"
+      {...mainSectionsMotion}
+    >
       <Typography component="h2" className="heading">
         Get In Touch
       </Typography>
@@ -87,6 +94,6 @@ export default function GetInTouch() {
         </Link>
         .
       </Typography>
-    </section>
+    </motion.section>
   );
 }

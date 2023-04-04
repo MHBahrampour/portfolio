@@ -2,6 +2,7 @@ import { useState } from "react";
 
 import Link from "next/link";
 
+import { motion } from "framer-motion";
 import { AiFillMinusCircle, AiFillPlusCircle } from "react-icons/ai";
 import { FaGithub } from "react-icons/fa";
 import { HiArrowUpOnSquareStack } from "react-icons/hi2";
@@ -13,6 +14,8 @@ import {
   IconButton,
   Typography,
 } from "@mui/material";
+
+import { mainSectionsMotion } from "@/utils/motions";
 
 interface Works {
   title: string;
@@ -67,7 +70,11 @@ export default function Works() {
   const [moreTechs, setMoreTechs] = useState<string | null>(null);
 
   return (
-    <section id="works" className="dpx grid gap-4">
+    <motion.section
+      id="works"
+      className="dpx grid gap-4"
+      {...mainSectionsMotion}
+    >
       <Typography component="h2" className="heading">
         Works
       </Typography>
@@ -177,6 +184,6 @@ export default function Works() {
           })}
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }

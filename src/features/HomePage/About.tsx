@@ -2,12 +2,14 @@ import { useState } from "react";
 
 import Image from "next/image";
 
+import { motion } from "framer-motion";
 import moment, { type Moment } from "moment";
 import { HiCursorClick } from "react-icons/hi";
 
 import { ButtonBase, Typography } from "@mui/material";
 
 import getMonthsFromNow from "@/utils/getMonthfromNow";
+import { mainSectionsMotion } from "@/utils/motions";
 
 import MyPhoto from "./MyPhoto";
 
@@ -79,7 +81,11 @@ export default function About() {
   };
 
   return (
-    <section id="about" className="dpx grid gap-4">
+    <motion.section
+      id="about"
+      className="dpx grid gap-4"
+      {...mainSectionsMotion}
+    >
       <Typography component="h2" className="heading">
         About
       </Typography>
@@ -176,6 +182,6 @@ export default function About() {
           </div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }

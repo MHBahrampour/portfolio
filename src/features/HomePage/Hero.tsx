@@ -1,12 +1,17 @@
 import Link from "next/link";
 
+import { motion } from "framer-motion";
+
 // import Resume from "@/documents/MHBahrampour.pdf";
 import { Button, Typography } from "@mui/material";
 
+import { mainSectionsMotion } from "@/utils/motions";
+
 export default function Hero() {
   return (
-    <section
+    <motion.section
       className={`dpx relative flex min-h-[calc(100dvh-64px)] flex-col justify-center gap-16 bg-[url('/images/heroBg.svg')] bg-cover bg-left`}
+      {...mainSectionsMotion}
     >
       {/* Heading */}
       <div className="t-to-b-animation animation-delay-100 grid gap-4">
@@ -61,6 +66,6 @@ export default function Hero() {
           Get My Resume
         </Button>
       </Link>
-    </section>
+    </motion.section>
   );
 }
