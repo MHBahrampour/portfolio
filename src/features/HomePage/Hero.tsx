@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 import { Button, Typography } from "@mui/material";
 
-import { itemsDirectionMotion, mainSectionsMotion } from "@/utils/motions";
+import { directionMotion, mainSectionsMotion } from "@/utils/motions";
 
 export default function Hero() {
   return (
@@ -13,7 +13,7 @@ export default function Hero() {
       {...mainSectionsMotion}
     >
       {/* Heading */}
-      <motion.div className="grid gap-4" {...itemsDirectionMotion(3, "BT")}>
+      <motion.div className="grid gap-4" {...directionMotion(3, "BT")}>
         <Typography
           variant="h6"
           component="h3"
@@ -44,7 +44,7 @@ export default function Hero() {
         variant="body1"
         component={motion.p}
         className="max-w-xl sm:text-lg lg:text-xl"
-        {...itemsDirectionMotion(4, "BT")}
+        {...directionMotion(5, "BT")}
       >
         I’m a front-end developer who enjoys working with good technologies and
         finds designing entertaining. Currently, I’m focused on building
@@ -60,7 +60,7 @@ export default function Hero() {
           color="secondary"
           className="normal-case"
           component={motion.button}
-          {...itemsDirectionMotion(5, "BT")}
+          {...directionMotion(7, "BT")}
         >
           Get My Resume
         </Button>

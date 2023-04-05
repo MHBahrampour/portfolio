@@ -5,7 +5,7 @@ import { RiMoonFoggyFill, RiSunFoggyFill } from "react-icons/ri";
 
 import { IconButton, useTheme } from "@mui/material";
 
-import { itemsDirectionMotion } from "@/utils/motions";
+import { directionMotion } from "@/utils/motions";
 
 import { ColorContext } from "../ColorContext";
 
@@ -23,7 +23,7 @@ export function SwitchThemeButton() {
       onClick={handleClick}
       className="left-2 text-inherit"
       component={motion.button}
-      {...itemsDirectionMotion(6, "RL")}
+      {...directionMotion(6, "RL")}
     >
       {theme.palette.mode === "dark" ? <RiSunFoggyFill /> : <RiMoonFoggyFill />}
     </IconButton>

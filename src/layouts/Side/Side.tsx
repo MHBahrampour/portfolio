@@ -8,7 +8,7 @@ import { HiMailOpen } from "react-icons/hi";
 
 import { IconButton } from "@mui/material";
 
-import { itemsDirectionMotion } from "@/utils/motions";
+import { directionMotion } from "@/utils/motions";
 
 const contactWaysData = [
   {
@@ -48,7 +48,7 @@ export default function Side() {
     <>
       <motion.div
         className="fixed bottom-0 hidden w-12 flex-col items-center rounded-full backdrop-blur-sm after:inline-block after:h-32 after:w-[3px] after:rounded-full after:bg-common-black after:content-[''] after:dark:bg-dt-primary-main sm:right-[36px] sm:flex sm:gap-2"
-        {...itemsDirectionMotion(7, "RL")}
+        {...directionMotion(7, "RL")}
       >
         {contactWaysData.map((item) => (
           <Link key={item.name} href={item.link} target="_blank">

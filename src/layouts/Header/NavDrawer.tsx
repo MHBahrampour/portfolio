@@ -18,7 +18,7 @@ import {
   ListItemText,
 } from "@mui/material";
 
-import { itemsDirectionMotion } from "@/utils/motions";
+import { directionMotion } from "@/utils/motions";
 
 interface NavDrawerProps {
   navItems: {
@@ -43,7 +43,7 @@ export default function NavDrawer({ navItems }: NavDrawerProps) {
         onClick={handleDrawerToggle}
         className="text-inherit sm:hidden"
         component={motion.button}
-        {...itemsDirectionMotion(6, "LR")}
+        {...directionMotion(6, "LR")}
       >
         <CgMenuLeft />
       </IconButton>

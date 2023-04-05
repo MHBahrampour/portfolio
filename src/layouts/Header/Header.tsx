@@ -5,7 +5,7 @@ import { motion, useScroll, useSpring } from "framer-motion";
 
 import { AppBar, Button, Toolbar } from "@mui/material";
 
-import { itemsDirectionMotion } from "@/utils/motions";
+import { directionMotion } from "@/utils/motions";
 
 import NavDrawer from "./NavDrawer";
 
@@ -44,7 +44,7 @@ export default function Header() {
                 <Button
                   className="[&.MuiButtonBase-root]:text-inherit"
                   component={motion.button}
-                  {...itemsDirectionMotion(index + 2, "TB")}
+                  {...directionMotion(index + 2, "TB")}
                 >
                   {item.name}
                 </Button>

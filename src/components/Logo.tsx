@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 import { Typography, useMediaQuery, useTheme } from "@mui/material";
 
-import { itemsDirectionMotion } from "@/utils/motions";
+import { directionMotion } from "@/utils/motions";
 
 export default function Logo() {
   return (
@@ -13,7 +13,7 @@ export default function Logo() {
         variant="h6"
         component={motion.div}
         className="gradient-bg-animation rounded-lg px-2 leading-snug text-common-white"
-        {...itemsDirectionMotion(1, "LR")}
+        {...directionMotion(1, "LR")}
       >
         MHB
       </Typography>

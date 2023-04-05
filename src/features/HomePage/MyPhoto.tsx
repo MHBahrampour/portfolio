@@ -1,10 +1,17 @@
+import { motion } from "framer-motion";
+
+import { directionMotion } from "@/utils/motions";
+
 interface MyPhotoProps {
   className: string;
 }
 
 export default function MyPhoto({ className }: MyPhotoProps) {
   return (
-    <div className={`bg-[url("/images/bbburst.png")] bg-cover ${className}`}>
+    <motion.div
+      className={`bg-[url("/images/bbburst.png")] bg-cover ${className}`}
+      {...directionMotion(5, "RL")}
+    >
       <svg
         version="1.1"
         xmlns="http://www.w3.org/2000/svg"
@@ -32,6 +39,6 @@ export default function MyPhoto({ className }: MyPhotoProps) {
           </path>
         </clipPath>
       </svg>
-    </div>
+    </motion.div>
   );
 }
