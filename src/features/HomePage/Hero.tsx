@@ -4,13 +4,12 @@ import { motion } from "framer-motion";
 
 import { Button, Typography } from "@mui/material";
 
-import { directionMotion, mainSectionsMotion } from "@/utils/motions";
+import { directionMotion } from "@/utils/motions";
 
 export default function Hero() {
   return (
-    <motion.section
+    <section
       className={`dpx relative flex min-h-[calc(100dvh-66px)] flex-col justify-center gap-16 bg-[url('/images/heroBg.svg')] bg-cover bg-left`}
-      {...mainSectionsMotion}
     >
       {/* Heading */}
       <motion.div className="grid gap-4" {...directionMotion(3, "BT")}>
@@ -65,6 +64,6 @@ export default function Hero() {
           Get My Resume
         </Button>
       </Link>
-    </motion.section>
+    </section>
   );
 }

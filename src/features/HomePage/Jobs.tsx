@@ -7,7 +7,6 @@ import moment from "moment";
 import { Tab, Tabs, Typography } from "@mui/material";
 
 import getMonthsFromNow from "@/utils/getMonthfromNow";
-import { mainSectionsMotion } from "@/utils/motions";
 
 export default function Jobs() {
   const [value, setValue] = useState(0);
@@ -17,11 +16,7 @@ export default function Jobs() {
   };
 
   return (
-    <motion.section
-      id="jobs"
-      className="dpx grid gap-4"
-      {...mainSectionsMotion}
-    >
+    <section id="jobs" className="dpx grid gap-4">
       <Typography component="h2" className="heading">
         Jobs
       </Typography>
@@ -73,7 +68,7 @@ export default function Jobs() {
           </Typography>
         </TabPanel>
       </div>
-    </motion.section>
+    </section>
   );
 }
 
