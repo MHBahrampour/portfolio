@@ -22,9 +22,8 @@ export default function Hero() {
         </Typography>
 
         <Typography
-          variant="h3"
           component="h1"
-          className="font-bold sm:text-6xl lg:text-7xl"
+          className="text-[40px] font-bold sm:text-6xl lg:text-7xl"
         >
           Mohammad Bahrampour.
         </Typography>
