@@ -87,30 +87,14 @@ export default function About() {
     setFavTechDetail((prevState) => (id === prevState ? null : id));
   };
 
-  const { container, containerProps, items, itemsProps } = getVariantsMotion(6);
-  // const container = {
-  //   hidden: { opacity: 0 },
-  //   visible: {
-  //     opacity: 1,
-  //     transition: {
-  //       delayChildren: 0.3,
-  //       staggerChildren: 0.2,
-  //     },
-  //   },
-  // };
-
-  // console.log(container);
-  // const items = {
-  //   hidden: { opacity: 0, x: -10 },
-  //   visible: { opacity: 1, x: 0 },
-  // };
+  const { container, items } = getVariantsMotion("BT", 6);
 
   return (
     <motion.section id="about" className="dpx grid gap-4">
       <Typography
         component={motion.h2}
         className="heading"
-        {...directionMotion(0, "TB")}
+        {...directionMotion("TB", 0)}
       >
         About
       </Typography>
@@ -125,7 +109,7 @@ export default function About() {
             variant="body1"
             className="mb-4"
             component={motion.p}
-            {...directionMotion(index + 1, "LR")}
+            {...directionMotion("LR", index + 1)}
           >
             {content}
           </Typography>

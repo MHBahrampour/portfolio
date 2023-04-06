@@ -44,7 +44,7 @@ export default function Header() {
                 <Button
                   className="[&.MuiButtonBase-root]:text-inherit"
                   component={motion.button}
-                  {...directionMotion(index + 2, "TB")}
+                  {...directionMotion("TB", index + 2)}
                 >
                   {item.name}
                 </Button>

@@ -12,7 +12,7 @@ export default function Hero() {
       className={`dpx relative flex min-h-[calc(100dvh-66px)] flex-col justify-center gap-16 bg-[url('/images/heroBg.svg')] bg-cover bg-left`}
     >
       {/* Heading */}
-      <motion.div className="grid gap-4" {...directionMotion(3, "BT")}>
+      <motion.div className="grid gap-4" {...directionMotion("BT", 3)}>
         <Typography
           variant="h6"
           component="h3"
@@ -42,7 +42,7 @@ export default function Hero() {
         variant="body1"
         component={motion.p}
         className="max-w-xl sm:text-lg lg:text-xl"
-        {...directionMotion(5, "BT")}
+        {...directionMotion("BT", 5)}
       >
         I’m a front-end developer who enjoys working with good technologies and
         finds designing entertaining. Currently, I’m focused on building
@@ -58,7 +58,7 @@ export default function Hero() {
           color="secondary"
           className="normal-case"
           component={motion.button}
-          {...directionMotion(7, "BT")}
+          {...directionMotion("BT", 7)}
         >
           Get My Resume
         </Button>

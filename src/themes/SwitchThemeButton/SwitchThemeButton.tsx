@@ -24,7 +24,7 @@ export function SwitchThemeButton() {
       onClick={handleClick}
       className="text-inherit"
       component={motion.button}
-      {...directionMotion(6, "RL")}
+      {...directionMotion("RL", 6)}
     >
       {theme.palette.mode === "dark" ? <RiSunFoggyFill /> : <RiMoonFoggyFill />}
     </IconButton>

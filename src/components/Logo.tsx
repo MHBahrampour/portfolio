@@ -13,7 +13,7 @@ export default function Logo() {
         variant="h6"
         component={motion.div}
         className="gradient-bg-animation rounded-lg px-2 leading-snug text-common-white"
-        {...directionMotion(1, "LR")}
+        {...directionMotion("LR", 1)}
       >
         MHB
       </Typography>

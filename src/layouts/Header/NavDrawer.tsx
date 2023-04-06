@@ -42,7 +42,7 @@ export default function NavDrawer({ navItems }: NavDrawerProps) {
         onClick={handleDrawerToggle}
         className="text-inherit sm:hidden"
         component={motion.button}
-        {...directionMotion(6, "LR")}
+        {...directionMotion("LR", 6)}
       >
         <CgMenuLeft />
       </IconButton>
