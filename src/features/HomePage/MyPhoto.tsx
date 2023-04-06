@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 
 import { directionMotion } from "@/utils/motions";
 
@@ -8,7 +8,7 @@ interface MyPhotoProps {
 
 export default function MyPhoto({ className }: MyPhotoProps) {
   return (
-    <motion.div
+    <m.div
       className={`bg-[url("/images/bbburst.png")] bg-cover ${className}`}
       {...directionMotion("RL", 1)}
     >
@@ -39,6 +39,6 @@ export default function MyPhoto({ className }: MyPhotoProps) {
           </path>
         </clipPath>
       </svg>
-    </motion.div>
+    </m.div>
   );
 }

@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import Image from "next/image";
 
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import moment, { type Moment } from "moment";
 import { HiCursorClick } from "react-icons/hi";
 
@@ -90,9 +90,9 @@ export default function About() {
   const { container, items } = getVariantsMotion("BT", 6);
 
   return (
-    <motion.section id="about" className="dpx grid gap-4">
+    <m.section id="about" className="dpx grid gap-4">
       <Typography
-        component={motion.h2}
+        component={m.h2}
         className="heading"
         {...directionMotion("TB", 0)}
       >
@@ -108,7 +108,7 @@ export default function About() {
             key={index}
             variant="body1"
             className="mb-4"
-            component={motion.p}
+            component={m.p}
             {...directionMotion("LR", index + 1)}
           >
             {content}
@@ -116,7 +116,7 @@ export default function About() {
         ))}
 
         {/* Favorite technologies */}
-        <motion.div
+        <m.div
           className="grid grid-cols-2 gap-4 md:grid-cols-3 md:gap-6"
           initial="hidden"
           whileInView="visible"
@@ -131,7 +131,7 @@ export default function About() {
                 key={techItem.id}
                 onClick={() => handleFavTechsClick(techItem.id)}
                 className={`group grid cursor-pointer grid-cols-1 justify-start gap-1 rounded-lg p-3 text-common-black transition-all duration-300 hover:scale-105 dark:bg-opacity-50 dark:text-common-white sm:p-4 md:p-5 ${techItem.bgColor}`}
-                component={motion.div}
+                component={m.div}
                 variants={items}
               >
                 {/* show each fav techs or its details */}
@@ -178,8 +178,8 @@ export default function About() {
               </ButtonBase>
             );
           })}
-        </motion.div>
+        </m.div>
       </div>
-    </motion.section>
+    </m.section>
   );
 }

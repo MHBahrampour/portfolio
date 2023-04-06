@@ -1,7 +1,7 @@
 import Logo from "@/components/Logo";
 import SmoothLink from "@/components/SmoothLink";
 import { SwitchThemeButton } from "@/themes/SwitchThemeButton/SwitchThemeButton";
-import { motion, useScroll, useSpring } from "framer-motion";
+import { m, useScroll, useSpring } from "framer-motion";
 
 import { AppBar, Button, Toolbar } from "@mui/material";
 
@@ -43,7 +43,7 @@ export default function Header() {
               <SmoothLink key={item.name} link={item.link}>
                 <Button
                   className="[&.MuiButtonBase-root]:text-inherit"
-                  component={motion.button}
+                  component={m.button}
                   {...directionMotion("TB", index + 2)}
                 >
                   {item.name}
@@ -58,7 +58,7 @@ export default function Header() {
       </AppBar>
 
       {/* Page scroll progress */}
-      <motion.div
+      <m.div
         className="gradient-bg-animation fixed top-16 left-0 right-0 z-10 h-[2px] origin-top-left"
         style={{ scaleX }}
       />

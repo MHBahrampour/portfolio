@@ -8,6 +8,7 @@ import Header from "@/layouts/Header/Header";
 import Side from "@/layouts/Side/Side";
 import ThemeWrapper from "@/themes/ThemeWrapper/ThemeWrapper";
 import { CacheProvider, type EmotionCache } from "@emotion/react";
+import { LazyMotion } from "framer-motion";
 
 import createEmotionCache from "@/utils/createEmotionCache";
 import { initGA, logPageView } from "@/utils/reactGA";
@@ -16,6 +17,11 @@ import "../styles/globals.css";
 
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache();
+
+// Lazy loading Framer Motion
+const loadMotionFeatures = () =>
+  import("@/utils/motionFeatures").then((res) => res.default);
+
 interface MyAppProps extends AppProps {
   emotionCache?: EmotionCache;
 }
@@ -43,10 +49,12 @@ export default function App({
   return (
     <CacheProvider value={emotionCache}>
       <ThemeWrapper>
-        <Header />
-        <Component {...pageProps} />
-        <Footer />
-        <Side />
+        <LazyMotion features={loadMotionFeatures}>
+          <Header />
+          <Component {...pageProps} />
+          <Footer />
+          <Side />
+        </LazyMotion>
       </ThemeWrapper>
     </CacheProvider>
   );

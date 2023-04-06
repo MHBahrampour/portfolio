@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 
 import { Button, Typography } from "@mui/material";
 
@@ -12,7 +12,7 @@ export default function Hero() {
       className={`dpx relative flex min-h-[calc(100dvh-66px)] flex-col justify-center gap-16 bg-[url('/images/heroBg.svg')] bg-cover bg-left`}
     >
       {/* Heading */}
-      <motion.div className="grid gap-4" {...directionMotion("BT", 3)}>
+      <m.div className="grid gap-4" {...directionMotion("BT", 3)}>
         <Typography
           variant="h6"
           component="h3"
@@ -35,12 +35,12 @@ export default function Hero() {
         >
           I love building things for web.
         </Typography>
-      </motion.div>
+      </m.div>
 
       {/* Content */}
       <Typography
         variant="body1"
-        component={motion.p}
+        component={m.p}
         className="max-w-xl sm:text-lg lg:text-xl"
         {...directionMotion("BT", 5)}
       >
@@ -57,7 +57,7 @@ export default function Hero() {
           size="large"
           color="secondary"
           className="normal-case"
-          component={motion.button}
+          component={m.button}
           {...directionMotion("BT", 7)}
         >
           Get My Resume

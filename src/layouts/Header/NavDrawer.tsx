@@ -4,7 +4,7 @@ import Link from "next/link";
 
 import Logo from "@/components/Logo";
 import SmoothLink from "@/components/SmoothLink";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { CgClose, CgMenuLeft } from "react-icons/cg";
 import { FaLinkedin } from "react-icons/fa";
 
@@ -41,7 +41,7 @@ export default function NavDrawer({ navItems }: NavDrawerProps) {
         edge="start"
         onClick={handleDrawerToggle}
         className="text-inherit sm:hidden"
-        component={motion.button}
+        component={m.button}
         {...directionMotion("LR", 6)}
       >
         <CgMenuLeft />

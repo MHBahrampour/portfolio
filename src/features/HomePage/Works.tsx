@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import Link from "next/link";
 
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { AiFillMinusCircle, AiFillPlusCircle } from "react-icons/ai";
 import { FaGithub } from "react-icons/fa";
 import { HiArrowUpOnSquareStack } from "react-icons/hi2";

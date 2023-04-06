@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 import BackToTop from "@/components/BackToTop";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { BsDiscord } from "react-icons/bs";
 import { FaGithub, FaLinkedin, FaTelegram, FaTwitter } from "react-icons/fa";
 import { HiMailOpen } from "react-icons/hi";
@@ -46,7 +46,7 @@ const contactWaysData = [
 export default function Side() {
   return (
     <>
-      <motion.div
+      <m.div
         className="fixed bottom-0 hidden w-12 flex-col items-center rounded-full backdrop-blur-sm after:inline-block after:h-32 after:w-[3px] after:rounded-full after:bg-common-black after:content-[''] after:dark:bg-dt-primary-main sm:right-[36px] sm:flex sm:gap-2"
         {...directionMotion("RL", 7)}
       >
@@ -59,7 +59,7 @@ export default function Side() {
             </IconButton>
           </Link>
         ))}
-      </motion.div>
+      </m.div>
 
       <BackToTop />
     </>

@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 
 import { Typography, useMediaQuery, useTheme } from "@mui/material";
 
@@ -11,7 +11,7 @@ export default function Logo() {
     <Link href="/">
       <Typography
         variant="h6"
-        component={motion.div}
+        component={m.div}
         className="gradient-bg-animation rounded-lg px-2 leading-snug text-common-white"
         {...directionMotion("LR", 1)}
       >

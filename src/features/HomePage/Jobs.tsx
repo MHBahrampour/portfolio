@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 import SmoothLink from "@/components/SmoothLink";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import moment from "moment";
 
 import { Tab, Tabs, Typography } from "@mui/material";
