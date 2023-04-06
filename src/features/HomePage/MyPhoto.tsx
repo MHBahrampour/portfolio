@@ -10,7 +10,7 @@ export default function MyPhoto({ className }: MyPhotoProps) {
   return (
     <motion.div
       className={`bg-[url("/images/bbburst.png")] bg-cover ${className}`}
-      {...directionMotion(1, "RL")}
+      {...directionMotion("RL", 1)}
     >
       <svg
         version="1.1"
