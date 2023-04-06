@@ -30,21 +30,21 @@ export const directionMotion = (
 };
 
 export const getVariantsMotion = (
-  delayChildren: number,
-  staggerChildren?: number,
+  delayChildren: number = 0.3,
+  staggerChildren: number = 0.2,
 ) => {
   const container = {
     hidden: {},
     visible: {
       transition: {
         delayChildren: delayChildren * 0.3,
-        staggerChildren: staggerChildren || 0.5,
+        staggerChildren: staggerChildren,
       },
     },
   };
 
   const items = {
-    hidden: { opacity: 0, y: 24 },
+    hidden: { opacity: 0, y: 16 },
     visible: { opacity: 1, y: 0 },
   };
 

@@ -38,7 +38,6 @@ export default function NavDrawer({ navItems }: NavDrawerProps) {
     <>
       {/* Drawer open button */}
       <IconButton
-        aria-label="open drawer"
         edge="start"
         onClick={handleDrawerToggle}
         className="text-inherit sm:hidden"

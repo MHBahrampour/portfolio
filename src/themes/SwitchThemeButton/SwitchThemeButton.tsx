@@ -20,8 +20,9 @@ export function SwitchThemeButton() {
 
   return (
     <IconButton
+      edge="end"
       onClick={handleClick}
-      className="left-2 text-inherit"
+      className="text-inherit"
       component={motion.button}
       {...directionMotion(6, "RL")}
     >
