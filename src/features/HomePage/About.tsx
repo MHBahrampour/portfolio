@@ -127,7 +127,7 @@ export default function About() {
               <ButtonBase
                 key={techItem.id}
                 onClick={() => handleFavTechsClick(techItem.id)}
-                className={`group grid cursor-pointer grid-cols-1 justify-start gap-1 rounded-lg p-3 text-common-black transition-all duration-300 hover:scale-105 dark:bg-opacity-50 dark:text-common-white sm:p-4 md:p-5 ${techItem.bgColor}`}
+                className={`group grid cursor-pointer grid-cols-1 justify-start gap-1 rounded-lg p-3 text-common-black transition-all duration-300 @container hover:scale-105 dark:bg-opacity-50 dark:text-common-white sm:p-4 md:p-5 ${techItem.bgColor}`}
                 component={m.div}
                 variants={favTechItems}
               >
@@ -151,7 +151,7 @@ export default function About() {
                     </Typography>
                   </>
                 ) : (
-                  <div className="grid h-full gap-3 md:grid-cols-2 md:place-items-center">
+                  <div className="grid h-full gap-3 @[200px]:grid-cols-2 @[200px]:place-items-center">
                     {[monthsNumber, projectsNumber].map((mpItem, index) => (
                       <Typography
                         key={index}
@@ -162,7 +162,7 @@ export default function About() {
                             : "animation-delay-300"
                         }`}
                       >
-                        +{mpItem} <br className="hidden md:block" />
+                        +{mpItem} <br className="hidden @[200px]:block" />
                         <span className="text-base font-light md:text-lg md:font-normal">
                           {index === 0
                             ? `month${monthsNumber > 1 ? "s" : ""}`
