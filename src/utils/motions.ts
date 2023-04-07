@@ -62,14 +62,16 @@ export const getVariantsMotion = (
 
 // A utility function to calculate the start and end position
 const getPositions = (direction: "TB" | "BT" | "LR" | "RL") => {
+  const offset = 12;
+
   const startPosition =
     direction === "TB"
-      ? { y: -16 }
+      ? { y: -offset }
       : direction === "BT"
-      ? { y: 16 }
+      ? { y: offset }
       : direction === "LR"
-      ? { x: -16 }
-      : { x: 16 };
+      ? { x: -offset }
+      : { x: offset };
 
   const endPosition =
     direction === "TB" || direction === "BT" ? { y: 0 } : { x: 0 };
