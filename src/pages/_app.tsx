@@ -49,7 +49,7 @@ export default function App({
   return (
     <CacheProvider value={emotionCache}>
       <ThemeWrapper>
-        <LazyMotion features={loadMotionFeatures}>
+        <LazyMotion strict features={loadMotionFeatures}>
           <Header />
           <Component {...pageProps} />
           <Footer />
