@@ -1,8 +1,8 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 import Image from "next/image";
 
-import { m } from "framer-motion";
+import { m, useInView } from "framer-motion";
 import moment, { type Moment } from "moment";
 import { HiCursorClick } from "react-icons/hi";
 
@@ -87,7 +87,8 @@ export default function About() {
     setFavTechDetail((prevState) => (id === prevState ? null : id));
   };
 
-  const { container, items } = getVariantsMotion("BT", 6);
+  const { container: favtechContainer, items: favTechItems } =
+    getVariantsMotion("BT", 3);
 
   return (
     <m.section id="about" className="dpx grid gap-4">
@@ -103,24 +104,20 @@ export default function About() {
         {/* Photo */}
         <MyPhoto className="mx-auto max-w-[400px] sm:float-right sm:max-w-[250px] md:max-w-[300px]" />
 
-        {aboutContent.map((content, index) => (
-          <Typography
-            key={index}
-            variant="body1"
-            className="mb-4"
-            component={m.p}
-            {...directionMotion("LR", index + 1)}
-          >
-            {content}
-          </Typography>
-        ))}
+        <m.div {...directionMotion("LR", 2)}>
+          {aboutContent.map((content, index) => (
+            <Typography key={index} variant="body1" className="mb-4">
+              {content}
+            </Typography>
+          ))}
+        </m.div>
 
         {/* Favorite technologies */}
         <m.div
           className="grid grid-cols-2 gap-4 md:grid-cols-3 md:gap-6"
           initial="hidden"
           whileInView="visible"
-          variants={container}
+          variants={favtechContainer}
         >
           {frequentTechsData.map((techItem) => {
             const monthsNumber = getMonthsFromNow(techItem.startDate);
@@ -132,7 +129,7 @@ export default function About() {
                 onClick={() => handleFavTechsClick(techItem.id)}
                 className={`group grid cursor-pointer grid-cols-1 justify-start gap-1 rounded-lg p-3 text-common-black transition-all duration-300 hover:scale-105 dark:bg-opacity-50 dark:text-common-white sm:p-4 md:p-5 ${techItem.bgColor}`}
                 component={m.div}
-                variants={items}
+                variants={favTechItems}
               >
                 {/* show each fav techs or its details */}
                 {favTechDetail !== techItem.id ? (
