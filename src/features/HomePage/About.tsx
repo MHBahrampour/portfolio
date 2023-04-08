@@ -127,9 +127,12 @@ export default function About() {
               <ButtonBase
                 key={techItem.id}
                 onClick={() => handleFavTechsClick(techItem.id)}
-                className={`group grid cursor-pointer grid-cols-1 justify-start gap-1 rounded-lg p-3 text-common-black transition-all duration-300 @container hover:scale-105 dark:bg-opacity-50 dark:text-common-white sm:p-4 md:p-5 ${techItem.bgColor}`}
+                className={`group grid cursor-pointer grid-cols-1 justify-start gap-3 rounded-lg p-3 text-common-black @container hover:scale-105 dark:bg-opacity-50 dark:text-common-white sm:p-4 md:p-5  ${techItem.bgColor}`}
                 component={m.div}
                 variants={favTechItems}
+                whileHover={{
+                  scale: 1.05,
+                }}
               >
                 {/* show each fav techs or its details */}
                 {favTechDetail !== techItem.id ? (
@@ -151,7 +154,7 @@ export default function About() {
                     </Typography>
                   </>
                 ) : (
-                  <div className="grid h-full gap-3 @[200px]:grid-cols-2 @[200px]:place-items-center">
+                  <div className="grid h-full gap-2 @[200px]:grid-cols-2 @[200px]:place-items-center">
                     {[monthsNumber, projectsNumber].map((mpItem, index) => (
                       <Typography
                         key={index}
