@@ -8,16 +8,15 @@ export const directionMotion = (
   const { startPosition, endPosition } = getPositions(direction);
 
   return {
-    custom: { index },
     initial: { opacity: 0, ...startPosition },
     whileInView: {
       opacity: 1,
       ...endPosition,
       transition: {
         delay: index * 0.3,
-        duration: 0.5,
       },
     },
+
     viewport: { once: false, margin: "0px 0px -48px 0px" },
   };
 };
@@ -44,7 +43,6 @@ export const getVariantsMotion = (
       transition: {
         delayChildren: delayChildren * 0.3,
         staggerChildren: staggerChildren,
-        duration: 2,
       },
     },
   };

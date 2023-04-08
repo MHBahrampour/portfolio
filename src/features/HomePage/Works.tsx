@@ -9,6 +9,8 @@ import { HiArrowUpOnSquareStack } from "react-icons/hi2";
 
 import { Avatar, Chip, IconButton, Typography } from "@mui/material";
 
+import { directionMotion } from "@/utils/motions";
+
 interface Works {
   title: string;
   description: string;
@@ -63,14 +65,18 @@ export default function Works() {
 
   return (
     <section id="works" className="dpx grid gap-4">
-      <Typography component="h2" className="heading">
+      <Typography
+        component={m.h2}
+        className="heading"
+        {...directionMotion("TB", 0)}
+      >
         Works
       </Typography>
 
       <div className="max-w-6xl">
         <div className="grid grid-cols-[repeat(auto-fit,_minmax(288px,_1fr))] gap-4">
           {/* Work cards */}
-          {works.map((work) => {
+          {works.map((work, index) => {
             const handleMoreTechsClick = (title: string) => {
               setMoreTechs((prevState) =>
                 work.title === prevState ? null : title,
@@ -78,9 +84,13 @@ export default function Works() {
             };
 
             return (
-              <div
+              <m.div
                 key={work.title}
-                className="gradient-border group relative grid cursor-default grid-rows-[min-content_1fr_min-content] gap-8 rounded-xl p-6 transition-all duration-300 hover:sm:scale-105"
+                className="gradient-border group relative grid cursor-default grid-rows-[min-content_1fr_min-content] gap-8 rounded-xl p-6 hover:sm:scale-105"
+                {...directionMotion("BT", index + 1)}
+                whileHover={{
+                  scale: 1.05,
+                }}
               >
                 {/* Header: Company logo and Links */}
                 <div className="flex items-center justify-between gap-2 text-2xl text-lt-primary-main dark:text-dt-primary-main [&_button]:text-inherit">
@@ -121,8 +131,7 @@ export default function Works() {
                 </div>
 
                 {/* Footer: Used technologies */}
-                {/* We can't use one div with absolute positioning since the card height possibly shrinks. Hence we use 2 implementation */}
-
+                {/* We can't use one div with absolute positioning since the card height possibly shrinks. Hence we use 2 implementations */}
                 {/* Only show 3 items */}
                 <div className={`grid grid-cols-[1fr_min-content] gap-2`}>
                   <div className="flex flex-wrap gap-2">
@@ -145,11 +154,18 @@ export default function Works() {
                 </div>
 
                 {/* Show all items */}
-                <div
-                  className={`absolute bottom-3 left-3 right-3 -z-10 grid grid-cols-[1fr_min-content] gap-2 p-3 opacity-0 transition-all duration-500 ${
+                <m.div
+                  className={`absolute bottom-3 left-3 right-3 -z-10 grid grid-cols-[1fr_min-content] gap-2 p-3 ${
                     moreTechs === work.title &&
-                    "!z-10 rounded-2xl bg-common-white/50 !opacity-100 backdrop-blur-3xl dark:bg-common-black/30"
+                    "!z-10 rounded-2xl bg-common-white/50 backdrop-blur-3xl dark:bg-common-black/30"
                   }`}
+                  initial={{ scale: 0 }}
+                  animate={moreTechs ? { scale: 1 } : {}}
+                  transition={{
+                    type: "spring",
+                    stiffness: 260,
+                    damping: 20,
+                  }}
                 >
                   <div className="flex flex-wrap gap-2">
                     {work.technologies.map((tech) => (
@@ -166,8 +182,8 @@ export default function Works() {
                     className="hover:text-color-animation cursor-pointer self-end text-2xl"
                     onClick={() => setMoreTechs(null)}
                   />
-                </div>
-              </div>
+                </m.div>
+              </m.div>
             );
           })}
         </div>
