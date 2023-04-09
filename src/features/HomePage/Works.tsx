@@ -46,7 +46,7 @@ const works: Works[] = [
       "Mu Protocol is a distributed, decentralized cloud provider marketplace. mu allows infrastructure providers to offer their servers for sale in a standardized and secure way.",
     company: "030labs",
     companyLogo: "/images/works/030labs.png",
-    siteLink: "https://mu-demopage.netlify.app/",
+    siteLink: "https://muprotocol.io/",
     githubLink: null,
     technologies: [
       "Next.js",
