@@ -2,12 +2,14 @@ import { useState } from "react";
 
 import Image from "next/image";
 
+import { m } from "framer-motion";
 import moment, { type Moment } from "moment";
 import { HiCursorClick } from "react-icons/hi";
 
 import { ButtonBase, Typography } from "@mui/material";
 
 import getMonthsFromNow from "@/utils/getMonthfromNow";
+import { directionMotion, getVariantsMotion } from "@/utils/motions";
 
 import MyPhoto from "./MyPhoto";
 
@@ -71,6 +73,13 @@ const frequentTechsData: FrequentTechsData[] = [
   },
 ];
 
+const aboutContent = [
+  "Hello! My name is Mohammad Hossein Bahrampour. Don’t worry you can call me Mamad!",
+  "I started my journey in 2020 as a back-end developer and my weapon of choice was Django .Although it was very attractive to me, I was looking for something that would challenge my artistic creativity more and this is where I was drawn to the front end.",
+  "Fast-forward to early 2022 I decided to switch to front-end, and boy I loved it. Since then, I started learning with more enthusiasm. I tried well-known technologies and studied best practices so that Icould not only build something, but build something of quality.",
+  "Here are some technologies that I use often:",
+];
+
 export default function About() {
   const [favTechDetail, setFavTechDetail] = useState<string | null>(null);
 
@@ -78,58 +87,56 @@ export default function About() {
     setFavTechDetail((prevState) => (id === prevState ? null : id));
   };
 
+  const { container: favtechContainer, items: favTechItems } =
+    getVariantsMotion("BT", 3);
+
   return (
-    <section id="about" className="dpx grid gap-4">
-      <Typography component="h2" className="heading">
+    <m.section id="about" className="dpx grid gap-4">
+      <Typography
+        component={m.h2}
+        className="heading"
+        {...directionMotion("TB", 0)}
+      >
         About
       </Typography>
 
-      <div className="grid gap-4">
-        <div className="max-w-4xl">
-          {/* Photo */}
-          <MyPhoto className="mx-auto max-w-[400px] sm:float-right sm:max-w-[250px] md:max-w-[300px]" />
+      <div className="max-w-4xl">
+        {/* Photo */}
+        <MyPhoto className="mx-auto max-w-[400px] sm:float-right sm:max-w-[250px] md:max-w-[300px]" />
 
-          <Typography variant="body1" className="mb-4">
-            Hello! My name is Mohammad H. Bahrampour. Don’t worry you can call
-            me Mamad!
-          </Typography>
-
-          <Typography variant="body1" className="mb-4">
-            I started my journey in 2020 as a back-end developer and my weapon
-            of choice was Django .Although it was very attractive to me, I was
-            looking for something that would challenge my artistic creativity
-            more and this is where I was drawn to the front end.
-          </Typography>
-
-          <Typography variant="body1">
-            Fast-forward to early 2022 I decided to switch to front-end, and boy
-            I loved it. Since then, I started learning with more enthusiasm. I
-            tried well-known technologies and studied best practices so that I
-            could not only build something, but build something of quality.
-          </Typography>
-        </div>
+        <m.div {...directionMotion("LR", 2)}>
+          {aboutContent.map((content, index) => (
+            <Typography key={index} variant="body1" className="mb-4">
+              {content}
+            </Typography>
+          ))}
+        </m.div>
 
         {/* Favorite technologies */}
-        <div className="grid gap-3">
-          <Typography variant="body1">
-            Here are some technologies that I use often:
-          </Typography>
+        <m.div
+          className="grid grid-cols-2 gap-4 md:grid-cols-3 md:gap-6"
+          initial="hidden"
+          whileInView="visible"
+          variants={favtechContainer}
+          viewport={{ once: true, margin: "0px 0px -80px 0px" }}
+        >
+          {frequentTechsData.map((techItem) => {
+            const monthsNumber = getMonthsFromNow(techItem.startDate);
+            const projectsNumber = techItem.projectsUsed;
 
-          <div className="grid max-w-4xl grid-cols-2 gap-4 md:grid-cols-3 md:gap-6">
-            {frequentTechsData.map((techItem) => {
-              const monthsNumber = getMonthsFromNow(techItem.startDate);
-              const projectsNumber = techItem.projectsUsed;
-
-              return (
+            return (
+              <m.div
+                key={techItem.id}
+                onClick={() => handleFavTechsClick(techItem.id)}
+                variants={favTechItems}
+              >
                 <ButtonBase
                   component="div"
-                  key={techItem.id}
-                  onClick={() => handleFavTechsClick(techItem.id)}
-                  className={`group grid cursor-pointer grid-cols-1 justify-start gap-1 rounded-lg p-3 text-common-black transition-all duration-300 hover:scale-105 dark:bg-opacity-50 dark:text-common-white sm:p-4 md:p-5 ${techItem.bgColor}`}
+                  className={`group h-24 w-full cursor-pointer rounded-lg p-3 text-common-black transition-all @container hover:scale-105 dark:bg-opacity-50 dark:text-common-white sm:p-4 md:p-5 ${techItem.bgColor}`}
                 >
                   {/* show each fav techs or its details */}
                   {favTechDetail !== techItem.id ? (
-                    <>
+                    <div className="flex w-full flex-col justify-between gap-2">
                       <div className="flex justify-between">
                         <Image
                           src={techItem.logo}
@@ -145,21 +152,21 @@ export default function About() {
                       <Typography className="b-to-t-animation animation-delay-300 text-lg font-semibold text-inherit md:text-xl">
                         {techItem.name}
                       </Typography>
-                    </>
+                    </div>
                   ) : (
-                    <div className="grid h-full gap-3 md:grid-cols-2 md:place-items-center">
+                    <div className="flex w-full flex-col gap-2 @[200px]:flex-row @[200px]:justify-evenly">
                       {[monthsNumber, projectsNumber].map((mpItem, index) => (
                         <Typography
                           key={index}
                           component="p"
-                          className={`t-to-b-animation text-lg font-semibold text-inherit md:text-2xl ${
+                          className={`t-to-b-animation text-lg font-semibold text-inherit @[200px]:text-2xl ${
                             index === 0
                               ? "animation-delay-100"
                               : "animation-delay-300"
                           }`}
                         >
-                          +{mpItem} <br className="hidden md:block" />
-                          <span className="text-base font-light md:text-lg md:font-normal">
+                          +{mpItem} <br className="hidden @[200px]:block" />
+                          <span className="text-base font-light @[200px]:text-lg @[200px]:font-normal">
                             {index === 0
                               ? `month${monthsNumber > 1 ? "s" : ""}`
                               : `project${
@@ -171,11 +178,11 @@ export default function About() {
                     </div>
                   )}
                 </ButtonBase>
-              );
-            })}
-          </div>
-        </div>
+              </m.div>
+            );
+          })}
+        </m.div>
       </div>
-    </section>
+    </m.section>
   );
 }

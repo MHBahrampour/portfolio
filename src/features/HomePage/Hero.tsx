@@ -1,15 +1,18 @@
 import Link from "next/link";
 
-// import Resume from "@/documents/MHBahrampour.pdf";
+import { m } from "framer-motion";
+
 import { Button, Typography } from "@mui/material";
+
+import { directionMotion } from "@/utils/motions";
 
 export default function Hero() {
   return (
     <section
-      className={`dpx relative flex min-h-[calc(100dvh-64px)] flex-col justify-center gap-16 bg-[url('/images/heroBg.svg')] bg-cover bg-left`}
+      className={`dpx relative flex min-h-[calc(100dvh-66px)] flex-col justify-center gap-16 bg-[url('/images/heroBg.svg')] bg-cover bg-left`}
     >
       {/* Heading */}
-      <div className="t-to-b-animation animation-delay-100 grid gap-4">
+      <m.div className="grid gap-4" {...directionMotion("BT", 3)}>
         <Typography
           variant="h6"
           component="h3"
@@ -19,9 +22,8 @@ export default function Hero() {
         </Typography>
 
         <Typography
-          variant="h3"
           component="h1"
-          className="font-bold sm:text-6xl lg:text-7xl"
+          className="text-[40px] font-bold sm:text-6xl lg:text-7xl"
         >
           Mohammad Bahrampour.
         </Typography>
@@ -33,12 +35,14 @@ export default function Hero() {
         >
           I love building things for web.
         </Typography>
-      </div>
+      </m.div>
 
       {/* Content */}
       <Typography
         variant="body1"
-        className="t-to-b-animation animation-delay-500 max-w-xl sm:text-lg lg:text-xl"
+        component={m.p}
+        className="max-w-xl sm:text-lg lg:text-xl"
+        {...directionMotion("BT", 5)}
       >
         I’m a front-end developer who enjoys working with good technologies and
         finds designing entertaining. Currently, I’m focused on building
@@ -46,17 +50,15 @@ export default function Hero() {
       </Typography>
 
       {/* Resume */}
-      <Link
-        href="/bahrampour-resume.pdf"
-        target="_blank"
-        className="t-to-b-animation animation-delay-1000 w-max"
-      >
+      <Link href="/bahrampour-resume.pdf" target="_blank" className="w-max">
         <Button
           disableElevation
           variant="contained"
           size="large"
           color="secondary"
           className="normal-case"
+          component={m.button}
+          {...directionMotion("BT", 7, 0)}
         >
           Get My Resume
         </Button>

@@ -1,13 +1,13 @@
 import { useState } from "react";
 
-import Link from "next/link";
-
 import SmoothLink from "@/components/SmoothLink";
+import { m } from "framer-motion";
 import moment from "moment";
 
 import { Tab, Tabs, Typography } from "@mui/material";
 
 import getMonthsFromNow from "@/utils/getMonthfromNow";
+import { directionMotion } from "@/utils/motions";
 
 export default function Jobs() {
   const [value, setValue] = useState(0);
@@ -16,9 +16,48 @@ export default function Jobs() {
     setValue(newValue);
   };
 
+  const tabPanelElements = (
+    <>
+      <TabPanel value={value} index={0}>
+        <div className="grid gap-1">
+          <Typography variant="h6">Junior Front-end Developer</Typography>
+          <Typography variant="body2">
+            Sep 2022 - Present · {getMonthsFromNow(moment("2022-08-01"))} months
+          </Typography>
+        </div>
+
+        <ul>
+          <li>Write modern and maintainable code for company projects.</li>
+          <li>
+            Worked with technologies such as React, TypeScript, Next.js and MUI.
+          </li>
+          <li>
+            Communicate with teams of engineers, designers and developers on a
+            daily basis.
+          </li>
+        </ul>
+      </TabPanel>
+
+      <TabPanel value={value} index={1}>
+        <Typography variant="body1">
+          I’m currently looking for better positions, if you are interested in
+          hiring me, please{" "}
+          <SmoothLink link="get-in-touch" className="link">
+            contact me
+          </SmoothLink>
+          .
+        </Typography>
+      </TabPanel>
+    </>
+  );
+
   return (
     <section id="jobs" className="dpx grid gap-4">
-      <Typography component="h2" className="heading">
+      <Typography
+        component={m.h2}
+        className="heading"
+        {...directionMotion("TB", 0)}
+      >
         Jobs
       </Typography>
 
@@ -32,42 +71,15 @@ export default function Jobs() {
           scrollButtons="auto"
           aria-label="jobs tabs"
           className="[&_.MuiTab-root]:text-base [&_.MuiTab-root]:font-semibold [&_.MuiTab-root]:normal-case"
+          component={m.div}
+          {...directionMotion("LR", 1)}
         >
           <Tab label="Innovation Berlin" {...tabProps(0)} />
           <Tab label="Your Company ?!" {...tabProps(1)} />
         </Tabs>
 
-        <TabPanel value={value} index={0}>
-          <div className="grid gap-1">
-            <Typography variant="h6">Junior Front-end Developer</Typography>
-            <Typography variant="body2">
-              Sep 2022 - Present · {getMonthsFromNow(moment("2022-08-01"))}{" "}
-              months
-            </Typography>
-          </div>
-
-          <ul>
-            <li>Write modern and maintainable code for company projects.</li>
-            <li>
-              Worked with technologies such as React, TypeScript, Next.js and
-              MUI.
-            </li>
-            <li>
-              Communicate with teams of engineers, designers and developers on a
-              daily basis.
-            </li>
-          </ul>
-        </TabPanel>
-        <TabPanel value={value} index={1}>
-          <Typography variant="body1">
-            I’m currently looking for better positions, if you are interested in
-            hiring me, please{" "}
-            <SmoothLink link="get-in-touch" className="link">
-              contact me
-            </SmoothLink>
-            .
-          </Typography>
-        </TabPanel>
+        {/* Tabs content */}
+        <m.div {...directionMotion("BT", 2)}>{tabPanelElements}</m.div>
       </div>
     </section>
   );

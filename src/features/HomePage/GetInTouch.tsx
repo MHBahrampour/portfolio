@@ -1,55 +1,67 @@
 import Link from "next/link";
 
+import { m } from "framer-motion";
 import { BsDiscord } from "react-icons/bs";
 import { FaLinkedin, FaTelegram, FaTwitter } from "react-icons/fa";
 import { HiMailOpen } from "react-icons/hi";
 
 import { Button, IconButton, Typography } from "@mui/material";
 
+import { directionMotion } from "@/utils/motions";
+
 export default function GetInTouch() {
   return (
     <section id="get-in-touch" className="dpx grid gap-4">
-      <Typography component="h2" className="heading">
+      <Typography
+        component={m.h2}
+        className="heading"
+        {...directionMotion("TB", 0)}
+      >
         Get In Touch
       </Typography>
 
-      <Typography variant="body1">
-        I’m open to better opportunities, if you can offer one, i’ll be glad to
-        consider it.
-      </Typography>
-      <Typography variant="body1">
-        Also my inbox is always open to any idea and question, or maybe you just
-        wanna say hi?
-      </Typography>
-
       {/* Formal ways */}
-      <div className="flex items-center gap-4">
-        <Link href="mailto:bahrampour@protonmail.com" target="_blank">
-          <Button
-            disableElevation
-            variant="contained"
-            size="large"
-            startIcon={<HiMailOpen />}
-            className="normal-case"
-          >
-            Send Email
-          </Button>
-        </Link>
+      <m.div {...directionMotion("LR", 1)} className="grid gap-4">
+        <Typography variant="body1">
+          I’m open to better opportunities, if you can offer one, i’ll be glad
+          to consider it.
+        </Typography>
+        <Typography variant="body1">
+          Also my inbox is always open to any idea and question, or maybe you
+          just wanna say hi?
+        </Typography>
 
-        <Link href="https://www.linkedin.com/in/mhbahrampour/" target="_blank">
-          <Button
-            variant="outlined"
-            size="large"
-            startIcon={<FaLinkedin />}
-            className="normal-case "
+        <div className="flex items-center gap-4">
+          <Link href="mailto:bahrampour@protonmail.com" target="_blank">
+            <Button
+              disableElevation
+              variant="contained"
+              size="large"
+              startIcon={<HiMailOpen />}
+              className="normal-case"
+            >
+              Send Email
+            </Button>
+          </Link>
+
+          <Link
+            href="https://www.linkedin.com/in/mhbahrampour/"
+            target="_blank"
           >
-            Send DM
-          </Button>
-        </Link>
-      </div>
+            <Button
+              variant="outlined"
+              size="large"
+              startIcon={<FaLinkedin />}
+              className="normal-case "
+            >
+              Send DM
+            </Button>
+          </Link>
+        </div>
+      </m.div>
 
       {/* Informal ways */}
-      <div className="mt-4 grid gap-1">
+      <m.div className="mt-4 grid gap-1" {...directionMotion("RL", 2)}>
         <Typography variant="body1">
           And if you want to see me in a less formal way:
         </Typography>
@@ -73,10 +85,10 @@ export default function GetInTouch() {
             </IconButton>
           </Link>
         </div>
-      </div>
+      </m.div>
 
       {/* Github */}
-      <Typography variant="body1">
+      <Typography variant="body1" component={m.p} {...directionMotion("LR", 3)}>
         Or just follow me on{" "}
         <Link
           href="https://github.com/MHBahrampour"
