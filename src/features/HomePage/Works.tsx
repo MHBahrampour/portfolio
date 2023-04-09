@@ -84,11 +84,8 @@ export default function Works() {
             };
 
             return (
-              <m.div {...directionMotion("BT", index + 1)}>
-                <div
-                  key={work.title}
-                  className="gradient-border group relative grid cursor-default grid-rows-[min-content_1fr_min-content] gap-8 rounded-xl p-6 hover:sm:scale-105"
-                >
+              <m.div key={work.title} {...directionMotion("BT", index + 1)}>
+                <div className="gradient-border group relative grid cursor-default grid-rows-[min-content_1fr_min-content] gap-8 rounded-xl p-6 hover:sm:scale-105">
                   {/* Header: Company logo and Links */}
                   <div className="flex items-center justify-between gap-2 text-2xl text-lt-primary-main dark:text-dt-primary-main [&_button]:text-inherit">
                     <div className="flex flex-1 items-center gap-2">
