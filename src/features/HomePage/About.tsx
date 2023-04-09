@@ -118,7 +118,7 @@ export default function About() {
           initial="hidden"
           whileInView="visible"
           variants={favtechContainer}
-          viewport={{ once: false, margin: "0px 0px -80px 0px" }}
+          viewport={{ once: true, margin: "0px 0px -80px 0px" }}
         >
           {frequentTechsData.map((techItem) => {
             const monthsNumber = getMonthsFromNow(techItem.startDate);

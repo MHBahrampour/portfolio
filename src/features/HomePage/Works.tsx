@@ -73,7 +73,7 @@ export default function Works() {
         Works
       </Typography>
 
-      <div className="max-w-6xl">
+      <div className="max-w-4xl">
         <div className="grid grid-cols-[repeat(auto-fit,_minmax(288px,_1fr))] gap-4">
           {/* Work cards */}
           {works.map((work, index) => {

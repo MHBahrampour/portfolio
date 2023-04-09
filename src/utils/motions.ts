@@ -18,7 +18,7 @@ export const directionMotion = (
         delay: index * 0.3,
       },
     },
-    viewport: { once: false, margin: margin },
+    viewport: { once: true, margin: margin },
   };
 };
 
