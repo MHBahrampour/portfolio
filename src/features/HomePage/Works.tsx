@@ -85,7 +85,7 @@ export default function Works() {
 
             return (
               <m.div key={work.title} {...directionMotion("BT", index + 1)}>
-                <div className="gradient-border group relative grid cursor-default grid-rows-[min-content_1fr_min-content] gap-8 rounded-xl p-6 hover:sm:scale-105">
+                <div className="gradient-border group relative grid h-full cursor-default grid-rows-[min-content_1fr_min-content] gap-8 rounded-xl p-6 transition-all hover:scale-105">
                   {/* Header: Company logo and Links */}
                   <div className="flex items-center justify-between gap-2 text-2xl text-lt-primary-main dark:text-dt-primary-main [&_button]:text-inherit">
                     <div className="flex flex-1 items-center gap-2">
@@ -154,11 +154,11 @@ export default function Works() {
                       "!z-10 rounded-2xl bg-common-white/50 backdrop-blur-3xl dark:bg-common-black/30"
                     }`}
                     initial={{ scale: 0 }}
-                    animate={moreTechs ? { scale: 1 } : {}}
+                    animate={moreTechs === work.title ? { scale: 1 } : {}}
                     transition={{
                       type: "spring",
                       stiffness: 260,
-                      damping: 20,
+                      damping: 32,
                     }}
                   >
                     <div className="flex flex-wrap gap-2">
