@@ -1,19 +1,15 @@
-import { useRef, useState } from "react";
+import { useState } from "react";
 
 import Image from "next/image";
 
-import { m, useInView } from "framer-motion";
+import { m } from "framer-motion";
 import moment, { type Moment } from "moment";
 import { HiCursorClick } from "react-icons/hi";
 
 import { ButtonBase, Typography } from "@mui/material";
 
 import getMonthsFromNow from "@/utils/getMonthfromNow";
-import {
-  directionMotion,
-  getVariantsMotion,
-  isHoverable,
-} from "@/utils/motions";
+import { directionMotion, getVariantsMotion } from "@/utils/motions";
 
 import MyPhoto from "./MyPhoto";
 
@@ -93,12 +89,6 @@ export default function About() {
 
   const { container: favtechContainer, items: favTechItems } =
     getVariantsMotion("BT", 3);
-
-  console.log({
-    ...isHoverable({
-      scale: 1.05,
-    }),
-  });
 
   return (
     <m.section id="about" className="dpx grid gap-4">
