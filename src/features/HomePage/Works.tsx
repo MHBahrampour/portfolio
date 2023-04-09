@@ -5,7 +5,7 @@ import Link from "next/link";
 import { m } from "framer-motion";
 import { AiFillMinusCircle, AiFillPlusCircle } from "react-icons/ai";
 import { FaGithub } from "react-icons/fa";
-import { HiArrowUpOnSquareStack } from "react-icons/hi2";
+import { TbArrowBigUpLineFilled } from "react-icons/tb";
 
 import { Avatar, Chip, IconButton, Typography } from "@mui/material";
 
@@ -96,7 +96,7 @@ export default function Works() {
 
                     {work.githubLink && (
                       <Link href={work.githubLink} target="_blank">
-                        <IconButton className="z-10">
+                        <IconButton>
                           <FaGithub />
                         </IconButton>
                       </Link>
@@ -105,9 +105,9 @@ export default function Works() {
                     <Link href={work.siteLink} target="_blank">
                       <IconButton
                         edge="end"
-                        className="!animation-delay-300 z-10 group-hover:animate-bounce"
+                        className="group-hover:text-color-animation"
                       >
-                        <HiArrowUpOnSquareStack />
+                        <TbArrowBigUpLineFilled className="rotate-45" />
                       </IconButton>
                     </Link>
                   </div>
