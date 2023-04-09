@@ -9,7 +9,11 @@ import { HiCursorClick } from "react-icons/hi";
 import { ButtonBase, Typography } from "@mui/material";
 
 import getMonthsFromNow from "@/utils/getMonthfromNow";
-import { directionMotion, getVariantsMotion } from "@/utils/motions";
+import {
+  directionMotion,
+  getVariantsMotion,
+  isHoverable,
+} from "@/utils/motions";
 
 import MyPhoto from "./MyPhoto";
 
@@ -90,6 +94,12 @@ export default function About() {
   const { container: favtechContainer, items: favTechItems } =
     getVariantsMotion("BT", 3);
 
+  console.log({
+    ...isHoverable({
+      scale: 1.05,
+    }),
+  });
+
   return (
     <m.section id="about" className="dpx grid gap-4">
       <Typography
@@ -124,58 +134,60 @@ export default function About() {
             const projectsNumber = techItem.projectsUsed;
 
             return (
-              <ButtonBase
+              <m.div
                 key={techItem.id}
                 onClick={() => handleFavTechsClick(techItem.id)}
-                className={`group grid cursor-pointer grid-cols-1 justify-start gap-3 rounded-lg p-3 text-common-black @container hover:scale-105 dark:bg-opacity-50 dark:text-common-white sm:p-4 md:p-5  ${techItem.bgColor}`}
-                component={m.div}
                 variants={favTechItems}
-                whileHover={{
-                  scale: 1.05,
-                }}
               >
-                {/* show each fav techs or its details */}
-                {favTechDetail !== techItem.id ? (
-                  <>
-                    <div className="flex justify-between">
-                      <Image
-                        src={techItem.logo}
-                        width={36}
-                        height={36}
-                        alt={techItem.name}
-                        className="b-to-t-animation animation-delay-100"
-                      />
+                <ButtonBase
+                  component="div"
+                  className={`group h-24 w-full cursor-pointer rounded-lg p-3 text-common-black transition-all @container hover:scale-105 dark:bg-opacity-50 dark:text-common-white sm:p-4 md:p-5 ${techItem.bgColor}`}
+                >
+                  {/* show each fav techs or its details */}
+                  {favTechDetail !== techItem.id ? (
+                    <div className="flex w-full flex-col justify-between gap-2">
+                      <div className="flex justify-between">
+                        <Image
+                          src={techItem.logo}
+                          width={36}
+                          height={36}
+                          alt={techItem.name}
+                          className="b-to-t-animation animation-delay-100"
+                        />
 
-                      <HiCursorClick className="b-to-t-animation animation-delay-500 text-lg text-black/40 group-hover:text-black dark:text-white/40 dark:group-hover:text-white md:text-xl" />
-                    </div>
+                        <HiCursorClick className="b-to-t-animation animation-delay-500 text-lg text-black/40 group-hover:text-black dark:text-white/40 dark:group-hover:text-white md:text-xl" />
+                      </div>
 
-                    <Typography className="b-to-t-animation animation-delay-300 text-lg font-semibold text-inherit md:text-xl">
-                      {techItem.name}
-                    </Typography>
-                  </>
-                ) : (
-                  <div className="grid h-full gap-2 @[200px]:grid-cols-2 @[200px]:place-items-center">
-                    {[monthsNumber, projectsNumber].map((mpItem, index) => (
-                      <Typography
-                        key={index}
-                        component="p"
-                        className={`t-to-b-animation text-lg font-semibold text-inherit md:text-2xl ${
-                          index === 0
-                            ? "animation-delay-100"
-                            : "animation-delay-300"
-                        }`}
-                      >
-                        +{mpItem} <br className="hidden @[200px]:block" />
-                        <span className="text-base font-light md:text-lg md:font-normal">
-                          {index === 0
-                            ? `month${monthsNumber > 1 ? "s" : ""}`
-                            : `project${techItem.projectsUsed > 1 ? "s" : ""}`}
-                        </span>
+                      <Typography className="b-to-t-animation animation-delay-300 text-lg font-semibold text-inherit md:text-xl">
+                        {techItem.name}
                       </Typography>
-                    ))}
-                  </div>
-                )}
-              </ButtonBase>
+                    </div>
+                  ) : (
+                    <div className="flex w-full flex-col gap-2 @[200px]:flex-row @[200px]:justify-evenly">
+                      {[monthsNumber, projectsNumber].map((mpItem, index) => (
+                        <Typography
+                          key={index}
+                          component="p"
+                          className={`t-to-b-animation text-lg font-semibold text-inherit @[200px]:text-2xl ${
+                            index === 0
+                              ? "animation-delay-100"
+                              : "animation-delay-300"
+                          }`}
+                        >
+                          +{mpItem} <br className="hidden @[200px]:block" />
+                          <span className="text-base font-light @[200px]:text-lg @[200px]:font-normal">
+                            {index === 0
+                              ? `month${monthsNumber > 1 ? "s" : ""}`
+                              : `project${
+                                  techItem.projectsUsed > 1 ? "s" : ""
+                                }`}
+                          </span>
+                        </Typography>
+                      ))}
+                    </div>
+                  )}
+                </ButtonBase>
+              </m.div>
             );
           })}
         </m.div>

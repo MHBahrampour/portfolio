@@ -84,105 +84,103 @@ export default function Works() {
             };
 
             return (
-              <m.div
-                key={work.title}
-                className="gradient-border group relative grid cursor-default grid-rows-[min-content_1fr_min-content] gap-8 rounded-xl p-6 hover:sm:scale-105"
-                {...directionMotion("BT", index + 1)}
-                whileHover={{
-                  scale: 1.05,
-                }}
-              >
-                {/* Header: Company logo and Links */}
-                <div className="flex items-center justify-between gap-2 text-2xl text-lt-primary-main dark:text-dt-primary-main [&_button]:text-inherit">
-                  <div className="flex flex-1 items-center gap-2">
-                    <Avatar alt={work.company} src={work.companyLogo} />
+              <m.div {...directionMotion("BT", index + 1)}>
+                <div
+                  key={work.title}
+                  className="gradient-border group relative grid cursor-default grid-rows-[min-content_1fr_min-content] gap-8 rounded-xl p-6 hover:sm:scale-105"
+                >
+                  {/* Header: Company logo and Links */}
+                  <div className="flex items-center justify-between gap-2 text-2xl text-lt-primary-main dark:text-dt-primary-main [&_button]:text-inherit">
+                    <div className="flex flex-1 items-center gap-2">
+                      <Avatar alt={work.company} src={work.companyLogo} />
 
-                    <Typography variant="body2">{work.company}</Typography>
-                  </div>
+                      <Typography variant="body2">{work.company}</Typography>
+                    </div>
 
-                  {work.githubLink && (
-                    <Link href={work.githubLink} target="_blank">
-                      <IconButton className="z-10">
-                        <FaGithub />
+                    {work.githubLink && (
+                      <Link href={work.githubLink} target="_blank">
+                        <IconButton className="z-10">
+                          <FaGithub />
+                        </IconButton>
+                      </Link>
+                    )}
+
+                    <Link href={work.siteLink} target="_blank">
+                      <IconButton
+                        edge="end"
+                        className="!animation-delay-300 z-10 group-hover:animate-bounce"
+                      >
+                        <HiArrowUpOnSquareStack />
                       </IconButton>
                     </Link>
-                  )}
+                  </div>
 
-                  <Link href={work.siteLink} target="_blank">
-                    <IconButton
-                      edge="end"
-                      className="!animation-delay-300 z-10 group-hover:animate-bounce"
+                  {/* Body: Title and Descriprions */}
+                  <div className="grid gap-4 self-start">
+                    <Typography
+                      component="h6"
+                      className="text-xl font-semibold sm:text-2xl"
                     >
-                      <HiArrowUpOnSquareStack />
-                    </IconButton>
-                  </Link>
-                </div>
+                      {work.title}
+                    </Typography>
 
-                {/* Body: Title and Descriprions */}
-                <div className="grid gap-4 self-start">
-                  <Typography
-                    component="h6"
-                    className="text-xl font-semibold sm:text-2xl"
+                    <Typography variant="body1">{work.description}</Typography>
+                  </div>
+
+                  {/* Footer: Used technologies */}
+                  {/* We can't use one div with absolute positioning since the card height possibly shrinks. Hence we use 2 implementations */}
+                  {/* Only show 3 items */}
+                  <div className={`grid grid-cols-[1fr_min-content] gap-2`}>
+                    <div className="flex flex-wrap gap-2">
+                      {work.technologies.slice(0, 3).map((tech) => (
+                        <Chip
+                          key={tech}
+                          label={tech}
+                          size="small"
+                          className="font-jbm text-xs"
+                        />
+                      ))}
+                    </div>
+
+                    {work.technologies.length > 3 && (
+                      <AiFillPlusCircle
+                        className={`hover:text-color-animation cursor-pointer self-end text-2xl`}
+                        onClick={() => setMoreTechs(work.title)}
+                      />
+                    )}
+                  </div>
+
+                  {/* Show all items */}
+                  <m.div
+                    className={`absolute bottom-3 left-3 right-3 -z-10 grid grid-cols-[1fr_min-content] gap-2 p-3 ${
+                      moreTechs === work.title &&
+                      "!z-10 rounded-2xl bg-common-white/50 backdrop-blur-3xl dark:bg-common-black/30"
+                    }`}
+                    initial={{ scale: 0 }}
+                    animate={moreTechs ? { scale: 1 } : {}}
+                    transition={{
+                      type: "spring",
+                      stiffness: 260,
+                      damping: 20,
+                    }}
                   >
-                    {work.title}
-                  </Typography>
+                    <div className="flex flex-wrap gap-2">
+                      {work.technologies.map((tech) => (
+                        <Chip
+                          key={tech}
+                          label={tech}
+                          size="small"
+                          className="font-jbm text-xs"
+                        />
+                      ))}
+                    </div>
 
-                  <Typography variant="body1">{work.description}</Typography>
-                </div>
-
-                {/* Footer: Used technologies */}
-                {/* We can't use one div with absolute positioning since the card height possibly shrinks. Hence we use 2 implementations */}
-                {/* Only show 3 items */}
-                <div className={`grid grid-cols-[1fr_min-content] gap-2`}>
-                  <div className="flex flex-wrap gap-2">
-                    {work.technologies.slice(0, 3).map((tech) => (
-                      <Chip
-                        key={tech}
-                        label={tech}
-                        size="small"
-                        className="font-jbm text-xs"
-                      />
-                    ))}
-                  </div>
-
-                  {work.technologies.length > 3 && (
-                    <AiFillPlusCircle
-                      className={`hover:text-color-animation cursor-pointer self-end text-2xl`}
-                      onClick={() => setMoreTechs(work.title)}
+                    <AiFillMinusCircle
+                      className="hover:text-color-animation cursor-pointer self-end text-2xl"
+                      onClick={() => setMoreTechs(null)}
                     />
-                  )}
+                  </m.div>
                 </div>
-
-                {/* Show all items */}
-                <m.div
-                  className={`absolute bottom-3 left-3 right-3 -z-10 grid grid-cols-[1fr_min-content] gap-2 p-3 ${
-                    moreTechs === work.title &&
-                    "!z-10 rounded-2xl bg-common-white/50 backdrop-blur-3xl dark:bg-common-black/30"
-                  }`}
-                  initial={{ scale: 0 }}
-                  animate={moreTechs ? { scale: 1 } : {}}
-                  transition={{
-                    type: "spring",
-                    stiffness: 260,
-                    damping: 20,
-                  }}
-                >
-                  <div className="flex flex-wrap gap-2">
-                    {work.technologies.map((tech) => (
-                      <Chip
-                        key={tech}
-                        label={tech}
-                        size="small"
-                        className="font-jbm text-xs"
-                      />
-                    ))}
-                  </div>
-
-                  <AiFillMinusCircle
-                    className="hover:text-color-animation cursor-pointer self-end text-2xl"
-                    onClick={() => setMoreTechs(null)}
-                  />
-                </m.div>
               </m.div>
             );
           })}
