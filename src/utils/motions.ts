@@ -4,8 +4,10 @@
 export const directionMotion = (
   direction: "TB" | "BT" | "LR" | "RL",
   index: number,
+  marginBottom: number = 80,
 ) => {
   const { startPosition, endPosition } = getPositions(direction);
+  const margin = `0px 0px -${marginBottom}px 0px`;
 
   return {
     initial: { opacity: 0, ...startPosition },
@@ -16,8 +18,7 @@ export const directionMotion = (
         delay: index * 0.3,
       },
     },
-
-    viewport: { once: false, margin: "0px 0px -48px 0px" },
+    viewport: { once: false, margin: margin },
   };
 };
 
@@ -26,13 +27,13 @@ export const directionMotion = (
 // 1. Get the requierd objects:
 //    const { container, items } = getVariantsMotion(direction);
 // 2. The parent should have these props:
-//    initial="hidden" whileInView="visible" variants={container}
+//    initial="hidden" whileInView="visible" variants={container} viewport={{ once: true, margin: "0px 0px -80px 0px" }}
 // 3. Childrens only need this prop:
 //    variants={items}
 export const getVariantsMotion = (
   direction: "TB" | "BT" | "LR" | "RL",
   delayChildren: number = 0.3,
-  staggerChildren: number = 0.2,
+  staggerChildren: number = 0.3,
 ) => {
   const { startPosition, endPosition } = getPositions(direction);
 
@@ -49,7 +50,10 @@ export const getVariantsMotion = (
 
   const items = {
     hidden: { opacity: 0, ...startPosition },
-    visible: { opacity: 1, ...endPosition },
+    visible: {
+      opacity: 1,
+      ...endPosition,
+    },
   };
 
   return {

@@ -58,7 +58,7 @@ export default function Hero() {
           color="secondary"
           className="normal-case"
           component={m.button}
-          {...directionMotion("BT", 7)}
+          {...directionMotion("BT", 7, 0)}
         >
           Get My Resume
         </Button>
