@@ -9,8 +9,8 @@ import { HiCursorClick } from "react-icons/hi";
 import { ButtonBase, Typography } from "@mui/material";
 
 import getMonthsFromNow from "@/utils/getMonthfromNow";
-import { highlightMenuItem } from "@/utils/highlightMenuItem";
 import { directionMotion, getVariantsMotion } from "@/utils/motions";
+import { useHighlightMenuItem } from "@/utils/useHighlightMenuItem";
 
 import MyPhoto from "./MyPhoto";
 
@@ -92,7 +92,7 @@ export default function About() {
     getVariantsMotion("BT", 3);
 
   const ref = useRef(null);
-  highlightMenuItem(ref, "about-menu");
+  useHighlightMenuItem(ref, "about-menu");
 
   return (
     <m.section ref={ref} id="about" className="dpx grid gap-4">

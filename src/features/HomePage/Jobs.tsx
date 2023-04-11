@@ -7,8 +7,8 @@ import moment from "moment";
 import { Tab, Tabs, Typography, useTheme } from "@mui/material";
 
 import getMonthsFromNow from "@/utils/getMonthfromNow";
-import { highlightMenuItem } from "@/utils/highlightMenuItem";
 import { directionMotion } from "@/utils/motions";
+import { useHighlightMenuItem } from "@/utils/useHighlightMenuItem";
 
 export default function Jobs() {
   const [value, setValue] = useState(0);
@@ -53,7 +53,7 @@ export default function Jobs() {
   );
 
   const ref = useRef(null);
-  highlightMenuItem(ref, "jobs-menu");
+  useHighlightMenuItem(ref, "jobs-menu");
 
   return (
     <section ref={ref} id="jobs" className="dpx grid gap-4">

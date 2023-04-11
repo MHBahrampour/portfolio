@@ -9,12 +9,12 @@ import { HiMailOpen } from "react-icons/hi";
 
 import { Button, IconButton, Typography } from "@mui/material";
 
-import { highlightMenuItem } from "@/utils/highlightMenuItem";
 import { directionMotion } from "@/utils/motions";
+import { useHighlightMenuItem } from "@/utils/useHighlightMenuItem";
 
 export default function GetInTouch() {
   const ref = useRef(null);
-  highlightMenuItem(ref, "get-in-touch-menu");
+  useHighlightMenuItem(ref, "get-in-touch-menu");
 
   return (
     <section ref={ref} id="get-in-touch" className="dpx grid gap-4">

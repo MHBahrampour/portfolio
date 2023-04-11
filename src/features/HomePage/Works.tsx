@@ -9,8 +9,8 @@ import { TbArrowBigUpLineFilled } from "react-icons/tb";
 
 import { Avatar, Chip, IconButton, Typography } from "@mui/material";
 
-import { highlightMenuItem } from "@/utils/highlightMenuItem";
 import { directionMotion } from "@/utils/motions";
+import { useHighlightMenuItem } from "@/utils/useHighlightMenuItem";
 
 interface Works {
   title: string;
@@ -65,7 +65,7 @@ export default function Works() {
   const [moreTechs, setMoreTechs] = useState<string | null>(null);
 
   const ref = useRef(null);
-  highlightMenuItem(ref, "works-menu");
+  useHighlightMenuItem(ref, "works-menu");
 
   return (
     <section ref={ref} id="works" className="dpx grid gap-4">

@@ -4,7 +4,7 @@ import { useInView } from "framer-motion";
 
 import { useTheme } from "@mui/material";
 
-export function highlightMenuItem<HighlightMenuItemProps>(
+export function useHighlightMenuItem(
   sectionRef: MutableRefObject<null>,
   elemenetId: string,
 ) {
@@ -16,5 +16,5 @@ export function highlightMenuItem<HighlightMenuItemProps>(
     isInView
       ? menuItem?.classList.add("active-menu")
       : menuItem?.classList.remove("active-menu");
-  }, [isInView, themeMode]);
+  }, [isInView, themeMode, elemenetId]);
 }
