@@ -42,11 +42,14 @@ export default function Header() {
             {navItems.map((item, index) => (
               <SmoothLink key={item.name} link={item.link}>
                 <Button
+                  id={`${item.link}-menu`}
                   className="[&.MuiButtonBase-root]:text-inherit"
                   component={m.button}
                   {...directionMotion("TB", index + 2)}
                 >
-                  {item.name}
+                  <span className="transition-all duration-500">
+                    {item.name}
+                  </span>
                 </Button>
               </SmoothLink>
             ))}
@@ -59,7 +62,7 @@ export default function Header() {
 
       {/* Page scroll progress */}
       <m.div
-        className="gradient-bg-animation fixed top-16 left-0 right-0 z-10 h-[2px] origin-top-left"
+        className="gradient-bg-animation fixed left-0 right-0 top-16 z-10 h-[2px] origin-top-left"
         style={{ scaleX }}
       />
     </>

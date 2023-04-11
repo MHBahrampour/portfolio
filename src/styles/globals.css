@@ -58,6 +58,9 @@ li {
   .link {
     @apply text-blue-500 hover:underline hover:underline-offset-4 dark:text-cyan-400;
   }
+  .active-menu {
+    @apply border border-solid !text-lt-secondary-main dark:!text-dt-secondary-main;
+  }
 }
 
 @layer utilities {

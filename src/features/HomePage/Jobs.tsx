@@ -1,12 +1,13 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import SmoothLink from "@/components/SmoothLink";
-import { m } from "framer-motion";
+import { m, useInView } from "framer-motion";
 import moment from "moment";
 
-import { Tab, Tabs, Typography } from "@mui/material";
+import { Tab, Tabs, Typography, useTheme } from "@mui/material";
 
 import getMonthsFromNow from "@/utils/getMonthfromNow";
+import { highlightMenuItem } from "@/utils/highlightMenuItem";
 import { directionMotion } from "@/utils/motions";
 
 export default function Jobs() {
@@ -51,8 +52,11 @@ export default function Jobs() {
     </>
   );
 
+  const ref = useRef(null);
+  highlightMenuItem(ref, "jobs-menu");
+
   return (
-    <section id="jobs" className="dpx grid gap-4">
+    <section ref={ref} id="jobs" className="dpx grid gap-4">
       <Typography
         component={m.h2}
         className="heading"

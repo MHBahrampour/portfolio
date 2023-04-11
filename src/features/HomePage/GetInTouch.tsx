@@ -1,3 +1,5 @@
+import { useRef } from "react";
+
 import Link from "next/link";
 
 import { m } from "framer-motion";
@@ -7,11 +9,15 @@ import { HiMailOpen } from "react-icons/hi";
 
 import { Button, IconButton, Typography } from "@mui/material";
 
+import { highlightMenuItem } from "@/utils/highlightMenuItem";
 import { directionMotion } from "@/utils/motions";
 
 export default function GetInTouch() {
+  const ref = useRef(null);
+  highlightMenuItem(ref, "get-in-touch-menu");
+
   return (
-    <section id="get-in-touch" className="dpx grid gap-4">
+    <section ref={ref} id="get-in-touch" className="dpx grid gap-4">
       <Typography
         component={m.h2}
         className="heading"

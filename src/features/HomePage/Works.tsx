@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 import Link from "next/link";
 
@@ -9,6 +9,7 @@ import { TbArrowBigUpLineFilled } from "react-icons/tb";
 
 import { Avatar, Chip, IconButton, Typography } from "@mui/material";
 
+import { highlightMenuItem } from "@/utils/highlightMenuItem";
 import { directionMotion } from "@/utils/motions";
 
 interface Works {
@@ -63,8 +64,11 @@ const works: Works[] = [
 export default function Works() {
   const [moreTechs, setMoreTechs] = useState<string | null>(null);
 
+  const ref = useRef(null);
+  highlightMenuItem(ref, "works-menu");
+
   return (
-    <section id="works" className="dpx grid gap-4">
+    <section ref={ref} id="works" className="dpx grid gap-4">
       <Typography
         component={m.h2}
         className="heading"
