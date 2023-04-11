@@ -1,4 +1,4 @@
-import { MutableRefObject, useEffect } from "react";
+import { MutableRefObject, useEffect, useState } from "react";
 
 import { useInView } from "framer-motion";
 
@@ -8,7 +8,25 @@ export function useHighlightMenuItem(
   sectionRef: MutableRefObject<null>,
   elemenetId: string,
 ) {
-  const isInView = useInView(sectionRef, { margin: "-20% 0% -70% 0%" });
+  // Calculate the viewport height
+  const [viewportHeight, setViewportHeight] = useState<number>(200);
+  useEffect(() => {
+    const updateViewportHeight = () => {
+      setViewportHeight(window.innerHeight);
+    };
+
+    window.addEventListener("resize", updateViewportHeight);
+    updateViewportHeight();
+
+    return () => window.removeEventListener("resize", updateViewportHeight);
+  }, []);
+
+  // The value subtracted from the viewportHeight is the sum of the top offset and the gap between each section
+  const margin = `-100px 0px -${viewportHeight - 180}px 0px`;
+
+  const isInView = useInView(sectionRef, {
+    margin: margin,
+  });
   const themeMode = useTheme().palette.mode;
 
   useEffect(() => {
