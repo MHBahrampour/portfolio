@@ -50,7 +50,7 @@ export default function Hero() {
       </Typography>
 
       {/* Resume */}
-      <Link href="/bahrampour-resume.pdf" target="_blank" className="w-max">
+      <Link href="/MHBahrampour.pdf" target="_blank" className="w-max">
         <Button
           disableElevation
           variant="contained"
