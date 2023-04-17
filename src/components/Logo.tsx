@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 import { m } from "framer-motion";
@@ -9,14 +10,15 @@ import { directionMotion } from "@/utils/motions";
 export default function Logo() {
   return (
     <Link href="/">
-      <Typography
-        variant="h6"
-        component={m.div}
-        className="gradient-bg-animation rounded-lg px-2 leading-snug text-common-white"
-        {...directionMotion("LR", 1)}
-      >
-        MHB
-      </Typography>
+      <m.div className="flex items-center" {...directionMotion("LR", 1)}>
+        <Image
+          src="/images/logo.svg"
+          height={36}
+          width={36}
+          alt="Logo"
+          className="rounded-full transition-all hover:bg-lt-secondary-main/10 dark:hover:bg-dt-secondary-main/20"
+        />
+      </m.div>
     </Link>
   );
 }
