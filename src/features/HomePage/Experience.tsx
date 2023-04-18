@@ -6,7 +6,7 @@ import { Tab, Tabs, Typography } from "@mui/material";
 
 import { directionMotion } from "@/utils/motions";
 
-export default function Jobs() {
+export default function Experience() {
   const [value, setValue] = useState(0);
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
@@ -62,13 +62,13 @@ export default function Jobs() {
   );
 
   return (
-    <section id="jobs" className="dpx grid w-full max-w-6xl gap-4">
+    <section id="experience" className="dpx grid w-full max-w-6xl gap-4">
       <Typography
         component={m.h2}
         className="heading"
         {...directionMotion("TB", 0)}
       >
-        Jobs
+        Experience
       </Typography>
 
       <div>
