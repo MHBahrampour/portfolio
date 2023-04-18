@@ -12,7 +12,7 @@ import NavDrawer from "./NavDrawer";
 const navItems = [
   { name: "about", link: "about" },
   { name: "Experience", link: "experience" },
-  { name: "works", link: "works" },
+  { name: "Projects", link: "projects" },
   { name: "get in touch", link: "get-in-touch" },
 ];
 

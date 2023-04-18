@@ -49,8 +49,8 @@ export default function Hero() {
           experience. I love working with new technologies and challenging
           environments.{" "}
           <span className="bg-lt-secondary-dark/10 dark:bg-dt-secondary-main/20">
-            Currently, I am looking for a position where I can use my passion
-            and participate in wonderful projects.
+            Currently, I’m looking for a position where I can use my passion and
+            participate in wonderful projects.
           </span>
         </Typography>
 

@@ -1,5 +1,6 @@
 import { useState } from "react";
 
+import SmoothLink from "@/components/SmoothLink";
 import { m } from "framer-motion";
 
 import { Tab, Tabs, Typography } from "@mui/material";
@@ -69,6 +70,14 @@ export default function Experience() {
         {...directionMotion("TB", 0)}
       >
         Experience
+      </Typography>
+
+      <Typography variant="body1">
+        Shall we start a journey together? Feel free to{" "}
+        <SmoothLink link="get-in-touch" className="link">
+          contact me
+        </SmoothLink>
+        .
       </Typography>
 
       <div>

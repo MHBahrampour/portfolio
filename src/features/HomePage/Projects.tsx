@@ -20,7 +20,6 @@ interface Works {
   githubLink: string | null;
   technologies: string[];
 }
-
 const works: Works[] = [
   {
     title: "Metaroom App",
@@ -60,17 +59,21 @@ const works: Works[] = [
   },
 ];
 
-export default function Works() {
+export default function Projects() {
   const [moreTechs, setMoreTechs] = useState<string | null>(null);
 
   return (
-    <section id="works" className="dpx grid w-full max-w-6xl gap-4">
+    <section id="projects" className="dpx grid w-full max-w-6xl gap-4">
       <Typography
         component={m.h2}
         className="heading"
         {...directionMotion("TB", 0)}
       >
-        Works
+        Projects
+      </Typography>
+
+      <Typography variant="body1">
+        Consider this portfolio as well because I’m proud of it 😉
       </Typography>
 
       <div className="grid grid-cols-[repeat(auto-fit,_minmax(288px,_1fr))] gap-4">

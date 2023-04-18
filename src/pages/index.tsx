@@ -4,7 +4,7 @@ import About from "@/features/HomePage/About";
 import Experience from "@/features/HomePage/Experience";
 import GetInTouch from "@/features/HomePage/GetInTouch";
 import Hero from "@/features/HomePage/Hero";
-import Works from "@/features/HomePage/Works";
+import Projects from "@/features/HomePage/Projects";
 
 export default function index() {
   return (
@@ -17,7 +17,7 @@ export default function index() {
         <Hero />
         <About />
         <Experience />
-        <Works />
+        <Projects />
         <GetInTouch />
       </main>
     </>
