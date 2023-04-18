@@ -1,12 +1,9 @@
 import { useState } from "react";
 
-import SmoothLink from "@/components/SmoothLink";
 import { m } from "framer-motion";
-import moment from "moment";
 
 import { Tab, Tabs, Typography } from "@mui/material";
 
-import getMonthsFromNow from "@/utils/getMonthfromNow";
 import { directionMotion } from "@/utils/motions";
 
 export default function Jobs() {
@@ -32,7 +29,7 @@ export default function Jobs() {
             for company projects.
           </li>
           <li>
-            Refactored Metaroom's front-end using modern technologies and other
+            Refactored Metaroom’s front-end using modern technologies and other
             optimizations.
           </li>
           <li>
@@ -43,14 +40,23 @@ export default function Jobs() {
       </TabPanel>
 
       <TabPanel value={value} index={1}>
-        <Typography variant="body1">
-          I’m currently looking for better positions, if you are interested in
-          hiring me, please{" "}
-          <SmoothLink link="get-in-touch" className="link">
-            contact me
-          </SmoothLink>
-          .
-        </Typography>
+        <div className="grid gap-1">
+          <Typography variant="h6">Junior Full-stack Developer</Typography>
+          <Typography variant="body2">
+            Feb 2020 - Sep 2022 · 2 years 8 month
+          </Typography>
+        </div>
+
+        <ul>
+          <li>
+            Beginning to learn and implement real world projects after
+            university.
+          </li>
+          <li>
+            Designing and implementing responsive web applications using Django,
+            HTML, CSS and Javascript for clients.
+          </li>
+        </ul>
       </TabPanel>
     </>
   );
@@ -79,7 +85,7 @@ export default function Jobs() {
           {...directionMotion("LR", 1)}
         >
           <Tab label="030labs" {...tabProps(0)} />
-          <Tab label="Your Company ?!" {...tabProps(1)} />
+          <Tab label="Freelance" {...tabProps(1)} />
         </Tabs>
 
         {/* Tabs content */}
