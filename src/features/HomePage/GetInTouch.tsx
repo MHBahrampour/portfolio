@@ -11,7 +11,7 @@ import { directionMotion } from "@/utils/motions";
 
 export default function GetInTouch() {
   return (
-    <section id="get-in-touch" className="dpx grid gap-4">
+    <section id="get-in-touch" className="dpx grid w-full max-w-6xl gap-4">
       <Typography
         component={m.h2}
         className="heading"

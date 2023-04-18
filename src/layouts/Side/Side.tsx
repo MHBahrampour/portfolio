@@ -1,3 +1,5 @@
+import { useEffect, useState } from "react";
+
 import Link from "next/link";
 
 import BackToTop from "@/components/BackToTop";
@@ -9,6 +11,7 @@ import { HiMailOpen } from "react-icons/hi";
 import { IconButton } from "@mui/material";
 
 import { directionMotion } from "@/utils/motions";
+import useWindowDimentions from "@/utils/useWindowDimentions";
 
 const contactWaysData = [
   {
@@ -44,10 +47,23 @@ const contactWaysData = [
 ];
 
 export default function Side() {
+  const [rightOffset, setRightOffset] = useState<number>(24);
+  const { windowWidth } = useWindowDimentions();
+
+  useEffect(() => {
+    const nav = document.querySelector("nav");
+    if (nav) {
+      const style = getComputedStyle(nav);
+      const marginRight = parseFloat(style.marginRight);
+      setRightOffset(marginRight + 32);
+    }
+  }, [windowWidth]);
+
   return (
     <>
       <m.div
-        className="fixed bottom-0 hidden w-12 flex-col items-center rounded-full backdrop-blur-sm after:inline-block after:h-32 after:w-[3px] after:rounded-full after:bg-common-black after:content-[''] after:dark:bg-dt-primary-main sm:right-[36px] sm:flex sm:gap-2"
+        className="fixed bottom-0 hidden w-12 flex-col items-center rounded-full backdrop-blur-sm after:inline-block after:h-32 after:w-[3px] after:rounded-full after:bg-common-black after:content-[''] after:dark:bg-dt-primary-main sm:flex sm:gap-2"
+        style={{ right: rightOffset }}
         {...directionMotion("RL", 7)}
       >
         {contactWaysData.map((item) => (
@@ -61,7 +77,7 @@ export default function Side() {
         ))}
       </m.div>
 
-      <BackToTop />
+      <BackToTop rightOffset={rightOffset} />
     </>
   );
 }

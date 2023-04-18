@@ -52,7 +52,7 @@ export default function Jobs() {
   );
 
   return (
-    <section id="jobs" className="dpx grid gap-4">
+    <section id="jobs" className="dpx grid w-full max-w-6xl gap-4">
       <Typography
         component={m.h2}
         className="heading"
@@ -61,7 +61,7 @@ export default function Jobs() {
         Jobs
       </Typography>
 
-      <div className="w-full max-w-4xl">
+      <div>
         <Tabs
           value={value}
           onChange={handleChange}

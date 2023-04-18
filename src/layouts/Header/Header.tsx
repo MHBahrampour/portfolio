@@ -27,10 +27,13 @@ export default function Header() {
   return (
     <>
       <AppBar
-        component="nav"
+        component="header"
         className={`sticky bg-common-white/70 bg-none text-lt-primary-main shadow-none backdrop-blur-lg dark:bg-common-black/80 dark:text-dt-primary-main`}
       >
-        <Toolbar className="h-16 justify-between px-6 sm:px-12">
+        <Toolbar
+          component="nav"
+          className="mx-auto h-16 w-full max-w-[1440px] justify-between px-6 sm:px-12"
+        >
           {/* Navigation button and drawer */}
           <NavDrawer navItems={navItems} />
 
@@ -59,7 +62,7 @@ export default function Header() {
 
       {/* Page scroll progress */}
       <m.div
-        className="gradient-bg-animation fixed top-16 left-0 right-0 z-10 h-[2px] origin-top-left"
+        className="gradient-bg-animation fixed left-0 right-0 top-16 z-10 h-[2px] origin-top-left"
         style={{ scaleX }}
       />
     </>

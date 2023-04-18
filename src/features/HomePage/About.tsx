@@ -91,98 +91,94 @@ export default function About() {
     getVariantsMotion("BT", 3);
 
   return (
-    <m.section id="about" className="dpx grid gap-4">
+    <m.section id="about" className="dpx w-full max-w-6xl">
       <Typography
         component={m.h2}
-        className="heading"
+        className="heading mb-4"
         {...directionMotion("TB", 0)}
       >
         About
       </Typography>
 
-      <div className="max-w-4xl">
-        {/* Photo */}
-        <MyPhoto className="mx-auto max-w-[400px] sm:float-right sm:max-w-[250px] md:max-w-[300px]" />
+      {/* Photo */}
+      <MyPhoto className="mx-auto max-w-[400px] sm:float-right sm:max-w-[250px] md:max-w-[300px]" />
 
-        <m.div {...directionMotion("LR", 2)}>
-          {aboutContent.map((content, index) => (
-            <Typography key={index} variant="body1" className="mb-4">
-              {content}
-            </Typography>
-          ))}
-        </m.div>
+      <m.div {...directionMotion("LR", 2)}>
+        {aboutContent.map((content, index) => (
+          <Typography key={index} variant="body1" className="mb-4">
+            {content}
+          </Typography>
+        ))}
+      </m.div>
 
-        {/* Favorite technologies */}
-        <m.div
-          className="grid grid-cols-2 gap-4 md:grid-cols-3 md:gap-6"
-          initial="hidden"
-          whileInView="visible"
-          variants={favtechContainer}
-          viewport={{ once: true, margin: "0px 0px -80px 0px" }}
-        >
-          {frequentTechsData.map((techItem) => {
-            const monthsNumber = getMonthsFromNow(techItem.startDate);
-            const projectsNumber = techItem.projectsUsed;
+      {/* Favorite technologies */}
+      <m.div
+        className="grid grid-cols-2 gap-4 md:grid-cols-3 md:gap-6"
+        initial="hidden"
+        whileInView="visible"
+        variants={favtechContainer}
+        viewport={{ once: true, margin: "0px 0px -80px 0px" }}
+      >
+        {frequentTechsData.map((techItem) => {
+          const monthsNumber = getMonthsFromNow(techItem.startDate);
+          const projectsNumber = techItem.projectsUsed;
 
-            return (
-              <m.div
-                key={techItem.id}
-                onClick={() => handleFavTechsClick(techItem.id)}
-                variants={favTechItems}
+          return (
+            <m.div
+              key={techItem.id}
+              onClick={() => handleFavTechsClick(techItem.id)}
+              variants={favTechItems}
+            >
+              <ButtonBase
+                component="div"
+                className={`group h-24 w-full cursor-pointer rounded-lg p-3 text-common-black transition-all @container hover:scale-105 dark:bg-opacity-50 dark:text-common-white sm:p-4 md:p-5 ${techItem.bgColor}`}
               >
-                <ButtonBase
-                  component="div"
-                  className={`group h-24 w-full cursor-pointer rounded-lg p-3 text-common-black transition-all @container hover:scale-105 dark:bg-opacity-50 dark:text-common-white sm:p-4 md:p-5 ${techItem.bgColor}`}
-                >
-                  {/* show each fav techs or its details */}
-                  {favTechDetail !== techItem.id ? (
-                    <div className="flex w-full flex-col justify-between gap-2">
-                      <div className="flex justify-between">
-                        <Image
-                          src={techItem.logo}
-                          width={36}
-                          height={36}
-                          alt={techItem.name}
-                          className="b-to-t-animation animation-delay-100"
-                        />
+                {/* show each fav techs or its details */}
+                {favTechDetail !== techItem.id ? (
+                  <div className="flex w-full flex-col justify-between gap-2">
+                    <div className="flex justify-between">
+                      <Image
+                        src={techItem.logo}
+                        width={36}
+                        height={36}
+                        alt={techItem.name}
+                        className="b-to-t-animation animation-delay-100"
+                      />
 
-                        <HiCursorClick className="b-to-t-animation animation-delay-500 text-lg text-black/40 group-hover:text-black dark:text-white/40 dark:group-hover:text-white md:text-xl" />
-                      </div>
+                      <HiCursorClick className="b-to-t-animation animation-delay-500 text-lg text-black/40 group-hover:text-black dark:text-white/40 dark:group-hover:text-white md:text-xl" />
+                    </div>
 
-                      <Typography className="b-to-t-animation animation-delay-300 text-lg font-semibold text-inherit md:text-xl">
-                        {techItem.name}
+                    <Typography className="b-to-t-animation animation-delay-300 text-lg font-semibold text-inherit md:text-xl">
+                      {techItem.name}
+                    </Typography>
+                  </div>
+                ) : (
+                  <div className="flex w-full flex-col gap-2 @[200px]:flex-row @[200px]:justify-evenly">
+                    {[monthsNumber, projectsNumber].map((mpItem, index) => (
+                      <Typography
+                        key={index}
+                        component="p"
+                        className={`t-to-b-animation text-lg font-semibold text-inherit @[200px]:text-2xl ${
+                          index === 0
+                            ? "animation-delay-100"
+                            : "animation-delay-300"
+                        }`}
+                      >
+                        +{mpItem} <br className="hidden @[200px]:block" />
+                        <span className="text-base font-light @[200px]:text-lg @[200px]:font-normal">
+                          {index === 0
+                            ? `month${monthsNumber > 1 ? "s" : ""}`
+                            : `project${techItem.projectsUsed > 1 ? "s" : ""}`}
+                        </span>
                       </Typography>
-                    </div>
-                  ) : (
-                    <div className="flex w-full flex-col gap-2 @[200px]:flex-row @[200px]:justify-evenly">
-                      {[monthsNumber, projectsNumber].map((mpItem, index) => (
-                        <Typography
-                          key={index}
-                          component="p"
-                          className={`t-to-b-animation text-lg font-semibold text-inherit @[200px]:text-2xl ${
-                            index === 0
-                              ? "animation-delay-100"
-                              : "animation-delay-300"
-                          }`}
-                        >
-                          +{mpItem} <br className="hidden @[200px]:block" />
-                          <span className="text-base font-light @[200px]:text-lg @[200px]:font-normal">
-                            {index === 0
-                              ? `month${monthsNumber > 1 ? "s" : ""}`
-                              : `project${
-                                  techItem.projectsUsed > 1 ? "s" : ""
-                                }`}
-                          </span>
-                        </Typography>
-                      ))}
-                    </div>
-                  )}
-                </ButtonBase>
-              </m.div>
-            );
-          })}
-        </m.div>
-      </div>
+                    ))}
+                  </div>
+                )}
+              </ButtonBase>
+            </m.div>
+          );
+        })}
+      </m.div>
     </m.section>
   );
 }
