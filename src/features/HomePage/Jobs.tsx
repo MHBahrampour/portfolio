@@ -22,14 +22,18 @@ export default function Jobs() {
         <div className="grid gap-1">
           <Typography variant="h6">Junior Front-end Developer</Typography>
           <Typography variant="body2">
-            Sep 2022 - Present · {getMonthsFromNow(moment("2022-08-01"))} months
+            Sep 2022 - Apr 2023 · 8 months
           </Typography>
         </div>
 
         <ul>
-          <li>Write modern and maintainable code for company projects.</li>
           <li>
-            Worked with technologies such as React, TypeScript, Next.js and MUI.
+            Write responsible and maintainable code including Web3 components
+            for company projects.
+          </li>
+          <li>
+            Refactored Metaroom's front-end using modern technologies and other
+            optimizations.
           </li>
           <li>
             Communicate with teams of engineers, designers and developers on a
@@ -74,7 +78,7 @@ export default function Jobs() {
           component={m.div}
           {...directionMotion("LR", 1)}
         >
-          <Tab label="Innovation Berlin" {...tabProps(0)} />
+          <Tab label="030labs" {...tabProps(0)} />
           <Tab label="Your Company ?!" {...tabProps(1)} />
         </Tabs>
 

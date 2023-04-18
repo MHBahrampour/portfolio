@@ -42,12 +42,16 @@ export default function Hero() {
         <Typography
           variant="body1"
           component={m.p}
-          className="max-w-xl sm:text-lg lg:text-xl"
+          className="max-w-2xl sm:text-lg lg:text-xl"
           {...directionMotion("BT", 5)}
         >
-          I’m a front-end developer who enjoys working with good technologies
-          and finds designing entertaining. Currently, I’m focused on building
-          accessible, human-centered products at Innovation Berlin.
+          Passionate, focused and committed developer with 2+ years of
+          experience. I love working with new technologies and challenging
+          environments.{" "}
+          <span className="bg-lt-secondary-dark/10 dark:bg-dt-secondary-main/20">
+            Currently, I am looking for a position where I can use my passion
+            and participate in wonderful projects.
+          </span>
         </Typography>
 
         {/* Resume */}

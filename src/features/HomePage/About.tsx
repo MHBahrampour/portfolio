@@ -76,7 +76,7 @@ const frequentTechsData: FrequentTechsData[] = [
 const aboutContent = [
   "Hello! My name is Mohammad Hossein Bahrampour. Don’t worry you can call me Mamad!",
   "I started my journey in 2020 as a back-end developer and my weapon of choice was Django .Although it was very attractive to me, I was looking for something that would challenge my artistic creativity more and this is where I was drawn to the front end.",
-  "Fast-forward to early 2022 I decided to switch to front-end, and boy I loved it. Since then, I started learning with more enthusiasm. I tried well-known technologies and studied best practices so that Icould not only build something, but build something of quality.",
+  "Fast-forward to early 2022 I decided to switch to front-end, and boy I loved it. Since then, I started learning with more enthusiasm. I tried well-known technologies and studied best practices so that I could not only build something, but build something of quality.",
   "Here are some technologies that I use often:",
 ];
 
@@ -104,11 +104,25 @@ export default function About() {
       <MyPhoto className="mx-auto max-w-[400px] sm:float-right sm:max-w-[250px] md:max-w-[300px]" />
 
       <m.div {...directionMotion("LR", 2)}>
-        {aboutContent.map((content, index) => (
-          <Typography key={index} variant="body1" className="mb-4">
-            {content}
-          </Typography>
-        ))}
+        <Typography variant="body1" className="mb-4">
+          Hello! My name is Mohammad Hossein Bahrampour. Don’t worry you can
+          call me <span className="font-medium">Mamad!</span>
+        </Typography>
+        <Typography variant="body1" className="mb-4">
+          I started my journey in 2020 as a back-end developer and my weapon of
+          choice was Django .Although it was very attractive to me, I was
+          looking for something that would challenge my artistic creativity more
+          and this is where I was drawn to the front end.
+        </Typography>
+        <Typography variant="body1" className="mb-4">
+          Fast-forward to early 2022 I decided to switch to front-end, and boy I
+          loved it. Since then, I started learning with more enthusiasm. I tried
+          well-known technologies and studied best practices so that I could not
+          only build something, but build something of quality.
+        </Typography>
+        <Typography variant="body1" className="mb-4">
+          Here are some technologies that I use often:
+        </Typography>
       </m.div>
 
       {/* Favorite technologies */}
