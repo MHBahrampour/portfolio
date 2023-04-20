@@ -41,7 +41,7 @@ export default function Header() {
           <Logo />
 
           {/* Navigation items */}
-          <div className="hidden gap-4 sm:flex">
+          <div className="hidden gap-2 sm:flex md:gap-4">
             {navItems.map((item, index) => (
               <SmoothLink key={item.name} link={item.link}>
                 <Button
