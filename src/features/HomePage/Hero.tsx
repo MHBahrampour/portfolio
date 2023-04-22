@@ -2,10 +2,11 @@ import { useRef } from "react";
 
 import Link from "next/link";
 
-import { useHighlightMenuItem } from "@/hooks/useHighlighMenuItem";
 import { m } from "framer-motion";
 
 import { Button, Typography } from "@mui/material";
+
+import { useHighlightMenuItem } from "@/hooks/useHighlighMenuItem";
 
 import { directionMotion } from "@/utils/motions";
 

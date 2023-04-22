@@ -1,16 +1,15 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 
 import Link from "next/link";
 
-import { useAppDispatch } from "@/hooks/redux";
-import { useHighlightMenuItem } from "@/hooks/useHighlighMenuItem";
-import { setActiveMenuItem } from "@/redux/menuItemsSlice";
-import { m, useInView } from "framer-motion";
+import { m } from "framer-motion";
 import { AiFillMinusCircle, AiFillPlusCircle } from "react-icons/ai";
 import { FaGithub } from "react-icons/fa";
 import { TbArrowBigUpLineFilled } from "react-icons/tb";
 
 import { Avatar, Chip, IconButton, Typography } from "@mui/material";
+
+import { useHighlightMenuItem } from "@/hooks/useHighlighMenuItem";
 
 import { directionMotion } from "@/utils/motions";
 

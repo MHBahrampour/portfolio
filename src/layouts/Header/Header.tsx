@@ -1,10 +1,13 @@
-import Logo from "@/components/Logo";
-import SmoothLink from "@/components/SmoothLink";
-import { useAppSelector } from "@/hooks/redux";
-import { SwitchThemeButton } from "@/themes/SwitchThemeButton/SwitchThemeButton";
 import { m, useScroll, useSpring } from "framer-motion";
 
 import { AppBar, Button, Toolbar } from "@mui/material";
+
+import Logo from "@/components/Logo";
+import SmoothLink from "@/components/SmoothLink";
+
+import { useAppSelector } from "@/hooks/redux";
+
+import { SwitchThemeButton } from "@/themes/SwitchThemeButton/SwitchThemeButton";
 
 import { directionMotion } from "@/utils/motions";
 

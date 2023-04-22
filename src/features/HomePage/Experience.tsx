@@ -1,12 +1,12 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 
-import SmoothLink from "@/components/SmoothLink";
-import { useAppDispatch } from "@/hooks/redux";
-import { useHighlightMenuItem } from "@/hooks/useHighlighMenuItem";
-import { setActiveMenuItem } from "@/redux/menuItemsSlice";
-import { m, useInView } from "framer-motion";
+import { m } from "framer-motion";
 
 import { Tab, Tabs, Typography } from "@mui/material";
+
+import SmoothLink from "@/components/SmoothLink";
+
+import { useHighlightMenuItem } from "@/hooks/useHighlighMenuItem";
 
 import { directionMotion } from "@/utils/motions";
 

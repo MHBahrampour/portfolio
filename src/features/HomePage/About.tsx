@@ -1,15 +1,14 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 
 import Image from "next/image";
 
-import { useAppDispatch } from "@/hooks/redux";
-import { useHighlightMenuItem } from "@/hooks/useHighlighMenuItem";
-import { setActiveMenuItem } from "@/redux/menuItemsSlice";
-import { m, useInView } from "framer-motion";
+import { m } from "framer-motion";
 import moment, { type Moment } from "moment";
 import { HiCursorClick } from "react-icons/hi";
 
 import { ButtonBase, Typography } from "@mui/material";
+
+import { useHighlightMenuItem } from "@/hooks/useHighlighMenuItem";
 
 import getMonthsFromNow from "@/utils/getMonthfromNow";
 import { directionMotion, getVariantsMotion } from "@/utils/motions";

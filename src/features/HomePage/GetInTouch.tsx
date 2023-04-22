@@ -1,16 +1,15 @@
-import { MutableRefObject, useEffect, useRef } from "react";
+import { useRef } from "react";
 
 import Link from "next/link";
 
-import { useAppDispatch } from "@/hooks/redux";
-import { useHighlightMenuItem } from "@/hooks/useHighlighMenuItem";
-import { setActiveMenuItem } from "@/redux/menuItemsSlice";
-import { m, useInView } from "framer-motion";
+import { m } from "framer-motion";
 import { BsDiscord } from "react-icons/bs";
 import { FaLinkedin, FaTelegram, FaTwitter } from "react-icons/fa";
 import { HiMailOpen } from "react-icons/hi";
 
 import { Button, IconButton, Typography } from "@mui/material";
+
+import { useHighlightMenuItem } from "@/hooks/useHighlighMenuItem";
 
 import { directionMotion } from "@/utils/motions";
 

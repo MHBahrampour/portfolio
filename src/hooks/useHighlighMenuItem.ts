@@ -1,7 +1,8 @@
 import { MutableRefObject, useEffect, useState } from "react";
 
-import { setActiveMenuItem } from "@/redux/menuItemsSlice";
 import { useInView } from "framer-motion";
+
+import { setActiveMenuItem } from "@/redux/menuItemsSlice";
 
 import { useAppDispatch } from "./redux";
 
