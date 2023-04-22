@@ -2,12 +2,15 @@ import React, { useState } from "react";
 
 import Link from "next/link";
 
-import Logo from "@/components/Logo";
-import SmoothLink from "@/components/SmoothLink";
 import { m } from "framer-motion";
 import { CgClose, CgMenuLeft } from "react-icons/cg";
 
 import { Button, Drawer, IconButton } from "@mui/material";
+
+import Logo from "@/components/Logo";
+import SmoothLink from "@/components/SmoothLink";
+
+import { useAppSelector } from "@/hooks/redux";
 
 import { directionMotion } from "@/utils/motions";
 
@@ -18,6 +21,10 @@ interface NavDrawerProps {
   }[];
 }
 export default function NavDrawer({ navItems }: NavDrawerProps) {
+  const activeMenuItem = useAppSelector(
+    (state) => state.menuItems.activeMenuItem,
+  );
+
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const handleDrawerToggle = () => {
@@ -66,21 +73,26 @@ export default function NavDrawer({ navItems }: NavDrawerProps) {
         {/* Navigation items */}
         <div className="grid h-full items-center">
           <div className="grid gap-4">
-            {navItems.map((item, index) => (
-              <SmoothLink
-                key={item.name}
-                link={item.link}
-                action={handleDrawerToggle}
-              >
-                <Button
-                  className="w-full rounded-none px-6 py-3 [&.MuiButtonBase-root]:text-inherit"
-                  component={m.button}
-                  {...directionMotion("TB", index + 2)}
+            {navItems.map((item, index) => {
+              const isActive = activeMenuItem === item.link;
+              const activeStyle = "";
+              return (
+                <SmoothLink
+                  key={item.name}
+                  link={item.link}
+                  action={handleDrawerToggle}
                 >
-                  {item.name}
-                </Button>
-              </SmoothLink>
-            ))}
+                  <Button
+                    className="w-full rounded-none px-6 py-3"
+                    color={isActive ? "secondary" : "primary"}
+                    component={m.button}
+                    {...directionMotion("TB", index + 2)}
+                  >
+                    {item.name}
+                  </Button>
+                </SmoothLink>
+              );
+            })}
           </div>
         </div>
 

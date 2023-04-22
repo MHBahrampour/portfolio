@@ -50,18 +50,20 @@ export default function Header() {
 
           {/* Navigation items */}
           <div className="hidden gap-2 sm:flex md:gap-4">
-            {navItems.map((item, index) => (
-              <SmoothLink key={item.name} link={item.link}>
-                <Button
-                  className=""
-                  component={m.button}
-                  color={activeMenuItem === item.link ? "secondary" : "primary"}
-                  {...directionMotion("TB", index + 2)}
-                >
-                  {item.name}
-                </Button>
-              </SmoothLink>
-            ))}
+            {navItems.map((item, index) => {
+              const isActive = activeMenuItem === item.link;
+              return (
+                <SmoothLink key={item.name} link={item.link}>
+                  <Button
+                    color={isActive ? "secondary" : "primary"}
+                    component={m.button}
+                    {...directionMotion("TB", index + 2)}
+                  >
+                    {item.name}
+                  </Button>
+                </SmoothLink>
+              );
+            })}
           </div>
 
           {/* Theme switcher */}
