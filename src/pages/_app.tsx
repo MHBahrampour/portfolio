@@ -6,9 +6,11 @@ import { useRouter } from "next/router";
 import Footer from "@/layouts/Footer/Footer";
 import Header from "@/layouts/Header/Header";
 import Side from "@/layouts/Side/Side";
+import { store } from "@/redux/store";
 import ThemeWrapper from "@/themes/ThemeWrapper/ThemeWrapper";
 import { CacheProvider, type EmotionCache } from "@emotion/react";
 import { LazyMotion } from "framer-motion";
+import { Provider, useStore } from "react-redux";
 
 import createEmotionCache from "@/utils/createEmotionCache";
 import { initGA, logPageView } from "@/utils/reactGA";
@@ -47,15 +49,17 @@ export default function App({
   }, [router.events]);
 
   return (
-    <CacheProvider value={emotionCache}>
-      <ThemeWrapper>
-        <LazyMotion strict features={loadMotionFeatures}>
-          <Header />
-          <Component {...pageProps} />
-          <Footer />
-          <Side />
-        </LazyMotion>
-      </ThemeWrapper>
-    </CacheProvider>
+    <Provider store={store}>
+      <CacheProvider value={emotionCache}>
+        <ThemeWrapper>
+          <LazyMotion strict features={loadMotionFeatures}>
+            <Header />
+            <Component {...pageProps} />
+            <Footer />
+            <Side />
+          </LazyMotion>
+        </ThemeWrapper>
+      </CacheProvider>
+    </Provider>
   );
 }
