@@ -1,8 +1,11 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import Link from "next/link";
 
-import { m } from "framer-motion";
+import { useAppDispatch } from "@/hooks/redux";
+import { useHighlightMenuItem } from "@/hooks/useHighlighMenuItem";
+import { setActiveMenuItem } from "@/redux/menuItemsSlice";
+import { m, useInView } from "framer-motion";
 import { AiFillMinusCircle, AiFillPlusCircle } from "react-icons/ai";
 import { FaGithub } from "react-icons/fa";
 import { TbArrowBigUpLineFilled } from "react-icons/tb";
@@ -62,8 +65,16 @@ const works: Works[] = [
 export default function Projects() {
   const [moreTechs, setMoreTechs] = useState<string | null>(null);
 
+  // Highlight active menu items
+  const sectionRef = useRef(null);
+  useHighlightMenuItem(sectionRef);
+
   return (
-    <section id="projects" className="dpx grid w-full max-w-6xl gap-4">
+    <section
+      ref={sectionRef}
+      id="projects"
+      className="dpx grid w-full max-w-6xl gap-4"
+    >
       <Typography
         component={m.h2}
         className="heading"

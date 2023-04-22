@@ -1,5 +1,6 @@
 import Logo from "@/components/Logo";
 import SmoothLink from "@/components/SmoothLink";
+import { useAppSelector } from "@/hooks/redux";
 import { SwitchThemeButton } from "@/themes/SwitchThemeButton/SwitchThemeButton";
 import { m, useScroll, useSpring } from "framer-motion";
 
@@ -11,12 +12,16 @@ import NavDrawer from "./NavDrawer";
 
 const navItems = [
   { name: "about", link: "about" },
-  { name: "Experience", link: "experience" },
-  { name: "Projects", link: "projects" },
+  { name: "experience", link: "experience" },
+  { name: "projects", link: "projects" },
   { name: "get in touch", link: "get-in-touch" },
 ];
 
 export default function Header() {
+  const activeMenuItem = useAppSelector(
+    (state) => state.menuItems.activeMenuItem,
+  );
+
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,
@@ -45,8 +50,9 @@ export default function Header() {
             {navItems.map((item, index) => (
               <SmoothLink key={item.name} link={item.link}>
                 <Button
-                  className="[&.MuiButtonBase-root]:text-inherit"
+                  className=""
                   component={m.button}
+                  color={activeMenuItem === item.link ? "secondary" : "primary"}
                   {...directionMotion("TB", index + 2)}
                 >
                   {item.name}

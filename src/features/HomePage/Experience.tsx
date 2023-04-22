@@ -1,16 +1,19 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import SmoothLink from "@/components/SmoothLink";
-import { m } from "framer-motion";
+import { useAppDispatch } from "@/hooks/redux";
+import { useHighlightMenuItem } from "@/hooks/useHighlighMenuItem";
+import { setActiveMenuItem } from "@/redux/menuItemsSlice";
+import { m, useInView } from "framer-motion";
 
 import { Tab, Tabs, Typography } from "@mui/material";
 
 import { directionMotion } from "@/utils/motions";
 
 export default function Experience() {
+  // Handle tabs change
   const [value, setValue] = useState(0);
-
-  const handleChange = (event: React.SyntheticEvent, newValue: number) => {
+  const handleTabsChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
   };
 
@@ -62,8 +65,16 @@ export default function Experience() {
     </>
   );
 
+  // Highlight active menu items
+  const sectionRef = useRef(null);
+  useHighlightMenuItem(sectionRef);
+
   return (
-    <section id="experience" className="dpx grid w-full max-w-6xl gap-4">
+    <section
+      ref={sectionRef}
+      id="experience"
+      className="dpx grid w-full max-w-6xl gap-4"
+    >
       <Typography
         component={m.h2}
         className="heading"
@@ -83,7 +94,7 @@ export default function Experience() {
       <div>
         <Tabs
           value={value}
-          onChange={handleChange}
+          onChange={handleTabsChange}
           textColor="secondary"
           indicatorColor="secondary"
           variant="scrollable"

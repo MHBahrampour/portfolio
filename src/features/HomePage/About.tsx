@@ -1,8 +1,11 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import Image from "next/image";
 
-import { m } from "framer-motion";
+import { useAppDispatch } from "@/hooks/redux";
+import { useHighlightMenuItem } from "@/hooks/useHighlighMenuItem";
+import { setActiveMenuItem } from "@/redux/menuItemsSlice";
+import { m, useInView } from "framer-motion";
 import moment, { type Moment } from "moment";
 import { HiCursorClick } from "react-icons/hi";
 
@@ -90,8 +93,12 @@ export default function About() {
   const { container: favtechContainer, items: favTechItems } =
     getVariantsMotion("BT", 3);
 
+  // Highlight active menu items
+  const sectionRef = useRef(null);
+  useHighlightMenuItem(sectionRef);
+
   return (
-    <m.section id="about" className="dpx w-full max-w-6xl">
+    <m.section ref={sectionRef} id="about" className="dpx w-full max-w-6xl">
       <Typography
         component={m.h2}
         className="heading mb-4"
