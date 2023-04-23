@@ -5,7 +5,7 @@ import Link from "next/link";
 import { m } from "framer-motion";
 import { AiFillMinusCircle, AiFillPlusCircle } from "react-icons/ai";
 import { FaGithub } from "react-icons/fa";
-import { TbArrowBigUpLineFilled } from "react-icons/tb";
+import { RiLink } from "react-icons/ri";
 
 import { Avatar, Chip, IconButton, Typography } from "@mui/material";
 
@@ -13,7 +13,7 @@ import { useHighlightMenuItem } from "@/hooks/useHighlighMenuItem";
 
 import { directionMotion } from "@/utils/motions";
 
-interface Works {
+interface ProjectsData {
   title: string;
   description: string;
   company: string;
@@ -22,7 +22,7 @@ interface Works {
   githubLink: string | null;
   technologies: string[];
 }
-const works: Works[] = [
+const projectsData: ProjectsData[] = [
   {
     title: "Metaroom App",
     description:
@@ -90,34 +90,34 @@ export default function Projects() {
         Consider this portfolio as well because I’m proud of it 😉
       </Typography>
 
-      <div className="grid grid-cols-[repeat(auto-fit,_minmax(288px,_1fr))] gap-4">
-        {/* Work cards */}
-        {works.map((work, index) => {
+      <div className="grid grid-cols-[repeat(auto-fit,_minmax(288px,_1fr))] gap-6">
+        {/* Project cards */}
+        {projectsData.map((project, index) => {
           return (
-            <m.div key={work.title} {...directionMotion("BT", index + 2)}>
-              <div className="gradient-border group relative grid h-full cursor-default grid-rows-[min-content_1fr_min-content] gap-8 rounded-xl p-6 transition-all hover:scale-105">
+            <m.div key={project.title} {...directionMotion("BT", index + 2)}>
+              <div className="group relative grid h-full cursor-default grid-rows-[min-content_1fr_min-content] gap-8 rounded-xl bg-lt-primary-main/5 p-6 transition-all duration-500 dark:bg-lt-primary-main/50 ">
                 {/* Header: Company logo and Links */}
                 <div className="flex items-center justify-between gap-2 text-2xl text-lt-primary-main dark:text-dt-primary-main [&_button]:text-inherit">
                   <div className="flex flex-1 items-center gap-2">
-                    <Avatar alt={work.company} src={work.companyLogo} />
+                    <Avatar alt={project.company} src={project.companyLogo} />
 
-                    <Typography variant="body2">{work.company}</Typography>
+                    <Typography variant="body2">{project.company}</Typography>
                   </div>
 
-                  {work.githubLink && (
-                    <Link href={work.githubLink} target="_blank">
+                  {project.githubLink && (
+                    <Link href={project.githubLink} target="_blank">
                       <IconButton>
                         <FaGithub />
                       </IconButton>
                     </Link>
                   )}
 
-                  <Link href={work.siteLink} target="_blank">
+                  <Link href={project.siteLink} target="_blank">
                     <IconButton
                       edge="end"
                       className="group-hover:text-color-animation"
                     >
-                      <TbArrowBigUpLineFilled className="rotate-45" />
+                      <RiLink />
                     </IconButton>
                   </Link>
                 </div>
@@ -128,18 +128,20 @@ export default function Projects() {
                     component="h6"
                     className="text-xl font-semibold sm:text-2xl"
                   >
-                    {work.title}
+                    {project.title}
                   </Typography>
 
-                  <Typography variant="body1">{work.description}</Typography>
+                  <Typography variant="body1">{project.description}</Typography>
                 </div>
 
-                {/* Footer: Used technologies */}
+                {/* 
+                    Footer: Used technologies
+                 */}
                 {/* We can't use one div with absolute positioning since the card height possibly shrinks. Hence we use 2 implementations */}
                 {/* Only show 3 items */}
                 <div className={`grid grid-cols-[1fr_min-content] gap-2`}>
                   <div className="flex flex-wrap gap-2">
-                    {work.technologies.slice(0, 3).map((tech) => (
+                    {project.technologies.slice(0, 3).map((tech) => (
                       <Chip
                         key={tech}
                         label={tech}
@@ -149,10 +151,10 @@ export default function Projects() {
                     ))}
                   </div>
 
-                  {work.technologies.length > 3 && (
+                  {project.technologies.length > 3 && (
                     <AiFillPlusCircle
                       className={`hover:text-color-animation cursor-pointer self-end text-2xl`}
-                      onClick={() => setMoreTechs(work.title)}
+                      onClick={() => setMoreTechs(project.title)}
                     />
                   )}
                 </div>
@@ -160,11 +162,11 @@ export default function Projects() {
                 {/* Show all items */}
                 <m.div
                   className={`absolute bottom-3 left-3 right-3 -z-10 grid grid-cols-[1fr_min-content] gap-2 p-3 ${
-                    moreTechs === work.title &&
+                    moreTechs === project.title &&
                     "!z-10 rounded-2xl bg-common-white/50 backdrop-blur-3xl dark:bg-common-black/30"
                   }`}
                   initial={{ scale: 0 }}
-                  animate={moreTechs === work.title ? { scale: 1 } : {}}
+                  animate={moreTechs === project.title ? { scale: 1 } : {}}
                   transition={{
                     type: "spring",
                     stiffness: 260,
@@ -172,7 +174,7 @@ export default function Projects() {
                   }}
                 >
                   <div className="flex flex-wrap gap-2">
-                    {work.technologies.map((tech) => (
+                    {project.technologies.map((tech) => (
                       <Chip
                         key={tech}
                         label={tech}
