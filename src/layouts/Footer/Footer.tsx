@@ -28,7 +28,7 @@ export default function Footer() {
       })
       .catch((e) => console.error(e));
   }, []);
-
+  console.log(githubInfo);
   return (
     <footer className="mt-20 grid h-48 place-items-center bg-[url('/images/footerBgLight.svg')] bg-cover dark:bg-[url('/images/footerBgDark.svg')]">
       <Link href="https://github.com/MHBahrampour/portfolio" target="_blank">
@@ -38,7 +38,8 @@ export default function Footer() {
             <span className="block">Mohammad H. Bahrmapour</span>
           </Typography>
 
-          {githubInfo && (
+          {/* Show stats if the data is fetched */}
+          {githubInfo?.stars !== undefined && (
             <Typography
               variant="body2"
               className="font-jbm flex gap-3 text-center"
