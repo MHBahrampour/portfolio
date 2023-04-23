@@ -76,14 +76,18 @@ export default function Experience() {
       className="dpx grid w-full max-w-6xl gap-4"
     >
       <Typography
-        component={m.h2}
         className="heading"
+        component={m.h2}
         {...directionMotion("TB", 0)}
       >
         Experience
       </Typography>
 
-      <Typography variant="body1">
+      <Typography
+        variant="body1"
+        component={m.h2}
+        {...directionMotion("LR", 1)}
+      >
         Shall we start a journey together? Feel free to{" "}
         <SmoothLink link="get-in-touch" className="link">
           contact me
@@ -102,14 +106,14 @@ export default function Experience() {
           aria-label="jobs tabs"
           className="[&_.MuiTab-root]:text-base [&_.MuiTab-root]:font-semibold [&_.MuiTab-root]:normal-case"
           component={m.div}
-          {...directionMotion("LR", 1)}
+          {...directionMotion("LR", 2)}
         >
           <Tab label="030labs" {...tabProps(0)} />
           <Tab label="Freelance" {...tabProps(1)} />
         </Tabs>
 
         {/* Tabs content */}
-        <m.div {...directionMotion("BT", 2)}>{tabPanelElements}</m.div>
+        <m.div {...directionMotion("BT", 3)}>{tabPanelElements}</m.div>
       </div>
     </section>
   );

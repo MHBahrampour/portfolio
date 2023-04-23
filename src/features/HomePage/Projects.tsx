@@ -75,28 +75,26 @@ export default function Projects() {
       className="dpx grid w-full max-w-6xl gap-4"
     >
       <Typography
-        component={m.h2}
         className="heading"
+        component={m.h2}
         {...directionMotion("TB", 0)}
       >
         Projects
       </Typography>
 
-      <Typography variant="body1">
+      <Typography
+        variant="body1"
+        component={m.h2}
+        {...directionMotion("LR", 1)}
+      >
         Consider this portfolio as well because I’m proud of it 😉
       </Typography>
 
       <div className="grid grid-cols-[repeat(auto-fit,_minmax(288px,_1fr))] gap-4">
         {/* Work cards */}
         {works.map((work, index) => {
-          const handleMoreTechsClick = (title: string) => {
-            setMoreTechs((prevState) =>
-              work.title === prevState ? null : title,
-            );
-          };
-
           return (
-            <m.div key={work.title} {...directionMotion("BT", index + 1)}>
+            <m.div key={work.title} {...directionMotion("BT", index + 2)}>
               <div className="gradient-border group relative grid h-full cursor-default grid-rows-[min-content_1fr_min-content] gap-8 rounded-xl p-6 transition-all hover:scale-105">
                 {/* Header: Company logo and Links */}
                 <div className="flex items-center justify-between gap-2 text-2xl text-lt-primary-main dark:text-dt-primary-main [&_button]:text-inherit">
