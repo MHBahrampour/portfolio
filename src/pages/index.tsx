@@ -10,7 +10,7 @@ export default function index() {
   return (
     <>
       <Head>
-        <title>MHB Portfolio</title>
+        <title>Mohammad Bahrampour</title>
       </Head>
 
       <main className="grid w-full justify-items-center gap-20">
