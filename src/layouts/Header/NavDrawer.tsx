@@ -75,7 +75,6 @@ export default function NavDrawer({ navItems }: NavDrawerProps) {
           <div className="grid gap-4">
             {navItems.map((item, index) => {
               const isActive = activeMenuItem === item.link;
-              const activeStyle = "";
               return (
                 <SmoothLink
                   key={item.name}

@@ -36,7 +36,7 @@ export default function Header() {
     <>
       <AppBar
         component="header"
-        className={`sticky bg-common-white/70 bg-none text-lt-primary-main shadow-none backdrop-blur-lg dark:bg-common-black/80 dark:text-dt-primary-main`}
+        className={`sticky overflow-hidden bg-common-white/70 bg-none text-lt-primary-main shadow-none backdrop-blur-lg dark:bg-common-black/80 dark:text-dt-primary-main`}
       >
         <Toolbar
           component="nav"
@@ -46,7 +46,9 @@ export default function Header() {
           <NavDrawer navItems={navItems} />
 
           {/* Logo */}
-          <Logo />
+          <m.div {...directionMotion("LR", 1)}>
+            <Logo />
+          </m.div>
 
           {/* Navigation items */}
           <div className="hidden gap-2 sm:flex md:gap-4">
