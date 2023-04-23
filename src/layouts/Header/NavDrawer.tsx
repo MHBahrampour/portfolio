@@ -2,21 +2,15 @@ import React, { useState } from "react";
 
 import Link from "next/link";
 
-import Logo from "@/components/Logo";
-import SmoothLink from "@/components/SmoothLink";
 import { m } from "framer-motion";
 import { CgClose, CgMenuLeft } from "react-icons/cg";
-import { FaLinkedin } from "react-icons/fa";
 
-import {
-  Button,
-  Drawer,
-  IconButton,
-  List,
-  ListItem,
-  ListItemButton,
-  ListItemText,
-} from "@mui/material";
+import { Button, Drawer, IconButton } from "@mui/material";
+
+import Logo from "@/components/Logo";
+import SmoothLink from "@/components/SmoothLink";
+
+import { useAppSelector } from "@/hooks/redux";
 
 import { directionMotion } from "@/utils/motions";
 
@@ -26,8 +20,11 @@ interface NavDrawerProps {
     link: string;
   }[];
 }
-
 export default function NavDrawer({ navItems }: NavDrawerProps) {
+  const activeMenuItem = useAppSelector(
+    (state) => state.menuItems.activeMenuItem,
+  );
+
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const handleDrawerToggle = () => {
@@ -51,7 +48,7 @@ export default function NavDrawer({ navItems }: NavDrawerProps) {
         open={mobileOpen}
         onClose={handleDrawerToggle}
         ModalProps={{
-          keepMounted: true, // Better open performance on mobile.
+          keepMounted: true,
         }}
         className="sm:hidden [&_.MuiDrawer-paper]:grid [&_.MuiDrawer-paper]:h-full [&_.MuiDrawer-paper]:w-4/6 [&_.MuiDrawer-paper]:min-w-[240px] [&_.MuiDrawer-paper]:grid-cols-1 [&_.MuiDrawer-paper]:grid-rows-[auto_1fr_auto] [&_.MuiDrawer-paper]:bg-white/70 [&_.MuiDrawer-paper]:bg-none [&_.MuiDrawer-paper]:py-6 [&_.MuiDrawer-paper]:backdrop-blur-lg dark:[&_.MuiDrawer-paper]:bg-common-black/80"
       >
@@ -75,21 +72,27 @@ export default function NavDrawer({ navItems }: NavDrawerProps) {
 
         {/* Navigation items */}
         <div className="grid h-full items-center">
-          <List className="grid  gap-4">
-            {navItems.map((item) => (
-              <SmoothLink
-                key={item.name}
-                link={item.link}
-                action={handleDrawerToggle}
-              >
-                <ListItem disablePadding>
-                  <ListItemButton className="px-6">
-                    <ListItemText primary={item.name} className="uppercase" />
-                  </ListItemButton>
-                </ListItem>
-              </SmoothLink>
-            ))}
-          </List>
+          <div className="grid gap-4">
+            {navItems.map((item, index) => {
+              const isActive = activeMenuItem === item.link;
+              return (
+                <SmoothLink
+                  key={item.name}
+                  link={item.link}
+                  action={handleDrawerToggle}
+                >
+                  <Button
+                    className="w-full rounded-none px-6 py-3"
+                    color={isActive ? "secondary" : "primary"}
+                    component={m.button}
+                    {...directionMotion("TB", index + 2)}
+                  >
+                    {item.name}
+                  </Button>
+                </SmoothLink>
+              );
+            })}
+          </div>
         </div>
 
         {/* Footer */}

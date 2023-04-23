@@ -1,14 +1,24 @@
+import { useRef } from "react";
+
 import Link from "next/link";
 
 import { m } from "framer-motion";
 
 import { Button, Typography } from "@mui/material";
 
+import { useHighlightMenuItem } from "@/hooks/useHighlighMenuItem";
+
 import { directionMotion } from "@/utils/motions";
 
 export default function Hero() {
+  // Highlight active menu items
+  // Even though we don't need to highlight any menu item for hero section, we need this to be able to unhighlight other items when hero section is in viewport
+  const sectionRef = useRef(null);
+  useHighlightMenuItem(sectionRef);
+
   return (
     <section
+      ref={sectionRef}
       className={`grid min-h-[calc(100dvh-66px)] w-full place-items-center bg-[url('/images/heroBg.svg')] bg-cover bg-left`}
     >
       <div className="dpx grid max-w-[1440px] gap-12 sm:gap-16">

@@ -13,6 +13,8 @@
 body {
   font-family: "Poppins", sans-serif !important;
   @apply bg-common-white dark:bg-common-black;
+  /* When any MUI Modal/Drawer is open, it adds a padding to the body, we can use 'disableScrollLock' for the drawer but then body will be scrollable. This problem happens for chromium based browsers. Hence we force the body padding to zero. */
+  padding: 0px !important;
 }
 
 a {

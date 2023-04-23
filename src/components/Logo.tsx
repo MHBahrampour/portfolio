@@ -2,8 +2,6 @@ import Link from "next/link";
 
 import { m } from "framer-motion";
 
-import { directionMotion } from "@/utils/motions";
-
 export default function Logo() {
   return (
     <Link href="/">
@@ -14,7 +12,6 @@ export default function Logo() {
           viewBox="0 0 40 40"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
-          {...directionMotion("LR", 1)}
         >
           <circle cx="20" cy="20" r="19" stroke="#00A19D" strokeWidth="2" />
           <mask
