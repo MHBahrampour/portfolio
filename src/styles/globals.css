@@ -28,7 +28,7 @@ h3,
 h4,
 h5,
 h6 {
-  @apply !text-common-black dark:!text-common-white;
+  @apply !text-lt-primary-dark dark:!text-dt-primary-light;
 }
 
 p {
