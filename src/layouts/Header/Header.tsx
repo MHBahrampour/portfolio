@@ -75,9 +75,11 @@ export default function Header() {
 
       {/* Page scroll progress */}
       <m.div
-        className="gradient-bg-animation fixed left-0 right-0 top-16 z-10 h-[2px] origin-top-left"
+        className="fixed top-16 z-10 h-[2px] w-full origin-top-left bg-gradient-to-r from-lt-secondary-main/10 to-lt-secondary-main dark:from-dt-secondary-main/10 dark:to-dt-secondary-main"
         style={{ scaleX }}
-      />
+      >
+        <div className="absolute right-0 h-[2px] w-[10%] bg-gradient-to-r from-transparent to-rose-500" />
+      </m.div>
     </>
   );
 }
