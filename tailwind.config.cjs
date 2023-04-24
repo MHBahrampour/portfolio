@@ -17,14 +17,11 @@ module.exports = {
           secondary: { main: "#008B88", light: "#33a29f", dark: "#00615f" },
         },
         dt: {
-          primary: { main: "#e9eeff", light: "#edf1ff", dark: "#a3a6b2" },
-          secondary: { main: "#00a19d", light: "#33b3b0", dark: "#00706d" },
+          primary: { main: "#B5C5D7", light: "#CAD5E2", dark: "#A2B7CD" },
+          secondary: { main: "#00A19D", light: "#33B3B0", dark: "#00706D" },
         },
       },
-      boxShadow: {
-        cLight: "1px 4px 12px 1px rgba(18, 18, 18, 0.1)",
-        cDark: "1px 4px 12px 1px rgba(0, 0, 0, 1)",
-      },
+      boxShadow: {},
     },
   },
   corePlugins: {
