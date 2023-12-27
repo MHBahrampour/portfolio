@@ -75,13 +75,6 @@ const frequentTechsData: FrequentTechsData[] = [
   },
 ];
 
-const aboutContent = [
-  "Hello! My name is Mohammad Hossein Bahrampour. Don’t worry you can call me Mamad!",
-  "I started my journey in 2020 as a back-end developer and my weapon of choice was Django .Although it was very attractive to me, I was looking for something that would challenge my artistic creativity more and this is where I was drawn to the front end.",
-  "Fast-forward to early 2022 I decided to switch to front-end, and boy I loved it. Since then, I started learning with more enthusiasm. I tried well-known technologies and studied best practices so that I could not only build something, but build something of quality.",
-  "Here are some technologies that I use often:",
-];
-
 export default function About() {
   const [favTechDetail, setFavTechDetail] = useState<string | null>(null);
 
@@ -111,20 +104,25 @@ export default function About() {
 
       <m.div {...directionMotion("LR", 2)}>
         <Typography variant="body1" className="mb-4">
-          Hello! My name is Mohammad Hossein Bahrampour. Don’t worry you can
-          call me <span className="font-medium">Mamad!</span>
+          Greetings! I'm Mohammad Hossein Bahrampour, or simply{" "}
+          <span className="font-medium">Mamad</span>.
         </Typography>
         <Typography variant="body1" className="mb-4">
-          I started my journey in 2020 as a back-end developer and my weapon of
-          choice was Django .Although it was very attractive to me, I was
-          looking for something that would challenge my artistic creativity more
-          and this is where I was drawn to the front end.
+          My coding journey began in 2020, initially tinkering with vanilla
+          JavaScript, HTML, and CSS. As I explored, I stumbled upon the
+          efficiency of CSS preprocessors and ventured into building robust
+          back-end solutions using Django.
         </Typography>
         <Typography variant="body1" className="mb-4">
-          Fast-forward to early 2022 I decided to switch to front-end, and boy I
-          loved it. Since then, I started learning with more enthusiasm. I tried
-          well-known technologies and studied best practices so that I could not
-          only build something, but build something of quality.
+          In early 2022, my focus shifted towards diving deeper into front-end
+          development—an experience that brought immense satisfaction. With a
+          natural inclination for web apps, I found joy in the process.
+          Exploring various technologies and embracing best practices became my
+          approach to not just building, but crafting solutions of quality.
+        </Typography>
+        <Typography variant="body1" className="mb-4">
+          Join me on this exciting journey as I continue to blend creativity
+          with technical expertise in the world of web development!
         </Typography>
         <Typography variant="body1" className="mb-4">
           Here are some technologies that I use often:

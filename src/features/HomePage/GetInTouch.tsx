@@ -4,7 +4,7 @@ import Link from "next/link";
 
 import { m } from "framer-motion";
 import { BsDiscord } from "react-icons/bs";
-import { FaLinkedin, FaTelegram, FaTwitter } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaTelegram, FaTwitter } from "react-icons/fa";
 import { HiMailOpen } from "react-icons/hi";
 
 import { Button, IconButton, Typography } from "@mui/material";
@@ -33,17 +33,15 @@ export default function GetInTouch() {
       </Typography>
 
       {/* Formal ways */}
-      <m.div {...directionMotion("LR", 1)} className="grid gap-4">
+      <m.div {...directionMotion("LR", 1)} className="grid gap-4 ">
         <Typography variant="body1">
-          I’m open to better opportunities, if you can offer one, i’ll be glad
-          to consider it.
-        </Typography>
-        <Typography variant="body1">
-          Also my inbox is always open to any idea and question, or maybe you
-          just wanna say hi?
+          I welcome exciting opportunities and would be delighted to explore new
+          possibilities with you. Whether it's a career opportunity or if you
+          simply want to share an idea, ask a question, or just say hi, my inbox
+          is always open. Feel free to reach out!
         </Typography>
 
-        <div className="flex items-center gap-4">
+        <div className="flex items-center justify-center gap-4 sm:justify-start">
           <Link href="mailto:bahrampour@protonmail.com" target="_blank">
             <Button
               disableElevation
@@ -73,14 +71,19 @@ export default function GetInTouch() {
       </m.div>
 
       {/* Informal ways */}
-      <m.div className="mt-4 grid gap-1" {...directionMotion("RL", 2)}>
-        <Typography variant="body1">
-          And if you want to see me in a less formal way:
-        </Typography>
-
+      <m.div
+        className="grid justify-center gap-1 sm:hidden sm:justify-start"
+        {...directionMotion("RL", 2)}
+      >
         <div className="flex items-center gap-4 text-lt-primary-main dark:text-dt-primary-main [&_button]:text-current">
-          <Link href="https://t.me/mhbahrampour" target="_blank">
+          <Link href="https://github.com/MHBahrampour" target="_blank">
             <IconButton edge="start" size="large">
+              <FaGithub />
+            </IconButton>
+          </Link>
+
+          <Link href="https://t.me/mhbahrampour" target="_blank">
+            <IconButton size="large">
               <FaTelegram />
             </IconButton>
           </Link>
@@ -98,19 +101,6 @@ export default function GetInTouch() {
           </Link>
         </div>
       </m.div>
-
-      {/* Github */}
-      <Typography variant="body1" component={m.p} {...directionMotion("LR", 3)}>
-        Or just follow me on{" "}
-        <Link
-          href="https://github.com/MHBahrampour"
-          target="_blank"
-          className="link"
-        >
-          Github
-        </Link>
-        .
-      </Typography>
     </section>
   );
 }

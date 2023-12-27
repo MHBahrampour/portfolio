@@ -21,7 +21,7 @@ export default function Experience() {
     <>
       <TabPanel value={value} index={0}>
         <div className="grid gap-1">
-          <Typography variant="h6">Junior Front-end Developer</Typography>
+          <Typography variant="h6">Front-End Developer</Typography>
           <Typography variant="body2">
             Sep 2022 - Apr 2023 · 8 months
           </Typography>
@@ -29,23 +29,24 @@ export default function Experience() {
 
         <ul>
           <li>
-            Write responsible and maintainable code including Web3 components
-            for company projects.
+            Developed Web3 components for company projects, ensuring the
+            creation of maintainable code
           </li>
           <li>
-            Refactored Metaroom’s front-end using modern technologies and other
-            optimizations.
+            Refactored a variety of products using modern technologies,
+            significantly enhancing accessibility and achieving an 18%
+            performance boost
           </li>
           <li>
-            Communicate with teams of engineers, designers and developers on a
-            daily basis.
+            Collaborated daily with cross-functional teams to guarantee seamless
+            project execution
           </li>
         </ul>
       </TabPanel>
 
       <TabPanel value={value} index={1}>
         <div className="grid gap-1">
-          <Typography variant="h6">Junior Full-stack Developer</Typography>
+          <Typography variant="h6">Web Developer</Typography>
           <Typography variant="body2">
             Feb 2020 - Sep 2022 · 2 years 8 month
           </Typography>
@@ -53,12 +54,12 @@ export default function Experience() {
 
         <ul>
           <li>
-            Beginning to learn and implement real world projects after
-            university.
+            Developed responsive user interfaces using vanilla JavaScript and
+            CSS preprocessors
           </li>
           <li>
-            Designing and implementing responsive web applications using Django,
-            HTML, CSS and Javascript for clients.
+            Engineered robust back-end solutions through the development of
+            Django applications
           </li>
         </ul>
       </TabPanel>
