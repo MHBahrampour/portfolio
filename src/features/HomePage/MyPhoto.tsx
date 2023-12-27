@@ -25,7 +25,7 @@ export default function MyPhoto({ className }: MyPhotoProps) {
           width="100%"
           height="100%"
           clipPath="url(#shape)"
-          href="/images/me.jpg"
+          href="/images/myPortrait.jpg"
           preserveAspectRatio="none"
         />
         <clipPath id="shape">
