@@ -97,7 +97,7 @@ export default function NavDrawer({ navItems }: NavDrawerProps) {
 
         {/* Footer */}
         <div className="mx-6">
-          <Link href="/MHBahrampour.pdf" target="_blank">
+          <Link href="/BahrampourCV.pdf" target="_blank">
             <Button
               disableElevation
               variant="outlined"
