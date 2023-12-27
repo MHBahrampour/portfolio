@@ -21,7 +21,7 @@ export default function Hero() {
       ref={sectionRef}
       className={`grid min-h-[calc(100dvh-66px)] w-full place-items-center bg-[url('/images/heroBg.svg')] bg-cover bg-left`}
     >
-      <div className="dpx grid max-w-[1440px] gap-12 sm:gap-16">
+      <div className="dpx grid max-w-[1440px] gap-8 sm:gap-12 md:gap-16">
         {/* Heading */}
         <m.div className="grid gap-4" {...directionMotion("BT", 3)}>
           <Typography
@@ -34,7 +34,7 @@ export default function Hero() {
 
           <Typography
             component="h1"
-            className="text-[40px] font-bold sm:text-6xl lg:text-7xl"
+            className="text-[40px] font-bold leading-none sm:text-6xl lg:text-7xl"
           >
             Mohammad Bahrampour.
           </Typography>
@@ -59,14 +59,17 @@ export default function Hero() {
           staying current with the latest technologies. Enjoys the continuous
           pursuit of knowledge and thrives in learning-driven environments.{" "}
           <span className="bg-lt-secondary-dark/10 dark:bg-dt-secondary-main/20">
-            <br />
             Currently, I’m looking for a position where I can use my passion and
             participate in wonderful projects.
           </span>
         </Typography>
 
         {/* Resume */}
-        <Link href="/BahrampourCV.pdf" target="_blank" className="w-max">
+        <Link
+          href="/BahrampourCV.pdf"
+          target="_blank"
+          className="mx-auto w-max sm:mx-0"
+        >
           <Button
             disableElevation
             variant="contained"
