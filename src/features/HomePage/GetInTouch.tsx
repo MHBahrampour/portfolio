@@ -36,7 +36,7 @@ export default function GetInTouch() {
       <m.div {...directionMotion("LR", 1)} className="grid gap-4 ">
         <Typography variant="body1">
           I welcome exciting opportunities and would be delighted to explore new
-          possibilities with you. Whether it's a career opportunity or if you
+          possibilities with you. Whether it‘s a career opportunity or if you
           simply want to share an idea, ask a question, or just say hi, my inbox
           is always open. Feel free to reach out!
         </Typography>

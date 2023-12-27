@@ -36,5 +36,5 @@ export function useHighlightMenuItem(sectionRef: MutableRefObject<null>) {
   // Set the active menu item
   useEffect(() => {
     isInView && dispatch(setActiveMenuItem(sectionId));
-  }, [isInView]);
+  }, [isInView, dispatch, sectionId]);
 }

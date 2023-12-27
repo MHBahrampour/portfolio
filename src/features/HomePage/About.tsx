@@ -104,7 +104,7 @@ export default function About() {
 
       <m.div {...directionMotion("LR", 2)}>
         <Typography variant="body1" className="mb-4">
-          Greetings! I'm Mohammad Hossein Bahrampour, or simply{" "}
+          Greetings! I‘m Mohammad Hossein Bahrampour, or simply{" "}
           <span className="font-medium">Mamad</span>.
         </Typography>
         <Typography variant="body1" className="mb-4">
