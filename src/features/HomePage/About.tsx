@@ -4,7 +4,7 @@ import Image from "next/image";
 
 import { m } from "framer-motion";
 import moment, { type Moment } from "moment";
-import { HiCursorClick } from "react-icons/hi";
+import { PiHandTapFill } from "react-icons/pi";
 
 import { ButtonBase, Typography } from "@mui/material";
 
@@ -39,7 +39,7 @@ const frequentTechsData: FrequentTechsData[] = [
     logo: "/images/favTechs/typescript.svg",
     bgColor: "bg-rose-300",
     startDate: moment("2022-09-01"),
-    projectsUsed: 3,
+    projectsUsed: 9,
   },
   {
     id: "react",
@@ -47,7 +47,7 @@ const frequentTechsData: FrequentTechsData[] = [
     logo: "/images/favTechs/reactJS.svg",
     bgColor: "bg-emerald-300",
     startDate: moment("2022-06-01"),
-    projectsUsed: 9,
+    projectsUsed: 14,
   },
   {
     id: "next",
@@ -55,7 +55,7 @@ const frequentTechsData: FrequentTechsData[] = [
     logo: "/images/favTechs/nextJS.svg",
     bgColor: "bg-purple-300",
     startDate: moment("2022-10-01"),
-    projectsUsed: 3,
+    projectsUsed: 8,
   },
   {
     id: "tailwind",
@@ -63,15 +63,23 @@ const frequentTechsData: FrequentTechsData[] = [
     logo: "/images/favTechs/tailwindCSS.svg",
     bgColor: "bg-sky-300",
     startDate: moment("2022-10-01"),
-    projectsUsed: 4,
+    projectsUsed: 8,
   },
   {
     id: "mui",
     name: "Material UI",
-    logo: "/images/favTechs/materialUI.svg",
+    logo: "/images/favTechs/materialUi.svg",
     bgColor: "bg-slate-300",
     startDate: moment("2022-07-01"),
-    projectsUsed: 4,
+    projectsUsed: 8,
+  },
+  {
+    id: "nextUi",
+    name: "Next UI",
+    logo: "/images/favTechs/nextUi.jpeg",
+    bgColor: "bg-lime-300",
+    startDate: moment("2024-05-01"),
+    projectsUsed: 3,
   },
 ];
 
@@ -163,7 +171,7 @@ export default function About() {
                         className="b-to-t-animation animation-delay-100"
                       />
 
-                      <HiCursorClick className="b-to-t-animation animation-delay-500 text-lg text-black/40 group-hover:text-black dark:text-white/40 dark:group-hover:text-white md:text-xl" />
+                      <PiHandTapFill className="b-to-t-animation animation-delay-500  !-rotate-45 text-lg text-black/60 group-hover:text-black dark:text-white/60 dark:group-hover:text-white md:text-xl" />
                     </div>
 
                     <Typography className="b-to-t-animation animation-delay-300 text-lg font-semibold text-inherit md:text-xl">
