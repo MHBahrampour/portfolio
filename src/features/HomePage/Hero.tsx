@@ -55,7 +55,7 @@ export default function Hero() {
           className="max-w-3xl sm:text-lg lg:text-xl"
           {...directionMotion("BT", 5)}
         >
-          Dedicated developer with 2+ years of experience, passionate about
+          Dedicated developer with 3+ years of experience, passionate about
           staying current with the latest technologies. Enjoys the continuous
           pursuit of knowledge and thrives in learning-driven environments.{" "}
           <span className="bg-lt-secondary-dark/10 dark:bg-dt-secondary-main/20">

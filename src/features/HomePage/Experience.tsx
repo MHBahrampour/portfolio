@@ -39,6 +39,7 @@ const experienceData: ExperienceData[] = [
     description: [
       "Developed Web3 components for company projects, ensuring the creation of maintainable code",
       "Refactored a variety of products using modern technologies, significantly enhancing accessibility and achieving an 18% performance boost",
+      "Developed documentation page, facilitating easy access to essential resources",
       "Collaborated daily with cross-functional teams to guarantee seamless project execution",
     ],
   },
