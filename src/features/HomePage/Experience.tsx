@@ -1,6 +1,7 @@
 import { useRef, useState } from "react";
 
 import { m } from "framer-motion";
+import moment from "moment";
 
 import { Tab, Tabs, Typography } from "@mui/material";
 
@@ -8,7 +9,49 @@ import SmoothLink from "@/components/SmoothLink";
 
 import { useHighlightMenuItem } from "@/hooks/useHighlighMenuItem";
 
+import getMonthsFromNow from "@/utils/getMonthfromNow";
 import { directionMotion } from "@/utils/motions";
+
+interface ExperienceData {
+  company: string;
+  title: string;
+  duration: string;
+  description: string[];
+}
+
+const experienceData: ExperienceData[] = [
+  {
+    company: "Simorgh",
+    title: "Front-End Developer",
+    duration: `Dec 2023 - Current · ${getMonthsFromNow(
+      moment("2023-12-01"),
+    )} months`,
+    description: [
+      "Utilized cutting-edge technologies like NextAuth.js to develop a real estate investment platform",
+      "Developed a user application and dashboard system as part of a comprehensive contract service",
+      "Designed and developed a sleek landing-page for Simorgh",
+    ],
+  },
+  {
+    company: "030labs",
+    title: "Front-End Developer",
+    duration: "Sep 2022 - Apr 2023 · 8 months",
+    description: [
+      "Developed Web3 components for company projects, ensuring the creation of maintainable code",
+      "Refactored a variety of products using modern technologies, significantly enhancing accessibility and achieving an 18% performance boost",
+      "Collaborated daily with cross-functional teams to guarantee seamless project execution",
+    ],
+  },
+  {
+    company: "Freelance",
+    title: "Web Developer",
+    duration: "Feb 2020 - Sep 2022 · 2 years 8 months",
+    description: [
+      "Developed responsive user interfaces using vanilla JavaScript and CSS preprocessors",
+      "Engineered robust back-end solutions through the development of Django applications",
+    ],
+  },
+];
 
 export default function Experience() {
   // Handle tabs change
@@ -19,50 +62,20 @@ export default function Experience() {
 
   const tabPanelElements = (
     <>
-      <TabPanel value={value} index={0}>
-        <div className="grid gap-1">
-          <Typography variant="h6">Front-End Developer</Typography>
-          <Typography variant="body2">
-            Sep 2022 - Apr 2023 · 8 months
-          </Typography>
-        </div>
+      {experienceData.map((experience, index) => (
+        <TabPanel key={index} value={value} index={index}>
+          <div className="grid gap-1">
+            <Typography variant="h6">{experience.title}</Typography>
+            <Typography variant="body2">{experience.duration}</Typography>
+          </div>
 
-        <ul>
-          <li>
-            Developed Web3 components for company projects, ensuring the
-            creation of maintainable code
-          </li>
-          <li>
-            Refactored a variety of products using modern technologies,
-            significantly enhancing accessibility and achieving an 18%
-            performance boost
-          </li>
-          <li>
-            Collaborated daily with cross-functional teams to guarantee seamless
-            project execution
-          </li>
-        </ul>
-      </TabPanel>
-
-      <TabPanel value={value} index={1}>
-        <div className="grid gap-1">
-          <Typography variant="h6">Web Developer</Typography>
-          <Typography variant="body2">
-            Feb 2020 - Sep 2022 · 2 years 8 month
-          </Typography>
-        </div>
-
-        <ul>
-          <li>
-            Developed responsive user interfaces using vanilla JavaScript and
-            CSS preprocessors
-          </li>
-          <li>
-            Engineered robust back-end solutions through the development of
-            Django applications
-          </li>
-        </ul>
-      </TabPanel>
+          <ul>
+            {experience.description.map((description, descriptionIndex) => (
+              <li key={descriptionIndex}>{description}</li>
+            ))}
+          </ul>
+        </TabPanel>
+      ))}
     </>
   );
 
@@ -109,8 +122,9 @@ export default function Experience() {
           component={m.div}
           {...directionMotion("LR", 2)}
         >
-          <Tab label="030labs" {...tabProps(0)} />
-          <Tab label="Freelance" {...tabProps(1)} />
+          {experienceData.map((experience, index) => (
+            <Tab key={index} label={experience.company} {...tabProps(index)} />
+          ))}
         </Tabs>
 
         {/* Tabs content */}
