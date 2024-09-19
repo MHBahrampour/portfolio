@@ -18,11 +18,47 @@ interface ProjectsData {
   description: string;
   company: string;
   companyLogo: string;
-  siteLink: string;
+  siteLink: string | null;
   githubLink: string | null;
   technologies: string[];
 }
+
 const projectsData: ProjectsData[] = [
+  {
+    title: "Hampeyman",
+    description:
+      "A contract platform with a user app for signing and managing contracts, including selfie video authentication, and an admin dashboard for efficient contract management and tracking.",
+    company: "Simorgh",
+    companyLogo: "/images/works/simorgh.png",
+    siteLink: null,
+    githubLink: null,
+    technologies: [
+      "Next.js 14",
+      "NextUI",
+      "Typescript",
+      "Zod",
+      "React Hook Form",
+    ],
+  },
+  {
+    title: "Kahroba Token",
+    description:
+      "Embark on the journey of homeownership through small-scale investments, securely and effortlessly in valuable real estate.",
+    company: "Simorgh",
+    companyLogo: "/images/works/simorgh.png",
+    siteLink: "https://kahrobatoken.com/",
+    githubLink: null,
+    technologies: ["Next.js 14", "Next Auth", "Typescript", "Yup", "Formik"],
+  },
+  {
+    title: "Simorgh Landing-page",
+    description: "A modern, user-friendly landing page.",
+    company: "Simorgh",
+    companyLogo: "/images/works/simorgh.png",
+    siteLink: "https://simorgh.netlify.app/",
+    githubLink: null,
+    technologies: ["Next.js 14", "Typescript", "Material UI", "Tailwind CSS"],
+  },
   {
     title: "Metaroom App",
     description:
@@ -87,7 +123,7 @@ export default function Projects() {
         component={m.h2}
         {...directionMotion("LR", 1)}
       >
-        Consider this portfolio as well because I’m proud of it 😉
+        Here are some of the projects I have worked on.
       </Typography>
 
       <div className="grid grid-cols-[repeat(auto-fit,_minmax(288px,_1fr))] gap-6">
@@ -112,14 +148,16 @@ export default function Projects() {
                     </Link>
                   )}
 
-                  <Link href={project.siteLink} target="_blank">
-                    <IconButton
-                      edge="end"
-                      className="group-hover:text-color-animation"
-                    >
-                      <RiLink />
-                    </IconButton>
-                  </Link>
+                  {project.siteLink && (
+                    <Link href={project.siteLink} target="_blank">
+                      <IconButton
+                        edge="end"
+                        className="group-hover:text-color-animation"
+                      >
+                        <RiLink />
+                      </IconButton>
+                    </Link>
+                  )}
                 </div>
 
                 {/* Body: Title and Descriprions */}
@@ -163,7 +201,7 @@ export default function Projects() {
                 <m.div
                   className={`absolute bottom-3 left-3 right-3 -z-10 grid grid-cols-[1fr_min-content] gap-2 p-3 ${
                     moreTechs === project.title &&
-                    "!z-10 rounded-2xl bg-common-white/50 backdrop-blur-3xl dark:bg-common-black/30"
+                    "!z-10 rounded-xl bg-common-white/50 backdrop-blur-3xl dark:bg-common-black/30"
                   }`}
                   initial={{ scale: 0 }}
                   animate={moreTechs === project.title ? { scale: 1 } : {}}
