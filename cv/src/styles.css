@@ -1,0 +1,628 @@
+@import "tailwindcss";
+
+/* ------------------------------------------------------------------
+   Poppins — the same family used by the source .docx.
+   Latin subset only (the CV contains no other scripts).
+   ------------------------------------------------------------------ */
+@font-face {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url("./fonts/poppins-400.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Poppins";
+  font-style: italic;
+  font-weight: 400;
+  font-display: block;
+  src: url("./fonts/poppins-400-italic.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 700;
+  font-display: block;
+  src: url("./fonts/poppins-700.woff2") format("woff2");
+}
+
+@theme {
+  --color-ink: #101012;
+  --color-accent: #8b1540;
+  --color-muted: #71717a;
+  --font-sans: "Poppins", ui-sans-serif, system-ui, sans-serif;
+}
+
+/* ------------------------------------------------------------------
+   Page geometry — straight from the .docx:
+   A4 (210 × 297 mm), 720 twips (0.5 in / 12.7 mm) margins.
+   ------------------------------------------------------------------ */
+:root {
+  --page-w: 210mm;
+  --page-h: 297mm;
+  --page-margin: 12.7mm;
+
+  /* Word line spacing for Poppins (hhea 1050 / -350 / 100 per 1000 em) */
+  --doc-leading: 1.35;
+  --doc-size: 10pt;
+  --doc-gap: 2pt;
+
+  /* Bullets: ind left 432 twips, hanging 216 twips */
+  --bullet-indent: 21.6pt;
+  --bullet-hang: 10.8pt;
+
+  /* live height of the bottom bar; main.ts keeps this exact */
+  --bar-h: 64px;
+  /* one spacing value for the card's padding and its distance from the edges */
+  --bar-pad: 8px;
+  --bar-gap: 12px;
+  /* 24rem = 384px, Tailwind's w-sm */
+  --bar-w: 24rem;
+  --control-h: 34px;
+  --identity-bg: #f5eaee;
+  --identity-accent: #8b1540;
+
+  /* palette — light is the source of truth; dark only ever overrides these
+     inside @media screen, so print and the PDF stay light */
+  --canvas: #e9e9ec;
+  --paper: #fff;
+  --doc-ink: #000;
+  --doc-muted: #52525b;
+  --doc-link: #0563c1;
+  --chrome-bg: rgb(255 255 255 / 0.82);
+  --chrome-border: rgb(0 0 0 / 0.08);
+  --control-bg: #fff;
+  --control-border: rgb(0 0 0 / 0.12);
+  --control-ink: #26262b;
+  --control-hover: #f4f4f5;
+  --seg-bg: #f1f1f3;
+  --seg-active-bg: #fff;
+  --seg-ink: #5b5b63;
+  --seg-hover-ink: #18181b;
+  --seg-shadow: 0 1px 2px rgb(0 0 0 / 0.14);
+  --sheet-shadow:
+    0 0 0 1px rgb(0 0 0 / 0.06), 0 10px 28px -12px rgb(0 0 0 / 0.28),
+    0 2px 6px rgb(0 0 0 / 0.06);
+  --accent-hover: #741036;
+}
+
+html {
+  background: var(--canvas);
+}
+
+body {
+  min-height: 100vh;
+  background: var(--canvas);
+  color: var(--color-ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ---------------------------- toolbar ---------------------------- */
+/* a floating card: name strip on top, controls below. Its inner content
+   lines up with the document's text column, not with the paper edge */
+
+.toolbar {
+  position: fixed;
+  left: 50%;
+  bottom: calc(var(--bar-gap) + env(safe-area-inset-bottom, 0px));
+  transform: translateX(-50%);
+  width: min(calc(100% - 2 * var(--bar-gap)), var(--bar-w));
+  z-index: 20;
+  border: 1px solid var(--chrome-border);
+  border-radius: 16px;
+  background: var(--chrome-bg);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 12px 32px -16px rgb(0 0 0 / 0.35);
+  overflow: hidden;
+}
+
+.toolbar-identity {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 18px;
+  padding: var(--bar-pad);
+  background: var(--identity-bg);
+  border-bottom: 1px solid var(--chrome-border);
+}
+
+.toolbar-name {
+  display: flex;
+  min-width: 0;
+  margin: 0;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.35;
+  color: var(--color-ink);
+}
+
+.toolbar-name-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* the "CV" mark stays visible even when the name has to truncate */
+.toolbar-name-suffix {
+  flex: none;
+  margin-left: 0.3em;
+  color: var(--identity-accent);
+}
+
+.toolbar-updated {
+  flex: none;
+  font-size: 11px;
+  line-height: 1.4;
+  letter-spacing: 0.04em;
+  color: var(--color-ink);
+  white-space: nowrap;
+}
+
+.toolbar-inner {
+  display: grid;
+  grid-template-columns: auto auto;
+  justify-content: space-between;
+  grid-template-areas: "views actions";
+  align-items: center;
+  gap: 12px;
+  padding: var(--bar-pad);
+}
+
+.toolbar-views,
+.toolbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.toolbar-views {
+  grid-area: views;
+}
+
+.toolbar-actions {
+  grid-area: actions;
+}
+
+@media (max-width: 640px) {
+  .toolbar-name {
+    font-size: 12px;
+  }
+}
+
+/* below this the controls row runs out of room before the card does */
+@media (max-width: 380px) {
+  .toolbar-inner {
+    gap: 8px;
+  }
+
+  .segmented {
+    padding: 2px;
+  }
+
+  .segmented-btn {
+    padding: 0 6px;
+  }
+
+  #download-button {
+    padding-inline: 8px;
+  }
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  height: var(--control-h);
+  padding: 0 14px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1;
+  white-space: nowrap;
+  transition:
+    background-color 120ms ease,
+    border-color 120ms ease,
+    transform 120ms ease;
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn-ghost {
+  border: 1px solid var(--control-border);
+  background: var(--control-bg);
+  color: var(--control-ink);
+}
+
+.btn-ghost:hover {
+  background: var(--control-hover);
+}
+
+.btn-primary {
+  border: 1px solid transparent;
+  background: var(--color-accent);
+  color: #fff;
+  box-shadow: 0 1px 2px rgb(0 0 0 / 0.12);
+}
+
+.btn-primary:hover {
+  background: var(--accent-hover);
+}
+
+.btn-icon {
+  width: var(--control-h);
+  padding: 0;
+  flex: none;
+}
+
+.segmented {
+  display: inline-flex;
+  gap: 2px;
+  height: var(--control-h);
+  padding: 3px;
+  border: 1px solid var(--chrome-border);
+  border-radius: 9px;
+  background: var(--seg-bg);
+}
+
+.segmented-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 0 9px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1;
+  color: var(--seg-ink);
+  transition:
+    background-color 120ms ease,
+    color 120ms ease;
+}
+
+.segmented-btn:hover {
+  color: var(--seg-hover-ink);
+}
+
+.segmented-btn[aria-pressed="true"] {
+  background: var(--seg-active-bg);
+  color: var(--seg-hover-ink);
+  box-shadow: var(--seg-shadow);
+}
+
+.segmented-btn:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 1px;
+}
+
+/* --------------------------- paper stack -------------------------- */
+
+.paper-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* when a sheet is wider than the viewport, start-align so the left edge
+     stays reachable instead of being clipped by the centring */
+  align-items: safe center;
+  gap: 28px;
+  padding: 32px 16px calc(var(--bar-h) + 48px);
+  overflow-x: auto;
+}
+
+.sheet {
+  position: relative;
+  width: var(--page-w);
+  height: var(--page-h);
+  box-sizing: border-box;
+  padding: var(--page-margin);
+  flex: none;
+  background: var(--paper);
+  border-radius: 16px;
+  box-shadow: var(--sheet-shadow);
+}
+
+/* ------------------------- document styles ------------------------ */
+
+.doc {
+  font-family: "Poppins", ui-sans-serif, system-ui, sans-serif;
+  font-size: var(--doc-size);
+  line-height: var(--doc-leading);
+  color: var(--doc-ink);
+  font-kerning: normal;
+  font-variant-ligatures: common-ligatures;
+  text-rendering: optimizeLegibility;
+}
+
+.doc p {
+  margin: 0 0 var(--doc-gap);
+  white-space: normal;
+}
+
+.doc .name {
+  margin: 0 0 var(--doc-gap);
+  font-size: 22pt;
+  font-weight: 700;
+  line-height: var(--doc-leading);
+  text-align: center;
+  letter-spacing: -0.005em;
+}
+
+.doc .tagline {
+  margin: 0 0 var(--doc-gap);
+  font-size: 14pt;
+  font-weight: 400;
+  line-height: var(--doc-leading);
+  text-align: center;
+}
+
+.doc .contact {
+  margin: 0 0 var(--doc-gap);
+  text-align: center;
+}
+
+.doc .section {
+  margin: 12px 0 var(--doc-gap);
+  font-size: 12pt;
+  font-weight: 700;
+  line-height: var(--doc-leading);
+  text-align: center;
+}
+
+.doc .summary {
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+.doc .role {
+  margin: 0 0 var(--doc-gap);
+  font-weight: 700;
+}
+
+.doc .org {
+  margin: 0 0 var(--doc-gap);
+  font-style: italic;
+}
+
+.doc .list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.doc .list li {
+  margin: 0 0 var(--doc-gap);
+  padding-left: var(--bullet-indent);
+  text-indent: calc(-1 * var(--bullet-hang));
+}
+
+/* the one bullet in the source .docx that carries 1.5-line spacing */
+.doc .list li.loose {
+  line-height: calc(var(--doc-leading) * 1.5);
+}
+
+.doc .list li::before {
+  content: "•";
+  display: inline-block;
+  width: var(--bullet-hang);
+  font-size: 12pt;
+  line-height: 1;
+  vertical-align: baseline;
+  text-indent: 0;
+}
+
+.doc a {
+  color: var(--doc-link);
+  text-decoration: underline;
+  text-underline-offset: 0.08em;
+  text-decoration-thickness: 0.06em;
+}
+
+.doc .nowrap {
+  white-space: nowrap;
+}
+
+/* --------------------------- web view ----------------------------- */
+/* The same markup, with the sheet constraint removed. Screen only, so
+   printing and the generated PDF always use the A4 layout.            */
+
+@media screen {
+  html[data-view="web"] body {
+    background: var(--paper);
+  }
+
+  html[data-view="web"] .paper-stack {
+    display: block;
+    max-width: 46rem;
+    margin: 0 auto;
+    padding: 48px 24px calc(var(--bar-h) + 72px);
+    overflow: visible;
+  }
+
+  html[data-view="web"] .sheet {
+    width: auto;
+    height: auto;
+    padding: 0;
+    background: transparent;
+    box-shadow: none;
+    zoom: 1;
+  }
+
+  html[data-view="web"] .doc {
+    --doc-size: 16px;
+    --doc-leading: 1.62;
+    --doc-gap: 0.7rem;
+    --bullet-indent: 1.35rem;
+    --bullet-hang: 0.85rem;
+    color: var(--doc-ink);
+  }
+
+  html[data-view="web"] .doc .name {
+    font-size: clamp(1.9rem, 5.4vw, 2.4rem);
+    letter-spacing: -0.02em;
+  }
+
+  html[data-view="web"] .doc .tagline {
+    font-size: clamp(1rem, 2.6vw, 1.2rem);
+    color: var(--doc-muted);
+  }
+
+  html[data-view="web"] .doc .section {
+    margin: 1.9rem 0 0.6rem;
+    font-size: 1.06rem;
+  }
+
+  html[data-view="web"] .doc .section:first-of-type {
+    margin-top: 1.7rem;
+  }
+
+  /* one centred line per row becomes a wrapping list of contact items */
+  html[data-view="web"] .doc .contact {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.3rem 1.1rem;
+    margin-bottom: 0.25rem;
+  }
+
+  html[data-view="web"] .doc .contact .sep {
+    display: none;
+  }
+
+  html[data-view="web"] .doc .list li::before {
+    font-size: 1em;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  html[data-view="web"] .paper-stack {
+    padding: 28px 20px calc(var(--bar-h) + 56px);
+  }
+
+  html[data-view="web"] .doc .summary {
+    text-align: left;
+  }
+}
+
+/* --------------------------- dark theme --------------------------- */
+/* Screen only, on purpose: printing and `bun run build:pdf` keep the light
+   palette defined in :root, so a downloaded PDF is never inverted.        */
+
+@media screen {
+  html[data-theme="dark"] {
+    color-scheme: dark;
+
+    --color-ink: #ededf2;
+    --color-accent: #b3205a;
+    --color-muted: #9d9da8;
+
+    --canvas: #0c0c0f;
+    --paper: #17171b;
+    --doc-ink: #e8e8ec;
+    --doc-muted: #a1a1aa;
+    --doc-link: #85b8ff;
+    --identity-bg: #271821;
+    --identity-accent: #f07cae;
+
+    --chrome-bg: rgb(16 16 20 / 0.86);
+    --chrome-border: rgb(255 255 255 / 0.1);
+    --control-bg: #1b1b21;
+    --control-border: rgb(255 255 255 / 0.14);
+    --control-ink: #e7e7ec;
+    --control-hover: #26262d;
+    --seg-bg: #17171b;
+    --seg-active-bg: #2b2b33;
+    --seg-ink: #9d9da8;
+    --seg-hover-ink: #ececf1;
+    --seg-shadow: 0 1px 2px rgb(0 0 0 / 0.6);
+    --sheet-shadow:
+      0 0 0 1px rgb(255 255 255 / 0.08), 0 18px 45px -18px rgb(0 0 0 / 0.85);
+    --accent-hover: #c9326e;
+  }
+
+  .theme-icon {
+    display: block;
+  }
+
+  .theme-icon-sun,
+  html[data-theme="dark"] .theme-icon-moon {
+    display: none;
+  }
+
+  html[data-theme="dark"] .theme-icon-sun {
+    display: block;
+  }
+
+  /* the one piece of chrome that used a Tailwind colour utility */
+  html[data-theme="dark"] ::selection {
+    background: rgb(179 32 90 / 0.45);
+    color: #fff;
+  }
+}
+
+/* ------------------------------ print ----------------------------- */
+
+@page {
+  size: A4;
+  margin: 0;
+}
+
+@media print {
+  html,
+  body {
+    background: #fff;
+  }
+
+  .toolbar {
+    display: none !important;
+  }
+
+  .paper-stack {
+    display: block;
+    padding: 0;
+    overflow: visible;
+  }
+
+  .sheet {
+    width: 210mm;
+    /* a hair under 297mm so Chromium never emits a trailing blank page */
+    height: 296.9mm;
+    margin: 0;
+    border-radius: 0;
+    box-shadow: none;
+    /* keep the accents from being stripped */
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    break-after: page;
+    page-break-after: always;
+  }
+
+  .sheet:last-of-type {
+    break-after: auto;
+    page-break-after: auto;
+  }
+
+  .doc {
+    /* Chromium inherits the page background into text boxes otherwise */
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}
+
+/* --------------------------- small screens ------------------------ */
+
+@media screen and (max-width: 920px) {
+  .sheet {
+    zoom: 0.8;
+  }
+}
+
+@media screen and (max-width: 720px) {
+  .sheet {
+    zoom: 0.62;
+  }
+}

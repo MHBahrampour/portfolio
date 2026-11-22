@@ -1,0 +1,16 @@
+# `npm run build` (not a bare `next build`) so the `prebuild` hook in
+# package.json runs: it copies the CV in cv/ to public/cv/. Without it the CV
+# would never reach the publish directory.
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+# The CV subdomain serves the same static page that lives at /cv/ here. The
+# rewrite keeps the browser URL on cv.mhbahrampour.ir, so the page's relative
+# URLs (./assets/…, ./cv.pdf) resolve against the subdomain root and the HTML
+# needs no fork or <base> tag.
+[[redirects]]
+  from = "https://cv.mhbahrampour.ir/*"
+  to = "/cv/:splat"
+  status = 200
+  force = true
