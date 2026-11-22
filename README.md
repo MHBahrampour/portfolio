@@ -62,6 +62,18 @@ This website is completely designed and implemented by me, although the design w
    npm run start
    ```
 
+## 📄 CV
+
+The CV is not a Next.js page: [`cv/`](cv/) is a standalone static project (plain
+HTML + Tailwind, with a pre-rendered PDF). `scripts/sync-cv.mjs` copies its build
+output into `public/cv/` on every `npm run build` / `npm run dev`, so it is live at
+[`/cv/`](https://mhbahrampour.ir/cv/) — and, through the rewrite in
+[`netlify.toml`](netlify.toml), at the root of
+[`cv.mhbahrampour.ir`](https://cv.mhbahrampour.ir/).
+
+Edit content in `cv/index.html`, rebuild with `bun run build` inside `cv/` (see
+[`cv/README.md`](cv/README.md)), then deploy this repo.
+
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)

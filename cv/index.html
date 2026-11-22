@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#e9e9ec" />
+    <title>Mohammad H. Bahrampour — CV</title>
+    <meta
+      name="description"
+      content="CV of Mohammad H. Bahrampour, frontend engineer working with React and TypeScript."
+    />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%238b1540'/><text x='16' y='21' font-family='Poppins,Arial,sans-serif' font-size='12' font-weight='700' fill='white' text-anchor='middle'>MB</text></svg>"
+    />
+    <script>
+      // Choose view + theme before first paint so neither flashes.
+      // ?view= / ?theme= win, then the saved choice, then the device preference.
+      (() => {
+        const params = new URLSearchParams(location.search);
+        const read = (key) => {
+          try {
+            return localStorage.getItem(key);
+          } catch {
+            return null;
+          }
+        };
+
+        const forcedView = params.get("view");
+        const savedView = read("cv:view");
+        const view =
+          forcedView === "web" || forcedView === "a4"
+            ? forcedView
+            : savedView === "web" || savedView === "a4"
+              ? savedView
+              : matchMedia("(max-width: 640px)").matches
+                ? "web"
+                : "a4";
+
+        const forcedTheme = params.get("theme");
+        const savedTheme = read("cv:theme");
+        const theme =
+          forcedTheme === "dark" || forcedTheme === "light"
+            ? forcedTheme
+            : savedTheme === "dark" || savedTheme === "light"
+              ? savedTheme
+              : matchMedia("(prefers-color-scheme: dark)").matches
+                ? "dark"
+                : "light";
+
+        document.documentElement.dataset.view = view;
+        document.documentElement.dataset.theme = theme;
+      })();
+    </script>
+    <link rel="stylesheet" href="./assets/styles.css" />
+  </head>
+  <body class="font-sans">
+    <div class="toolbar" role="region" aria-label="Document controls">
+      <div class="toolbar-identity">
+        <p class="toolbar-name">
+          <span class="toolbar-name-text">Mohammad H. Bahrampour</span>
+          <span class="toolbar-name-suffix">CV</span>
+        </p>
+        <span class="toolbar-updated">
+          Updated <time datetime="2026-11">Nov 2026</time>
+        </span>
+      </div>
+
+      <div class="toolbar-inner">
+        <div class="toolbar-views">
+          <div class="segmented" role="group" aria-label="Layout">
+            <button type="button" class="segmented-btn" data-view-option="a4" aria-pressed="true">
+              A4
+            </button>
+            <button type="button" class="segmented-btn" data-view-option="web" aria-pressed="false">
+              Web
+            </button>
+          </div>
+          <button
+            id="theme-button"
+            class="btn btn-ghost btn-icon"
+            type="button"
+            aria-label="Dark theme"
+            aria-pressed="false"
+            title="Switch to dark theme"
+          >
+            <svg class="theme-icon theme-icon-moon h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+              <path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a6.6 6.6 0 0 0 9.8 9.8Z" />
+            </svg>
+            <svg class="theme-icon theme-icon-sun h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+              <circle cx="12" cy="12" r="4" />
+              <path d="M12 2v2m0 16v2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M2 12h2m16 0h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" />
+            </svg>
+          </button>
+        </div>
+
+        <div class="toolbar-actions">
+          <a
+            id="download-button"
+            class="btn btn-primary"
+            href="./cv.pdf"
+            download="Mohammad-H-Bahrampour-CV.pdf"
+          >
+            <svg viewBox="0 0 24 24" class="h-3.5 w-3.5" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+              <path d="M12 3v12m0 0 4.5-4.5M12 15l-4.5-4.5" />
+              <path d="M4 17.5V19a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-1.5" />
+            </svg>
+            <span>Download PDF</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+        <main class="paper-stack">
+      <article class="sheet" aria-label="Curriculum Vitae">
+        <div class="doc">
+          <h1 class="name">Mohammad H. Bahrampour</h1>
+          <p class="tagline">Lead Frontend Engineer – React & TypeScript</p>
+          <p class="contact">
+            <span class="contact-item">Portfolio: <a href="https://mhbahrampour.ir/">MHBahrampour.ir</a></span>
+            <span class="sep">—</span>
+            <span class="contact-item">Email: <a href="mailto:bahrampour@protonmail.com">Bahrampour@protonmail.com</a></span>
+          </p>
+          <p class="contact">
+            <span class="contact-item">GitHub: <a href="https://github.com/MHBahrampour">MHBahrampour</a></span>
+            <span class="sep">—</span>
+            <span class="contact-item">LinkedIn: <a href="https://www.linkedin.com/in/mhbahrampour/">MHBahrampour</a></span>
+            <span class="sep">—</span>
+            <span class="contact-item">Phone: <a href="tel:+989164770851">+98 916 477 0851</a></span>
+          </p>
+
+          <h2 class="section">Summary</h2>
+          <p class="summary">
+            At Simorgh I build fintech and legal-tech products — a contract-management
+            platform and a blockchain tokenization platform — for Digikala and Snapp.
+            4+ years owning complex client-side work end to end: custom auth,
+            cross-browser media, component systems, with a focus on code quality, UX, and
+            maintainability.
+          </p>
+
+          <h2 class="section">Key Skills</h2>
+          <p>
+            <strong>Frameworks and Languages:</strong> TypeScript • React • Next.js •
+            TanStack Start / Router
+          </p>
+          <p>
+            <strong>State, Forms and Validation:</strong> TanStack&nbsp;Query • Zustand •
+            React&nbsp;Hook&nbsp;Form • Zod
+          </p>
+          <p>
+            <strong>UI and Styling:</strong> Tailwind&nbsp;CSS • shadcn/ui • HeroUI /
+            React&nbsp;Aria • SCSS • Framer&nbsp;Motion
+          </p>
+          <p>
+            <strong>Testing and Tooling:</strong> Vitest • Jest • React&nbsp;Testing&nbsp;Library
+            • Playwright • MSW • Biome
+          </p>
+          <p>
+            <strong>Backend and Auth:</strong> PostgreSQL • Prisma • Drizzle&nbsp;ORM •
+            Better&nbsp;Auth • Auth.js
+          </p>
+          <p>
+            <strong>Additional:</strong> Agentic&nbsp;Development • Stellar&nbsp;SDK •
+            Wallet&nbsp;Core • PWA / TWA • i18n • Recharts • CKEditor 5
+          </p>
+
+          <h2 class="section">Work Experience</h2>
+
+          <p class="role">Lead Frontend Engineer</p>
+          <p class="org">Simorgh • Dec 2023 – Present</p>
+          <ul class="list">
+            <li>
+              <strong>Hampeyman</strong>: A contract management platform for creating
+              customizable contracts, user/admin management, and legally-binding signature
+              flows with identity and liveness verification.
+            </li>
+            <li>
+              <strong>Tokenization</strong>: A real asset tokenization platform on the
+              Kuknos blockchain, covering token lifecycle management and trading actions.
+            </li>
+            <li>
+              Led frontend across both products, serving clients including
+              Digikala, Snapp, Kish Investment, Pardakht Novin, and Omid Boom.
+            </li>
+            <li>
+              Built a fully custom auth system — encryption, refresh-token rotation,
+              security best practices — after WAF restrictions ruled out the standard
+              libraries.
+            </li>
+            <li>
+              Developed a cross-browser, cross-OS liveness video verification component,
+              replacing an unmaintained third-party library with a fully customized
+              solution tailored to client requirements.
+            </li>
+            <li>
+              Integrated CKEditor for contract creation with custom Merge Fields
+              implementation, avoiding the need for a paid plugin.
+            </li>
+            <li>
+              Enforced code quality and consistency via Biome linting and custom GitLab CI
+              pipeline stages across a multi-developer team.
+            </li>
+          </ul>
+
+          <p class="role">Frontend Engineer</p>
+          <p class="org">030labs • Sep 2022 – Nov 2023 (1 year 3 months)</p>
+          <ul class="list">
+            <li>
+              Developed Web3 components for company projects, ensuring maintainable,
+              reusable code.
+            </li>
+            <li>
+              Refactored multiple products with modern technologies, improving
+              accessibility and boosting performance.
+            </li>
+          </ul>
+
+          <p class="role">Freelance Full-stack Developer</p>
+          <p class="org">Self-employed • Feb 2020 – Sep 2022 (2 years 8 months)</p>
+          <ul class="list">
+            <li>Developed Django applications to deliver robust back-end functionality.</li>
+          </ul>
+
+          <h2 class="section">Education</h2>
+          <p>
+            <strong>Master of Software Engineering:</strong> Iranian E-University •
+            Expected 2029<br />
+            <strong>Bachelor of Computer Engineering:</strong> Sirjan University of
+            Technology • 2017 - 2021
+          </p>
+
+          <h2 class="section">Languages</h2>
+          <p>
+            <strong>English:</strong> Advanced&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>Persian:</strong>
+            Native&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>Spanish:</strong>
+            Elementary
+          </p>
+        </div>
+      </article>
+    </main>
+
+    <script type="module" src="./assets/main.js"></script>
+  </body>
+</html>

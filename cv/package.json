@@ -1,0 +1,18 @@
+{
+  "name": "cv",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "A4, two-page CV rendered as plain HTML + Tailwind, with a pixel-faithful PDF download",
+  "scripts": {
+    "dev": "bun scripts/serve.ts",
+    "build:css": "bunx @tailwindcss/cli -i ./src/styles.css -o ./assets/styles.css --minify",
+    "build:js": "bun build ./src/main.ts --outfile ./assets/main.js --target=browser --minify",
+    "build:pdf": "bun scripts/build-pdf.ts",
+    "build": "bun run build:css && bun run build:pdf && bun run build:js"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.1.16",
+    "tailwindcss": "^4.1.16"
+  }
+}
