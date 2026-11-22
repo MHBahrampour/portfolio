@@ -173,11 +173,4 @@ the paper, so re-run the build and check `cv.pdf` after any content change:
 ```bash
 bun run build
 ```
-
 Every paragraph is a `<p>`; the `4pt` gap comes from CSS, not from blank lines.
-
-## Not applied yet
-
-`docs/review-notes.md` holds the CV review notes (content issues, inconsistencies,
-things to decide) that this port intentionally does **not** change — the goal of this
-step was a faithful replica so that later edits show up as a clean diff.

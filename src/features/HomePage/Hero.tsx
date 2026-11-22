@@ -65,7 +65,7 @@ export default function Hero() {
         </Typography>
 
         {/* Resume */}
-        <Link href="/cv/" target="_blank" className="mx-auto w-max sm:mx-0">
+        <Link href="https://cv.mhbahrampour.ir/" target="_blank" className="mx-auto w-max sm:mx-0">
           <Button
             disableElevation
             variant="contained"
